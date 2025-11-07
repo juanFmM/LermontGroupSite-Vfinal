@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Servicios | Lermont Group SRL - Expertos en Soluciones Eléctricas y Climatización</title>
+  <meta name="description" content="Lermont Group SRL - Servicios especializados en climatización, refrigeración, ventilación, energía solar y soluciones eléctricas en República Dominicana">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Servicios | Lermont Group SRL - Expertos en Soluciones Eléctricas y Climatización">
+  <meta property="og:description" content="Servicios especializados en climatización, refrigeración, ventilación, energía solar y soluciones eléctricas">
+  <meta property="og:image" content="imagenes/Logo-removebg-preview.png">
+  <meta property="og:url" content="https://lermontgroup.com/services.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Preload de imágenes críticas -->
+  <link rel="preload" href="imagenes/imagen3.jpg" as="image">
+  
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#434c88',
+            'primary-light': 'rgba(74,144,226,0.2)',
+            'primary-glow': '#6BAAF9'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="Estilos/services.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navegación -->
+  <header class="header--light fixed w-full z-[1000]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="Index.html" class="site-logo text-2xl font-bold" aria-label="Lermont Group - Inicio">
+          <img id="site-logo" src="imagenes/Logo-removebg-preview.png" 
+              alt="Lermont Group SRL - Especialistas en soluciones eléctricas y climatización" 
+              class="h-12 mr-4 logo-fixed-contrast logo-hover-effect">
+        </a>
+      </div>
+
+      <!-- Botón hamburguesa (móvil) -->
+      <button id="btn-menu" class="md:hidden focus:outline-none hamburger" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Menú -->
+      <nav id="main-nav" class="nav-main" aria-label="Main navigation">
+        <a href="Index.html" class="nav-link">Inicio</a>
+        <a href="services.html" class="nav-link active">Servicios</a>
+        <a href="Proyectos.html" class="nav-link">Proyectos</a>
+        <a href="Contactos.html" class="nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main role="main" class="pt-16">
+    <!-- Hero Section para Servicios -->
+    <section id="services-hero" data-header="light" class="relative bg-white overflow-hidden py-20 md:py-28 services-hero-section">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary-glow/10 z-0"></div>
+      
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Texto -->
+          <div class="text-center lg:text-left" data-animate>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900 hero-title">
+              Nuestros <span class="text-primary">Servicios</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed hero-subtitle">
+              Expertos en soluciones de climatización, refrigeración, ventilación, purificación de aire y energía solar. Más de 20 años de experiencia brindando soluciones innovadoras y eficientes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="#servicios-grid" class="cta-button inline-flex items-center justify-center">
+                <span>Ver Servicios</span>
+                <i class="fas fa-arrow-down ml-2"></i>
+              </a>
+              <a href="Contactos.html" class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-300">
+                <span>Contactar</span>
+                <i class="fas fa-phone ml-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Imagen -->
+          <div class="relative" data-animate>
+            <div class="absolute -inset-4 bg-gradient-to-r from-primary to-primary-glow rounded-2xl transform rotate-3 opacity-20"></div>
+            <div class="relative bg-white rounded-2xl p-2 shadow-2xl">
+              <img src="imagenes/imagen3.jpg" alt="Equipo técnico de Lermont Group" class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de presentación -->
+    <section class="py-16 bg-gray-100 about-section" data-header="light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Texto -->
+          <div data-animate>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 section-title">
+              Soluciones Integrales para sus Necesidades
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Nos enfocamos en generar ahorros a nuestros clientes y en la conservación del medio ambiente vía soluciones de Aire Acondicionado, Ventilación, Refrigeración y Energía Solar de la más alta eficiencia. Hemos sido los pioneros en instalación de sistemas VRF en la República Dominicana y contamos con 20+ años de experiencia en esta tecnología.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              En nuestra estructura operacional mantenemos el mayor número de vehículos y brigadas técnicas calificadas del país para cumplir con rapidez cualquier solicitud y emergencias de nuestros clientes.
+            </p>
+            <a href="Nosotros.html" class="cta-button inline-flex items-center">
+              <span>Conoce Más Sobre Nosotros</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Imagen decorativa -->
+          <div class="relative" data-animate>
+            <div class="absolute -inset-4 bg-gradient-to-br from-primary/10 to-primary-glow/5 rounded-2xl transform -rotate-2"></div>
+            <div class="relative bg-white rounded-2xl p-4 shadow-xl">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-primary/5 rounded-lg p-4 text-center">
+                  <i class="fas fa-calendar-check text-3xl text-primary mb-2"></i>
+                  <p class="text-sm font-semibold">20+ Años de Experiencia</p>
+                </div>
+                <div class="bg-primary/5 rounded-lg p-4 text-center">
+                  <i class="fas fa-users text-3xl text-primary mb-2"></i>
+                  <p class="text-sm font-semibold">Equipo Calificado</p>
+                </div>
+                <div class="bg-primary/5 rounded-lg p-4 text-center">
+                  <i class="fas fa-bolt text-3xl text-primary mb-2"></i>
+                  <p class="text-sm font-semibold">Tecnología Avanzada</p>
+                </div>
+                <div class="bg-primary/5 rounded-lg p-4 text-center">
+                  <i class="fas fa-shield-alt text-3xl text-primary mb-2"></i>
+                  <p class="text-sm font-semibold">Garantía Extendida</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Grid -->
+    <!-- Servicios Grid -->
+    <section id="servicios-grid" class="py-16 bg-white services-grid-section" data-header="light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-animate>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Servicios que Ofrecemos</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Descubre nuestra gama completa de servicios profesionales diseñados para satisfacer todas sus necesidades en climatización, energía y más.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Climatización -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page11_img2.jpeg" alt="Climatización y Refrigeración" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Climatización y Refrigeración</h3>
+            <p class="text-gray-600 mb-4">Auditoría, diseño, ingeniería e instalación de sistemas de climatización en edificios comerciales, residenciales, hospitales, data centers y más.</p>
+            <a href="servicio_climatizacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Ventilación -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page13_img3.png" alt="Ventilación" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Ventilación</h3>
+            <p class="text-gray-600 mb-4">Sistemas de inyección y extracción de aire. Representantes exclusivos de ventiladores HVLS Big Ass Fans, reconocidos mundialmente.</p>
+            <a href="servicio_ventilacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Energía Solar -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page15_img1.jpeg" alt="Energía Solar" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Energía Solar</h3>
+            <p class="text-gray-600 mb-4">Instalación de sistemas solares de alta eficiencia para hogares, comercios e industrias. Proyectos desde residenciales hasta 1.5MW.</p>
+            <a href="servicio_solar.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Purificación de Aire -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page5_img1.jpeg" alt="Purificación de Aire" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Purificación de Aire</h3>
+            <p class="text-gray-600 mb-4">Sistemas modernos de purificación capaces de eliminar hasta 99.9% de contaminantes y bio agentes presentes en el ambiente.</p>
+            <a href="servicio_purificacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Iluminación LED -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page13_img3.png" alt="Iluminación LED" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Iluminación LED</h3>
+            <p class="text-gray-600 mb-4">Productos LED de alto rendimiento para ambientes comerciales e industriales. Alta durabilidad y eficiencia energética garantizada.</p>
+            <a href="servicio_led.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Mantenimiento -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page11_img2.jpeg" alt="Mantenimiento" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Mantenimiento</h3>
+            <p class="text-gray-600 mb-4">Brigadas técnicas especializadas en mantenimiento preventivo y correctivo de equipos de climatización con respuesta rápida.</p>
+            <a href="servicio_mantenimiento.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- === SERVICIOS ADICIONALES === -->
+
+          <!-- Automatización y Control -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page15_img1.jpeg" alt="Automatización y Control" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Automatización y Control</h3>
+            <p class="text-gray-600 mb-4">Sistemas inteligentes de control para gestión automatizada de climatización, iluminación y energía. Maximiza eficiencia y confort.</p>
+            <a href="servicio_automatizacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Auditoría Energética -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page5_img1.jpeg" alt="Auditoría Energética" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Auditoría Energética</h3>
+            <p class="text-gray-600 mb-4">Diagnóstico completo de consumo energético. Identificamos oportunidades de ahorro y optimización en sus instalaciones.</p>
+            <a href="servicio_auditoria.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Ingeniería y Consultoría -->
+          <div class="card group" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page11_img2.jpeg" alt="Ingeniería y Consultoría" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Ingeniería y Consultoría</h3>
+            <p class="text-gray-600 mb-4">Servicios de diseño, cálculo y asesoría técnica especializada para proyectos de climatización, electricidad y energía renovable.</p>
+            <a href="servicio_ingenieria.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+              <span>Ver más</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Procesos de Trabajo -->
+    <section class="py-16 bg-white process-section" data-header="light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-animate>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Nuestro Proceso de Trabajo</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Metodología probada que garantiza resultados excepcionales en cada proyecto.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="process-step text-center" data-animate>
+            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              1
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Consulta y Evaluación</h3>
+            <p class="text-gray-600">
+              Analizamos sus necesidades específicas y realizamos un diagnóstico completo del proyecto.
+            </p>
+          </div>
+
+          <div class="process-step text-center" data-animate>
+            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              2
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Diseño y Propuesta</h3>
+            <p class="text-gray-600">
+              Desarrollamos soluciones personalizadas con planos, especificaciones y cotización detallada.
+            </p>
+          </div>
+
+          <div class="process-step text-center" data-animate>
+            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              3
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Instalación Profesional</h3>
+            <p class="text-gray-600">
+              Ejecución del proyecto por técnicos certificados con los más altos estándares de calidad.
+            </p>
+          </div>
+
+          <div class="process-step text-center" data-animate>
+            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+              4
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Soporte Continuo</h3>
+            <p class="text-gray-600">
+              Mantenimiento preventivo y correctivo con garantía extendida y respuesta inmediata.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Sectores de Especialización -->
+    <section class="py-16 bg-gray-100 sectors-section" data-header="light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-animate>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Sectores de Especialización</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Experiencia comprobada en diversos sectores industriales y comerciales.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="sector-card bg-white rounded-lg p-6 hover:shadow-lg transition-all duration-300" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-building text-blue-600 text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Comercial & Retail</h3>
+            </div>
+            <p class="text-gray-600 text-sm">
+              Centros comerciales, tiendas, oficinas corporativas y espacios comerciales con soluciones eficientes.
+            </p>
+          </div>
+
+          <div class="sector-card bg-white rounded-lg p-6 hover:shadow-lg transition-all duration-300" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-hospital text-green-600 text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Salud & Hospitales</h3>
+            </div>
+            <p class="text-gray-600 text-sm">
+              Sistemas de climatización y purificación para hospitales, clínicas y centros de salud especializados.
+            </p>
+          </div>
+
+          <div class="sector-card bg-white rounded-lg p-6 hover:shadow-lg transition-all duration-300" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-industry text-purple-600 text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Industrial</h3>
+            </div>
+            <p class="text-gray-600 text-sm">
+              Fábricas, plantas de producción y almacenes con sistemas de ventilación y climatización industrial.
+            </p>
+          </div>
+
+          <div class="sector-card bg-white rounded-lg p-6 hover:shadow-lg transition-all duration-300" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-home text-orange-600 text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Residencial</h3>
+            </div>
+            <p class="text-gray-600 text-sm">
+              Hogares, condominios y residencias de lujo con soluciones personalizadas de climatización.
+            </p>
+          </div>
+
+          <div class="sector-card bg-white rounded-lg p-6 hover:shadow-lg transition-all duration-300" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-server text-red-600 text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Data Centers</h3>
+            </div>
+            <p class="text-gray-600 text-sm">
+              Sistemas de refrigeración precisos para salas de servidores y centros de datos críticos.
+            </p>
+          </div>
+
+          <div class="sector-card bg-white rounded-lg p-6 hover:shadow-lg transition-all duration-300" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-utensils text-indigo-600 text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Hospitalidad</h3>
+            </div>
+            <p class="text-gray-600 text-sm">
+              Hoteles, restaurantes y centros turísticos con soluciones de confort y eficiencia energética.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section Mejorada -->
+    <section class="py-20 bg-gradient-to-r from-primary to-primary-dark cta-section" data-header="dark">
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white" data-animate>¿Listo para Transformar su Espacio?</h2>
+        <p class="text-xl mb-8 text-white/90" data-animate>
+          Contáctenos hoy mismo y reciba una asesoría gratuita personalizada para su proyecto.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center" data-animate>
+          <a href="Contactos.html" class="cta-button bg-white text-primary hover:bg-gray-50 inline-flex items-center justify-center">
+            <i class="fas fa-file-invoice-dollar mr-2"></i>
+            <span>Solicitar Cotización</span>
+          </a>
+          <a href="tel:+18095551234" class="cta-button border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary inline-flex items-center justify-center">
+            <i class="fas fa-phone mr-2"></i>
+            <span>Llamar Ahora</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" data-header="light" class="py-16 bg-white contact-section">
+      <div class="w-full max-w-4xl mx-auto bg-white rounded-lg shadow overflow-hidden md:flex contact-container">
+        <!-- Columna izquierda -->
+        <div class="md:w-1/2 p-8 bg-gray-50 contact-features">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Nos destacamos por</h2>
+          
+          <div class="mb-6 flex contact-feature">
+            <i class="fas fa-train fa-2x text-primary mr-4 floating-icon"></i>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800">Calidad de servicio</h3>
+              <p class="text-gray-600 mt-2">Ofrecemos un servicio de alta calidad respaldado por años de experiencia.</p>
+            </div>
+          </div>
+          
+          <div class="mb-6 flex contact-feature">
+            <i class="fas fa-bolt fa-2x text-primary mr-4 floating-icon"></i>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800">Eficiencia</h3>
+              <p class="text-gray-600 mt-2">Trabajamos rápidamente sin sacrificar la precisión ni la calidad.</p>
+            </div>
+          </div>
+          
+          <div class="mb-6 flex contact-feature">
+            <i class="fas fa-shield-alt fa-2x text-primary mr-4 floating-icon"></i>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800">Garantía</h3>
+              <p class="text-gray-600 mt-2">Todos nuestros servicios están respaldados con garantía de satisfacción.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Columna derecha (formulario) -->
+        <div class="md:w-1/2 p-8 bg-blue-50 border-l border-gray-200 contact-form">
+          <h2 class="text-2xl font-bold text-primary mb-6">Contáctanos</h2>
+          <p class="text-primary mb-8">Si necesitas asistencia coloca tus datos en este formulario y un asesor se pondrá en contacto.</p>
+          
+          <form id="contactForm" class="space-y-6">
+            <!-- Campo anti-spam oculto -->
+            <div style="display: none;">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1">
+            </div>
+            
+            <div>
+              <label for="nombre" class="block text-sm font-semibold text-gray-800 mb-1">Nombre*</label>
+              <input type="text" id="nombre" name="nombre" required 
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                     style="font-size: 16px;">
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-800 mb-1">Correo electrónico*</label>
+              <input type="email" id="email" name="email" required 
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                     style="font-size: 16px;">
+            </div>
+            
+            <div>
+              <label for="servicio" class="block text-sm font-semibold text-gray-800 mb-1">Tipo de servicio</label>
+              <select id="servicio" name="servicio" 
+                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary appearance-none bg-white"
+                      style="font-size: 16px;">
+                <option value="" disabled selected>Selecciona un tipo de servicio</option>
+                <option value="instalacion">Instalación</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="consultoria">Consultoría</option>
+                <option value="presupuesto">Solicitud de presupuesto</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="mensaje" class="block text-sm font-semibold text-gray-800 mb-1">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="4" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                        style="font-size: 16px;"></textarea>
+            </div>
+            
+            <div>
+              <button type="submit" id="submitBtn" 
+                      class="w-full bg-primary text-white font-bold py-3 px-6 rounded hover:bg-[#535ca0] transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 form-submit">
+                <span>Enviar</span>
+              </button>
+            </div>
+          </form>
+          
+          <div id="successMessage" class="hidden text-center py-8 form-success">
+            <div class="success-checkmark text-green-500 text-6xl mb-4">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">¡Mensaje enviado!</h3>
+            <p class="text-gray-600 mb-6">Gracias por contactarnos. Un asesor se pondrá en contacto contigo pronto.</p>
+            <button id="resetForm" class="text-primary font-medium hover:text-[#535ca0] focus:outline-none focus:ring-2 focus:ring-primary">
+              Enviar otro mensaje
+            </button>
+          </div>
+          
+          <div id="errorMessage" class="hidden text-center py-8 form-error">
+            <div class="text-red-500 text-6xl mb-4">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Error al enviar</h3>
+            <p class="text-gray-600 mb-6">Ha ocurrido un error. Por favor, inténtalo nuevamente.</p>
+            <button id="resetErrorForm" class="text-primary font-medium hover:text-[#535ca0] focus:outline-none focus:ring-2 focus:ring-primary">
+              Intentar nuevamente
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-modern">
+    <div class="footer-container">
+      <!-- Sección de contacto -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-map-marker-alt floating-icon"></i> Contacto</h3>
+        <address>
+          <p><i class="fas fa-building"></i> Lermont Group SRL</p>
+          <p><i class="fas fa-road"></i> Calle Principal 123, Santo Domingo</p>
+          <p><i class="fas fa-phone"></i> +1 809-555-1234</p>
+          <p><i class="fas fa-envelope"></i> info@lermontgroup.com</p>
+        </address>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook de Lermont Group"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter de Lermont Group"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram de Lermont Group"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn de Lermont Group"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-link floating-icon"></i> Enlaces Rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="Index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+          <li><a href="Proyectos.html"><i class="fas fa-chevron-right"></i> Portafolio</a></li>
+          <li><a href="#quienes"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+          <li><a href="Contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Mapa -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-map-marked-alt floating-icon"></i> Ubicación</h3>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.016887889534!2d-69.931248424014!3d18.48362698253928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5626d1a527ea5%3A0x91e0e663492a3dd6!2sSanto%20Domingo%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1ses!2sus!4v1719876543210!5m2!1ses!2sus" 
+                  allowfullscreen="" 
+                  loading="lazy"
+                  title="Ubicación de Lermont Group SRL en Santo Domingo, República Dominicana"></iframe>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-paper-plane floating-icon"></i> Newsletter</h3>
+        <p>Suscríbete para recibir nuestras últimas noticias y ofertas especiales.</p>
+        <form class="newsletter-form">
+          <input type="text" placeholder="Tu nombre" required>
+          <input type="email" placeholder="Tu correo electrónico" required>
+          <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 <a href="Index.html">Lermont Group SRL</a>. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+    </div>
+  </footer>
+
+  <script src="js/services.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Proyectos | Lermont Group SRL - Expertos en Soluciones Eléctricas y Climatización</title>
+  <meta name="description" content="Lermont Group SRL - Portafolio de proyectos de climatización, eléctricos, infraestructura y soluciones energéticas en República Dominicana">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Proyectos | Lermont Group SRL - Expertos en Soluciones Eléctricas y Climatización">
+  <meta property="og:description" content="Portafolio de proyectos de climatización, eléctricos, infraestructura y soluciones energéticas">
+  <meta property="og:image" content="imagenes/Logo-removebg-preview.png">
+  <meta property="og:url" content="https://lermontgroup.com/proyectos.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Preload de imágenes críticas -->
+  <link rel="preload" href="imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/DESMONTE CHILLER VIEJO (2).jpg" as="image">
+  
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#434c88',
+            'primary-light': 'rgba(74,144,226,0.2)',
+            'primary-glow': '#6BAAF9'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="Estilos/proyectos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navegación -->
+  <header class="header--light fixed w-full z-[1000]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="Index.html" class="site-logo text-2xl font-bold" aria-label="Lermont Group - Inicio">
+          <img id="site-logo" src="imagenes/Logo-removebg-preview.png" alt="Lermont Group SRL - Especialistas en soluciones eléctricas y climatización" class="h-12 mr-4 logo-fixed-contrast logo-hover-effect">
+        </a>
+      </div>
+
+      <!-- Botón hamburguesa (móvil) -->
+      <button id="btn-menu" class="md:hidden focus:outline-none hamburger" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Menú -->
+      <nav id="main-nav" class="nav-main" aria-label="Main navigation">
+        <a href="Index.html" class="nav-link">Inicio</a>
+        <a href="services.html" class="nav-link">Servicios</a>
+        <a href="Proyectos.html" class="nav-link active">Proyectos</a>
+        <a href="Contactos.html" class="nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="pt-16">
+    <!-- HERO MODERNO -->
+    <section id="proyectos-hero" class="relative bg-white overflow-hidden py-20 md:py-28 proyectos-hero-section" data-header="light">
+      <div class="absolute inset-0 z-0">
+        <img src="imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/DESMONTE CHILLER VIEJO (2).jpg" 
+             alt="Proyectos Lermont Group - Instalación de sistemas profesionales" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/40 to-primary-dark/60"></div>
+      </div>
+
+      <!-- Partículas -->
+      <div class="particles-container"></div>
+
+      <!-- Contenido -->
+      <div class="container mx-auto px-4 h-full flex items-center relative z-20">
+        <div class="max-w-2xl text-white" data-animate>
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-title">Nuestros Proyectos</h1>
+          <p class="text-xl mb-8 hero-subtitle">
+            Somos especialistas en proyectos de infraestructura con los más altos estándares de calidad y tecnología avanzada.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <!-- Botón Ver Proyectos - CORREGIDO -->
+            <a href="#galeria-proyectos" class="cta-button bg-primary text-white hover:bg-primary-dark border-2 border-primary inline-flex items-center justify-center">
+              <i class="fas fa-images mr-2"></i>
+              <span>Ver Proyectos</span>
+            </a>
+            
+            <!-- Botón Nuestros Servicios (se mantiene igual) -->
+            <a href="services.html" class="cta-button border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary inline-flex items-center justify-center">
+              <i class="fas fa-cogs mr-2"></i>
+              <span>Nuestros Servicios</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA UNIFICADA DE PROYECTOS -->
+    <section id="galeria-proyectos" class="py-20 bg-white proyectos-grid-section" data-header="light">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-animate>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Nuestros Proyectos Destacados</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Descubre nuestra trayectoria de éxito en proyectos de climatización, eléctricos, infraestructura y soluciones energéticas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Proyecto 1 - Planta de Tratamiento -->
+          <div class="project-card card group" data-project="planta-tratamiento" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page30_img2.jpeg" 
+                   alt="Planta de tratamiento aguas residuales Bonao" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">PLANTA TRATAMIENTO AGUAS</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">CONSTRUCCIÓN PLANTA DE TRATAMIENTO</h3>
+              <p class="text-gray-600 text-sm">Bonao - 500 m³/día</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 - Remozamiento Oficina -->
+          <div class="project-card card group" data-project="remozamiento-oficina" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page33_img1.jpeg" 
+                   alt="Remozamiento oficina San José" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">REMOZAMIENTO OFICINAS</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">REMOZAMIENTO OFICINA</h3>
+              <p class="text-gray-600 text-sm">Cooperativa SAN JOSÉ - 450 m²</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 - Pavimentación -->
+          <div class="project-card card group" data-project="pavimentacion" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page35_img2.jpeg" 
+                   alt="Pavimentación y parqueos" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">PAVIMENTACIÓN</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">PAVIMENTACIÓN Y PARQUEOS</h3>
+              <p class="text-gray-600 text-sm">Proyecto Urbano - 8,000 m²</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 4 - Iluminación -->
+          <div class="project-card card group" data-project="iluminacion" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page44_img1.jpeg" 
+                   alt="Iluminación AV. Winston Churchill" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">ILUMINACIÓN</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">ILUMINACIÓN AV. WINSTON CHURCHILL</h3>
+              <p class="text-gray-600 text-sm">120 luminarias LED</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 5 - Chiller -->
+          <div class="project-card card group" data-project="chiller" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page8_img3.jpeg" 
+                   alt="Instalación Chiller agua helada" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">CHILLER AGUA HELADA</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">INSTALACIÓN CHILLER DE AGUA HELADA</h3>
+              <p class="text-gray-600 text-sm">Palacio de Bellas Artes - 182.7 ton</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 6 - Transformador -->
+          <div class="project-card card group" data-project="transformador" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page48_img1.jpeg" 
+                   alt="Transformador eléctrico" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">TRANSFORMADOR</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">TRANSFORMADOR 1000KVA</h3>
+              <p class="text-gray-600 text-sm">Estación T3 Sabana Perdida</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 7 - Instalación Cables -->
+          <div class="project-card card group" data-project="cables" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page49_img2.jpeg" 
+                   alt="Instalación de cables" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">CABLEADO ESPECIALIZADO</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">INSTALACIÓN DE CABLES</h3>
+              <p class="text-gray-600 text-sm">Estación 21 Metro de Santo Domingo</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 8 - Generadores -->
+          <div class="project-card card group" data-project="generadores" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page51_img2.jpeg" 
+                   alt="Generadores eléctricos" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">GENERADORES</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">INSTALACIÓN DE GENERADORES</h3>
+              <p class="text-gray-600 text-sm">Sistema de respaldo hasta 500 KVA</p>
+            </div>
+          </div>
+
+          <!-- Proyecto 9 - Sistema VRF -->
+          <div class="project-card card group" data-project="vrf" data-animate>
+            <div class="relative overflow-hidden rounded-xl mb-4">
+              <img src="imagenes/lermont_page16_img1.jpeg" 
+                   alt="Sistema VRF" 
+                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
+              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-white text-center p-4">
+                  <i class="fas fa-search-plus text-3xl mb-2"></i>
+                  <h3 class="text-xl font-bold mb-2">SISTEMA VRF</h3>
+                  <p class="text-sm">Ver detalles completos</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="text-xl font-bold text-primary mb-2">SISTEMA VRF MINISTERIO</h3>
+              <p class="text-gray-600 text-sm">MAPRE - 20 toneladas</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-primary-dark cta-section" data-header="dark">
+      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white" data-animate>¿Tienes un Proyecto en Mente?</h2>
+        <p class="text-xl mb-8 text-white/90" data-animate>
+          Contáctenos para convertir su visión en realidad con soluciones profesionales y de calidad.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center" data-animate>
+          <a href="Contactos.html" class="cta-button bg-white text-primary hover:bg-gray-50 inline-flex items-center justify-center">
+            <i class="fas fa-paper-plane mr-2"></i>
+            <span>Solicitar Cotización</span>
+          </a>
+          <a href="tel:+18095551234" class="cta-button border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary inline-flex items-center justify-center">
+            <i class="fas fa-phone mr-2"></i>
+            <span>Llamar Ahora</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal para descripciones completas -->
+    <div id="projectModal" class="fixed inset-0 z-[1001] hidden items-center justify-center modal-overlay p-4">
+      <div class="bg-white rounded-xl max-w-2xl w-full max-h-[75vh] overflow-y-auto modal-content relative contact-container">
+        <button id="closeModal" class="absolute right-3 top-3 text-primary hover:text-gray-700 z-10 bg-white rounded-full p-2 shadow-lg hover:scale-110 transition-transform">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+        
+        <div class="p-5">
+          <div class="grid grid-cols-1 gap-5">
+            <!-- Imagen más compacta -->
+            <div>
+              <img id="modalImage" src="" alt="" class="w-full h-48 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- Contenido más compacto -->
+            <div>
+              <h3 id="modalTitle" class="text-xl font-bold text-primary mb-3 line-clamp-2"></h3>
+              <div id="modalDescription" class="text-gray-600 text-sm space-y-2 max-h-32 overflow-y-auto">
+                <!-- La descripción se llena con JavaScript -->
+              </div>
+              
+              <div class="mt-4 pt-3 border-t border-gray-200">
+                <h4 class="font-semibold text-primary mb-2 text-sm">Características principales:</h4>
+                <ul id="modalFeatures" class="list-disc list-inside text-gray-600 text-sm space-y-1 max-h-24 overflow-y-auto">
+                  <!-- Las características se llenan con JavaScript -->
+                </ul>
+              </div>
+              
+              <div class="mt-4 flex flex-wrap gap-1">
+                <span class="bg-primary text-white px-2 py-1 rounded-full text-xs">Ingeniería</span>
+                <span class="bg-primary text-white px-2 py-1 rounded-full text-xs">Calidad</span>
+                <span id="modalTags" class="text-xs">
+                  <!-- Tags adicionales se llenan con JavaScript -->
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-modern">
+    <div class="footer-container">
+      <!-- Sección de contacto -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-map-marker-alt floating-icon"></i> Contacto</h3>
+        <address>
+          <p><i class="fas fa-building"></i> Lermont Group SRL</p>
+          <p><i class="fas fa-road"></i> Calle Principal 123, Santo Domingo</p>
+          <p><i class="fas fa-phone"></i> +1 809-555-1234</p>
+          <p><i class="fas fa-envelope"></i> info@lermontgroup.com</p>
+        </address>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook de Lermont Group"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter de Lermont Group"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram de Lermont Group"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn de Lermont Group"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-link floating-icon"></i> Enlaces Rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="Index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+          <li><a href="services.html"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+          <li><a href="Proyectos.html"><i class="fas fa-chevron-right"></i> Portafolio</a></li>
+          <li><a href="#quienes"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+          <li><a href="Contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Mapa -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-map-marked-alt floating-icon"></i> Ubicación</h3>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.016887889534!2d-69.931248424014!3d18.48362698253928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5626d1a527ea5%3A0x91e0e663492a3dd6!2sSanto%20Domingo%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1ses!2sus!4v1719876543210!5m2!1ses!2sus" 
+                  allowfullscreen="" 
+                  loading="lazy"
+                  title="Ubicación de Lermont Group SRL en Santo Domingo, República Dominicana"></iframe>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-section" data-animate>
+        <h3><i class="fas fa-paper-plane floating-icon"></i> Newsletter</h3>
+        <p>Suscríbete para recibir nuestras últimas noticias y ofertas especiales.</p>
+        <form class="newsletter-form">
+          <input type="text" placeholder="Tu nombre" required>
+          <input type="email" placeholder="Tu correo electrónico" required>
+          <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 <a href="Index.html">Lermont Group SRL</a>. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+    </div>
+  </footer>
+
+  <script src="js/proyectos.js"></script>
+</body>
+</html>
