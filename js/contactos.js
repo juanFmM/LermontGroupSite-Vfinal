@@ -1,4 +1,4 @@
-// js/contactos.js - Versión moderna con navegación mejorada
+// js/contactos.js - Versión moderna con header blanco permanente
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -52,10 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Navegación Mejorada
+     Navegación Mejorada - Fondo blanco permanente
      ===================== */
   function initNavigation() {
     if (!header || !btnMenu || !mobileNav) return;
+
+    // Aplicar estilo permanente de fondo blanco
+    header.classList.remove('header--dark', 'header--scrolled');
+    header.classList.add('header--light');
 
     // Abrir menú móvil
     btnMenu.addEventListener('click', openMobileMenu);
@@ -81,30 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMobileMenu();
       }
     });
-
-    // Efecto de scroll en header
-    function updateHeaderOnScroll() {
-      const scrollY = window.scrollY;
-      const heroHeight = $('#contact-hero')?.offsetHeight || 600;
-      
-      if (scrollY > 100) {
-        header.classList.add('header--scrolled');
-        header.classList.add('header--dark');
-      } else {
-        header.classList.remove('header--scrolled');
-        header.classList.remove('header--dark');
-      }
-      
-      // Actualizar tema basado en sección
-      if (scrollY < heroHeight * 0.3) {
-        header.setAttribute('data-header', 'light');
-      } else {
-        header.setAttribute('data-header', 'dark');
-      }
-    }
-
-    window.addEventListener('scroll', updateHeaderOnScroll);
-    updateHeaderOnScroll();
   }
 
   function openMobileMenu() {

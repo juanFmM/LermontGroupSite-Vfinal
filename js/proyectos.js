@@ -1,4 +1,4 @@
-// js/proyectos.js - Versión moderna con todas las funcionalidades del index
+// js/proyectos.js - Versión moderna con header blanco permanente
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     HEADER & MENÚ MÓVIL mejorado
+     HEADER & MENÚ MÓVIL - Fondo blanco permanente
      ===================== */
   const header = $('header');
   const btnMenu = $('#btn-menu');
@@ -96,22 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function initHeader() {
     if (!header) return;
 
-    // Sistema de temas mejorado para proyectos
-    function updateHeaderTheme() {
-      const scrollY = window.scrollY;
-      const heroHeight = $('#proyectos-hero')?.offsetHeight || 600;
-      
-      if (scrollY < heroHeight * 0.3) {
-        header.classList.remove('header--dark');
-        header.classList.add('header--light');
-      } else {
-        header.classList.remove('header--light');
-        header.classList.add('header--dark');
-      }
-    }
-
-    window.addEventListener('scroll', updateHeaderTheme);
-    updateHeaderTheme();
+    // Aplicar estilo permanente de fondo blanco
+    header.classList.remove('header--dark', 'header--transparent');
+    header.classList.add('header--light');
+    
+    // Mejorar el efecto glassmorphism
+    header.style.backdropFilter = 'blur(20px) saturate(180%)';
   }
 
   function initMobileMenu() {
