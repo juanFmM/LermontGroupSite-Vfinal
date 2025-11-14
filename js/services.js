@@ -1,4 +1,4 @@
-// js/services.js - Versión moderna con todas las funcionalidades del index
+// js/services.js - Versión moderna con header blanco permanente
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     HEADER & MENÚ MÓVIL mejorado
+     HEADER & MENÚ MÓVIL - Fondo blanco permanente
      ===================== */
   const header = $('header');
   const btnMenu = $('#btn-menu');
@@ -99,25 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function initHeader() {
     if (!header) return;
 
+    // Aplicar estilo permanente de fondo blanco
+    header.classList.remove('header--dark', 'header--transparent');
+    header.classList.add('header--light');
+    
     // Mejorar el efecto glassmorphism
     header.style.backdropFilter = 'blur(20px) saturate(180%)';
-    
-    // Sistema de temas mejorado para servicios
-    function updateHeaderTheme() {
-      const scrollY = window.scrollY;
-      const heroHeight = $('#services-hero')?.offsetHeight || 600;
-      
-      if (scrollY < heroHeight * 0.3) {
-        header.classList.remove('header--dark');
-        header.classList.add('header--light');
-      } else {
-        header.classList.remove('header--light');
-        header.classList.add('header--dark');
-      }
-    }
-
-    window.addEventListener('scroll', updateHeaderTheme);
-    updateHeaderTheme();
   }
 
   function initMobileMenu() {
@@ -514,41 +501,41 @@ window.addServiceCard = function(title, description, imageSrc, link) {
 /* =====================
    Efectos para nuevas secciones de servicios
    ===================== */
-   function initServiceSections() {
-    // Efectos para cards de especialidades
-    const specialtyCards = $$('.specialty-card');
-    specialtyCards.forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        const icon = this.querySelector('.fa-cogs, .fa-solar-panel, .fa-wind');
-        if (icon) {
-          icon.style.transform = 'rotate(10deg) scale(1.1)';
-        }
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        const icon = this.querySelector('.fa-cogs, .fa-solar-panel, .fa-wind');
-        if (icon) {
-          icon.style.transform = 'rotate(0deg) scale(1)';
-        }
-      });
+function initServiceSections() {
+  // Efectos para cards de especialidades
+  const specialtyCards = $$('.specialty-card');
+  specialtyCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      const icon = this.querySelector('.fa-cogs, .fa-solar-panel, .fa-wind');
+      if (icon) {
+        icon.style.transform = 'rotate(10deg) scale(1.1)';
+      }
     });
-  
-    // Efectos para sectores
-    const sectorCards = $$('.sector-card');
-    sectorCards.forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        const icon = this.querySelector('.fa-building, .fa-hospital, .fa-industry, .fa-home, .fa-server, .fa-utensils');
-        if (icon) {
-          icon.style.transform = 'scale(1.2)';
-          icon.style.transition = 'transform 0.3s ease';
-        }
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        const icon = this.querySelector('.fa-building, .fa-hospital, .fa-industry, .fa-home, .fa-server, .fa-utensils');
-        if (icon) {
-          icon.style.transform = 'scale(1)';
-        }
-      });
+    
+    card.addEventListener('mouseleave', function() {
+      const icon = this.querySelector('.fa-cogs, .fa-solar-panel, .fa-wind');
+      if (icon) {
+        icon.style.transform = 'rotate(0deg) scale(1)';
+      }
     });
-  }
+  });
+
+  // Efectos para sectores
+  const sectorCards = $$('.sector-card');
+  sectorCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      const icon = this.querySelector('.fa-building, .fa-hospital, .fa-industry, .fa-home, .fa-server, .fa-utensils');
+      if (icon) {
+        icon.style.transform = 'scale(1.2)';
+        icon.style.transition = 'transform 0.3s ease';
+      }
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      const icon = this.querySelector('.fa-building, .fa-hospital, .fa-industry, .fa-home, .fa-server, .fa-utensils');
+      if (icon) {
+        icon.style.transform = 'scale(1)';
+      }
+    });
+  });
+}
