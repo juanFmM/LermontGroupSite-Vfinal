@@ -1,4 +1,4 @@
-// js/index.js - Versión moderna con mejoras interactivas
+// js/index.js - Versión moderna con EmailJS integrado
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     HEADER & MENÚ MÓVIL - Fondo blanco permanente
+     HEADER & MENÚ MÓVIL mejorado
      ===================== */
   const header = $('header');
   const btnMenu = $('#btn-menu');
@@ -99,12 +99,25 @@ document.addEventListener('DOMContentLoaded', () => {
   function initHeader() {
     if (!header) return;
 
-    // Aplicar estilo permanente de fondo blanco
-    header.classList.remove('header--transparent');
-    header.classList.add('header--light');
-    
     // Mejorar el efecto glassmorphism
     header.style.backdropFilter = 'blur(20px) saturate(180%)';
+    
+    // Sistema de temas mejorado
+    function updateHeaderTheme() {
+      const scrollY = window.scrollY;
+      const heroHeight = $('#hero')?.offsetHeight || 600;
+      
+      if (scrollY < heroHeight * 0.3) {
+        header.classList.remove('header--light');
+        header.classList.add('header--transparent');
+      } else {
+        header.classList.remove('header--transparent');
+        header.classList.add('header--light');
+      }
+    }
+
+    window.addEventListener('scroll', updateHeaderTheme);
+    updateHeaderTheme();
   }
 
   function initMobileMenu() {
@@ -176,17 +189,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     CARRUSEL mejorado con efectos parallax - VERSIÓN CORREGIDA
+     CARRUSEL mejorado con efectos parallax
      ===================== */
   function initCarousel() {
     const carousel = $('#carousel');
     const slides = $$('.carousel-slide');
     const dots = $$('.carousel-dot');
     
-    if (!slides.length) {
-      console.log('No se encontraron slides del carrusel');
-      return;
-    }
+    if (!slides.length) return;
 
     let currentIndex = 0;
     let isAnimating = false;
@@ -196,20 +206,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isAnimating) return;
       
       isAnimating = true;
-      
-      // Ocultar todas las slides
       slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        slide.setAttribute('aria-hidden', 'true');
-        slide.style.opacity = '0';
+        slide.classList.toggle('active', i === index);
       });
       
-      // Mostrar la slide actual
-      slides[index].classList.add('active');
-      slides[index].setAttribute('aria-hidden', 'false');
-      slides[index].style.opacity = '1';
-      
-      // Actualizar dots
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
         dot.setAttribute('aria-pressed', i === index);
@@ -264,27 +264,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Pausar autoplay en hover
-    if (carousel) {
-      carousel.addEventListener('mouseenter', () => {
-        clearInterval(autoPlayInterval);
-      });
+    carousel?.addEventListener('mouseenter', () => {
+      clearInterval(autoPlayInterval);
+    });
 
-      carousel.addEventListener('mouseleave', () => {
-        startAutoPlay();
-      });
-    }
+    carousel?.addEventListener('mouseleave', () => {
+      startAutoPlay();
+    });
 
-    // Inicializar mostrando el primer slide
+    // Inicializar
     showSlide(0);
     startAutoPlay();
   }
 
   /* =====================
-     FORMULARIO con validación mejorada
+     FORMULARIO con EmailJS
      ===================== */
   function initContactForm() {
     const contactForm = $('#contactForm');
     if (!contactForm) return;
+
+    // Inicializar EmailJS con tu Public Key
+    (function() {
+      emailjs.init("GsVquOipa6B3jZpj8");
+    })();
 
     const inputs = $$('.form-input', contactForm);
     
@@ -320,13 +323,34 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
 
       try {
-        // Simular envío (reemplaza con tu endpoint real)
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Preparar datos para EmailJS
+        const formData = {
+          nombre: $('#nombre').value,
+          email: $('#email').value,
+          servicio: $('#servicio').value,
+          mensaje: $('#mensaje').value,
+          fecha: new Date().toLocaleString('es-ES')
+        };
+
+        // Enviar con EmailJS
+        await emailjs.send(
+          'service_dz866kp',
+          'template_wsd5nkp',
+          formData
+        );
         
-        showMessage('success', '¡Mensaje enviado correctamente!');
+        showMessage('success', '¡Mensaje enviado correctamente! Te contactaremos pronto.');
         contactForm.reset();
+        
+        // Resetear estilos de campos
+        inputs.forEach(input => {
+          input.parentElement.classList.remove('focused');
+          input.style.borderColor = '';
+        });
+        
       } catch (error) {
-        showMessage('error', 'Error al enviar el mensaje. Intenta nuevamente.');
+        console.error('Error al enviar el mensaje:', error);
+        showMessage('error', 'Error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos directamente.');
       } finally {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
@@ -475,89 +499,86 @@ window.addClientLogo = function(src, alt = 'Cliente') {
 /* =====================
    Animaciones del Footer
    ===================== */
-function initFooterAnimations() {
-  const footerSections = $$('.footer-section');
-  const footer = $('footer');
+   function initFooterAnimations() {
+    const footerSections = $$('.footer-section');
+    const footer = $('footer');
+    
+    if (!footer || !footerSections.length) return;
   
-  if (!footer || !footerSections.length) return;
-
-  // Crear partículas para el footer
-  createFooterParticles();
-
-  // Observer para animar las secciones al hacer scroll
-  const footerObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        footerSections.forEach((section, index) => {
-          setTimeout(() => {
-            section.classList.add('animate-in');
-          }, index * 200);
-        });
-      }
-    });
-  }, { threshold: 0.1 });
-
-  footerObserver.observe(footer);
-
-  // Efectos hover mejorados para los enlaces
-  initFooterHoverEffects();
-}
-
-function createFooterParticles() {
-  const footer = $('footer');
-  const particlesContainer = document.createElement('div');
-  particlesContainer.className = 'footer-particles';
-  footer.appendChild(particlesContainer);
-
-  for (let i = 0; i < 8; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'footer-particle';
-    
-    const size = Math.random() * 6 + 2;
-    const posX = Math.random() * 100;
-    const posY = Math.random() * 100;
-    const delay = Math.random() * 8;
-    const duration = Math.random() * 4 + 6;
-    
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.left = `${posX}%`;
-    particle.style.top = `${posY}%`;
-    particle.style.animationDelay = `${delay}s`;
-    particle.style.animationDuration = `${duration}s`;
-    particle.style.opacity = Math.random() * 0.3 + 0.1;
-    
-    particlesContainer.appendChild(particle);
+    // Crear partículas para el footer
+    createFooterParticles();
+  
+    // Observer para animar las secciones al hacer scroll
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          footerSections.forEach((section, index) => {
+            setTimeout(() => {
+              section.classList.add('animate-in');
+            }, index * 200);
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+  
+    footerObserver.observe(footer);
+  
+    // Efectos hover mejorados para los enlaces
+    initFooterHoverEffects();
   }
-}
-
-function initFooterHoverEffects() {
-  // Efectos para los enlaces de contacto
-  const contactItems = $$('.footer-section address p');
-  contactItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateX(10px)';
+  
+  function createFooterParticles() {
+    const footer = $('footer');
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'footer-particles';
+    footer.appendChild(particlesContainer);
+  
+    for (let i = 0; i < 8; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'footer-particle';
+      
+      const size = Math.random() * 6 + 2;
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 100;
+      const delay = Math.random() * 8;
+      const duration = Math.random() * 4 + 6;
+      
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${posX}%`;
+      particle.style.top = `${posY}%`;
+      particle.style.animationDelay = `${delay}s`;
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.opacity = Math.random() * 0.3 + 0.1;
+      
+      particlesContainer.appendChild(particle);
+    }
+  }
+  
+  function initFooterHoverEffects() {
+    // Efectos para los enlaces de contacto
+    const contactItems = $$('.footer-section address p');
+    contactItems.forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateX(10px)';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateX(0)';
+      });
     });
-    
-    item.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateX(0)';
+  
+    // Efectos para el formulario de newsletter
+    const newsletterInputs = $$('.newsletter-form input');
+    newsletterInputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+      });
+      
+      input.addEventListener('blur', function() {
+        if (!this.value) {
+          this.parentElement.classList.remove('focused');
+        }
+      });
     });
-  });
-
-  // Efectos para el formulario de newsletter
-  const newsletterInputs = $$('.newsletter-form input');
-  newsletterInputs.forEach(input => {
-    input.addEventListener('focus', function() {
-      this.parentElement.classList.add('focused');
-    });
-    
-    input.addEventListener('blur', function() {
-      if (!this.value) {
-        this.parentElement.classList.remove('focused');
-      }
-    });
-  });
-}
-
-// Inicializar animaciones del footer cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initFooterAnimations);
+  }

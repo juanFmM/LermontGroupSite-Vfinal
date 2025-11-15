@@ -35,11 +35,13 @@
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="Estilos/contactos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Navegación Mejorada -->
-  <header class="header-modern fixed w-full z-[1000]">
+  <header class="header-modern fixed w-full z-[1000]" data-header="light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-20">
         
@@ -135,6 +137,7 @@
       </div>
     </div>
   </header>
+
   <!-- Contenido principal -->
   <main role="main" class="pt-16">
     <!-- Hero Section para Contacto -->
@@ -442,6 +445,7 @@
                 </div>
               </form>
               
+              <!-- Mensajes de éxito y error (se muestran dinámicamente) -->
               <div id="successMessage" class="hidden text-center py-8 form-success">
                 <div class="success-checkmark text-green-500 text-6xl mb-4">
                   <i class="fas fa-check-circle"></i>
@@ -574,7 +578,7 @@
           <a href="#" aria-label="LinkedIn de Lermont Group"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-  
+
       <!-- Enlaces rápidos -->
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-link floating-icon"></i> Enlaces Rápidos</h3>
@@ -586,7 +590,7 @@
           <li><a href="Contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
         </ul>
       </div>
-  
+
       <!-- Mapa -->
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-map-marked-alt floating-icon"></i> Ubicación</h3>
@@ -597,7 +601,7 @@
                   title="Ubicación de Lermont Group SRL en Santo Domingo, República Dominicana"></iframe>
         </div>
       </div>
-  
+
       <!-- Newsletter -->
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-paper-plane floating-icon"></i> Newsletter</h3>

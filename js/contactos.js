@@ -1,4 +1,4 @@
-// js/contactos.js - Versión moderna con header blanco permanente
+// js/contactos.js - Versión corregida con EmailJS y header blanco fijo
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = $('#submitBtn');
   const successMessage = $('#successMessage');
   const errorMessage = $('#errorMessage');
+
+  // Inicializar EmailJS una vez al cargar la página
+  (function() {
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init("GsVquOipa6B3jZpj8");
+      console.log('EmailJS inicializado correctamente');
+    } else {
+      console.error('EmailJS no está cargado');
+    }
+  })();
 
   /* =====================
      Sistema de partículas para el hero de contacto
@@ -52,14 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Navegación Mejorada - Fondo blanco permanente
+     Navegación Mejorada - HEADER BLANCO FIJO
      ===================== */
   function initNavigation() {
     if (!header || !btnMenu || !mobileNav) return;
 
-    // Aplicar estilo permanente de fondo blanco
-    header.classList.remove('header--dark', 'header--scrolled');
+    // Configurar header siempre blanco
     header.classList.add('header--light');
+    header.classList.remove('header--dark', 'header--transparent');
+    header.style.background = 'rgba(255, 255, 255, 0.98)';
+    header.style.backdropFilter = 'blur(20px)';
 
     // Abrir menú móvil
     btnMenu.addEventListener('click', openMobileMenu);
@@ -85,10 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMobileMenu();
       }
     });
+
+    // ELIMINADO: Efecto de scroll en header que cambiaba el color
+    // El header permanecerá siempre blanco
   }
 
   function openMobileMenu() {
     mobileNav.classList.add('open');
+    mobileNav.style.transform = 'translateX(0)';
     btnMenu.classList.add('active');
     btnMenu.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
@@ -102,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeMobileMenu() {
     mobileNav.classList.remove('open');
+    mobileNav.style.transform = 'translateX(100%)';
     btnMenu.classList.remove('active');
     btnMenu.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
@@ -209,15 +226,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     FORMULARIO con validación mejorada
+     FORMULARIO con EmailJS - VERSIÓN CORREGIDA
      ===================== */
   function initContactForm() {
-    if (!contactForm) return;
+    if (!contactForm) {
+      console.error('Formulario de contacto no encontrado');
+      return;
+    }
 
-    const inputs = $$('input, textarea, select', contactForm);
+    console.log('Inicializando formulario de contacto...');
+
+    const inputs = $$('.form-input');
+    const requiredInputs = $$('.form-input[required]');
     
+    // Efectos de formulario
     inputs.forEach(input => {
-      // Efecto de focus mejorado
       input.addEventListener('focus', () => {
         input.parentElement.classList.add('focused');
       });
@@ -234,13 +257,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Manejar envío del formulario
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      console.log('Formulario enviado');
       
+      // Validar formulario
       const isValid = validateForm();
-      if (!isValid) return;
+      if (!isValid) {
+        console.log('Formulario no válido');
+        showNotification('error', 'Por favor, completa todos los campos requeridos correctamente.');
+        return;
+      }
 
-      // Animación de envío
+      // Mostrar estado de envío
       const submitBtn = $('#submitBtn');
       const originalText = submitBtn.innerHTML;
       
@@ -248,13 +278,59 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
 
       try {
-        // Simular envío (reemplaza con tu endpoint real)
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Preparar datos para EmailJS
+        const formData = {
+          nombre: $('#nombre').value.trim(),
+          email: $('#email').value.trim(),
+          telefono: $('#telefono').value.trim(),
+          servicio: $('#servicio').value,
+          mensaje: $('#mensaje').value.trim(),
+          fecha: new Date().toLocaleString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          })
+        };
+
+        console.log('Datos a enviar:', formData);
+
+        // Verificar que EmailJS esté disponible
+        if (typeof emailjs === 'undefined') {
+          throw new Error('EmailJS no está cargado correctamente');
+        }
+
+        // Enviar email usando EmailJS
+        const response = await emailjs.send(
+          'service_dz866kp',
+          'template_wsd5nkp',
+          formData
+        );
+
+        console.log('Respuesta de EmailJS:', response);
+
+        if (response.status === 200) {
+          // Éxito - mostrar mensaje de éxito
+          showNotification('success', '¡Mensaje enviado correctamente! Te contactaremos en breve.');
+          contactForm.reset();
+          
+          // Limpiar estilos de validación
+          inputs.forEach(input => {
+            input.parentElement.classList.remove('focused');
+            input.style.borderColor = '';
+          });
+
+          // Mostrar mensaje de éxito en el formulario
+          showFormMessage('success');
+        } else {
+          throw new Error('Error en la respuesta de EmailJS');
+        }
         
-        showMessage('success', '¡Mensaje enviado correctamente!');
-        contactForm.reset();
       } catch (error) {
-        showMessage('error', 'Error al enviar el mensaje. Intenta nuevamente.');
+        console.error('Error EmailJS:', error);
+        showNotification('error', 'Error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos directamente por teléfono.');
+        showFormMessage('error');
       } finally {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
@@ -277,19 +353,32 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'text':
         isValid = value.length >= 2;
         break;
+      case 'tel':
+        // Validación básica para teléfono (opcional)
+        isValid = value === '' || /^[\+]?[1-9][\d]{0,15}$/.test(value.replace(/\s/g, ''));
+        break;
       default:
         isValid = value.length > 0;
     }
 
-    field.style.borderColor = isValid ? '#10b981' : '#ef4444';
+    // Si es requerido y está vacío
+    if (field.hasAttribute('required') && value === '') {
+      isValid = false;
+    }
+
+    // Aplicar estilo visual
+    if (field.hasAttribute('required')) {
+      field.style.borderColor = isValid ? '#10b981' : '#ef4444';
+    }
+
     return isValid;
   }
 
   function validateForm() {
-    const inputs = $$('input[required], textarea[required]');
+    const requiredInputs = $$('.form-input[required]');
     let isValid = true;
 
-    inputs.forEach(input => {
+    requiredInputs.forEach(input => {
       if (!validateField(input)) {
         isValid = false;
       }
@@ -302,41 +391,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = $('#contactForm');
     const successMessage = $('#successMessage');
     const errorMessage = $('#errorMessage');
-    const submitBtn = $('#submitBtn');
 
-    contactForm.classList.remove('hidden');
+    // Mostrar formulario y ocultar mensajes
+    contactForm.style.display = 'block';
     successMessage?.classList.add('hidden');
     errorMessage?.classList.add('hidden');
-    submitBtn.innerHTML = '<span>Enviar Mensaje</span>';
-    submitBtn.disabled = false;
     
-    Array.from(contactForm.elements).forEach(elem => elem.disabled = false);
+    // Resetear botón
+    const submitBtn = $('#submitBtn');
+    submitBtn.innerHTML = '<span>Enviar Mensaje</span><i class="fas fa-paper-plane ml-2"></i>';
+    submitBtn.disabled = false;
   }
 
-  function showMessage(type, message) {
+  function showFormMessage(type) {
     const contactForm = $('#contactForm');
     const successMessage = $('#successMessage');
     const errorMessage = $('#errorMessage');
 
-    contactForm.classList.add('hidden');
+    // Ocultar formulario y mostrar mensaje apropiado
+    contactForm.style.display = 'none';
     
     if (type === 'success') {
       successMessage.classList.remove('hidden');
+      errorMessage.classList.add('hidden');
     } else {
       errorMessage.classList.remove('hidden');
+      successMessage.classList.add('hidden');
     }
+  }
 
-    // También mostrar notificación flotante
+  function showNotification(type, message) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
       type === 'success' ? 'bg-green-500' : 'bg-red-500'
-    } text-white`;
+    } text-white transform transition-all duration-300 ease-in-out`;
+    messageDiv.style.transform = 'translateX(100%)';
+    messageDiv.style.opacity = '0';
     messageDiv.textContent = message;
 
+    // Agregar al documento
     document.body.appendChild(messageDiv);
 
+    // Animación de entrada
     setTimeout(() => {
-      messageDiv.remove();
+      messageDiv.style.transform = 'translateX(0)';
+      messageDiv.style.opacity = '1';
+    }, 100);
+
+    // Remover después de 5 segundos
+    setTimeout(() => {
+      messageDiv.style.transform = 'translateX(100%)';
+      messageDiv.style.opacity = '0';
+      setTimeout(() => {
+        if (messageDiv.parentNode) {
+          messageDiv.parentNode.removeChild(messageDiv);
+        }
+      }, 300);
     }, 5000);
   }
 
