@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // js/index.js - Versión moderna con EmailJS integrado - MENÚ MÓVIL CORREGIDO
-=======
-// js/index.js - Versión moderna con EmailJS integrado
->>>>>>> 800520052cf8802d0d7cd1ea1690450c3e471f6d
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -94,11 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-<<<<<<< HEAD
      HEADER & MENÚ MÓVIL - CORREGIDO
-=======
-     HEADER & MENÚ MÓVIL mejorado
->>>>>>> 800520052cf8802d0d7cd1ea1690450c3e471f6d
      ===================== */
   const header = $('header');
   const btnMenu = $('#btn-menu');
@@ -535,7 +527,6 @@ window.addClientLogo = function(src, alt = 'Cliente') {
 /* =====================
    Animaciones del Footer
    ===================== */
-<<<<<<< HEAD
 function initFooterAnimations() {
   const footerSections = document.querySelectorAll('.footer-section');
   const footer = document.querySelector('footer');
@@ -567,75 +558,6 @@ function initFooterHoverEffects() {
   contactItems.forEach(item => {
     item.addEventListener('mouseenter', function() {
       this.style.transform = 'translateX(10px)';
-=======
-   function initFooterAnimations() {
-    const footerSections = $$('.footer-section');
-    const footer = $('footer');
-    
-    if (!footer || !footerSections.length) return;
-  
-    // Crear partículas para el footer
-    createFooterParticles();
-  
-    // Observer para animar las secciones al hacer scroll
-    const footerObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          footerSections.forEach((section, index) => {
-            setTimeout(() => {
-              section.classList.add('animate-in');
-            }, index * 200);
-          });
-        }
-      });
-    }, { threshold: 0.1 });
-  
-    footerObserver.observe(footer);
-  
-    // Efectos hover mejorados para los enlaces
-    initFooterHoverEffects();
-  }
-  
-  function createFooterParticles() {
-    const footer = $('footer');
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'footer-particles';
-    footer.appendChild(particlesContainer);
-  
-    for (let i = 0; i < 8; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'footer-particle';
-      
-      const size = Math.random() * 6 + 2;
-      const posX = Math.random() * 100;
-      const posY = Math.random() * 100;
-      const delay = Math.random() * 8;
-      const duration = Math.random() * 4 + 6;
-      
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
-      particle.style.left = `${posX}%`;
-      particle.style.top = `${posY}%`;
-      particle.style.animationDelay = `${delay}s`;
-      particle.style.animationDuration = `${duration}s`;
-      particle.style.opacity = Math.random() * 0.3 + 0.1;
-      
-      particlesContainer.appendChild(particle);
-    }
-  }
-  
-  function initFooterHoverEffects() {
-    // Efectos para los enlaces de contacto
-    const contactItems = $$('.footer-section address p');
-    contactItems.forEach(item => {
-      item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateX(10px)';
-      });
-      
-      item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateX(0)';
-      });
->>>>>>> 800520052cf8802d0d7cd1ea1690450c3e471f6d
     });
   
     // Efectos para el formulario de newsletter
@@ -651,7 +573,6 @@ function initFooterHoverEffects() {
         }
       });
     });
-<<<<<<< HEAD
   });
 
   // Efectos para el formulario de newsletter
@@ -671,6 +592,3 @@ function initFooterHoverEffects() {
 
 // Inicializar animaciones del footer cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initFooterAnimations);
-=======
-  }
->>>>>>> 800520052cf8802d0d7cd1ea1690450c3e471f6d
