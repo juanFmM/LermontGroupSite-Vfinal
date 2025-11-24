@@ -16,7 +16,13 @@
   
   <!-- Preload de imágenes críticas -->
   <link rel="preload" href="imagenes/imagen3.jpg" as="image">
-  
+      <!-- Favicon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="svg/logo.svg">
+      <link rel="icon" type="image/png" sizes="32x32" href="svg/logo.svg">
+      <link rel="icon" type="image/png" sizes="16x16" href="svg/logo.svg">
+      <link rel="icon" type="image/x-icon" href="svg/logo.svg">
+      <link rel="manifest" href="svg/logo.svg">
+      <meta name="theme-color" content="#434c88">
   <!-- Tailwind Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -43,7 +49,7 @@
       
       <!-- Logo -->
       <div class="flex items-center">
-        <a href="Index.html" class="site-logo text-2xl font-bold" aria-label="Lermont Group - Inicio">
+        <a href="index.html" class="site-logo text-2xl font-bold" aria-label="Lermont Group - Inicio">
           <img id="site-logo" src="imagenes/Logo-removebg-preview.png" 
               alt="Lermont Group SRL - Especialistas en soluciones eléctricas y climatización" 
               class="h-12 mr-4 logo-fixed-contrast logo-hover-effect">
@@ -59,7 +65,7 @@
 
       <!-- Menú -->
       <nav id="main-nav" class="nav-main" aria-label="Main navigation">
-        <a href="Index.html" class="nav-link">Inicio</a>
+        <a href="index.html" class="nav-link">Inicio</a>
         <a href="services.html" class="nav-link active">Servicios</a>
         <a href="Proyectos.html" class="nav-link">Proyectos</a>
         <a href="Contactos.html" class="nav-link">Contacto</a>
@@ -160,7 +166,6 @@
     </section>
 
     <!-- Servicios Grid -->
-    <!-- Servicios Grid -->
     <section id="servicios-grid" class="py-16 bg-white services-grid-section" data-header="light">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16" data-animate>
@@ -175,7 +180,7 @@
           <!-- Climatización -->
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page11_img2.jpeg" alt="Climatización y Refrigeración" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <img src="imagenes/imagen3.jpg" alt="Climatización y Refrigeración" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
               <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <h3 class="text-xl font-bold text-primary mb-3">Climatización y Refrigeración</h3>
@@ -189,7 +194,7 @@
           <!-- Ventilación -->
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page13_img3.png" alt="Ventilación" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <img src="imagenes/ventilcion.jpg" alt="Ventilación" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
               <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <h3 class="text-xl font-bold text-primary mb-3">Ventilación</h3>
@@ -203,7 +208,7 @@
           <!-- Energía Solar -->
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page15_img1.jpeg" alt="Energía Solar" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <img src="imagenes/DiseñoHVAC.jpg" alt="Energía Solar" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
               <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <h3 class="text-xl font-bold text-primary mb-3">Energía Solar</h3>
@@ -214,7 +219,7 @@
             </a>
           </div>
 
-          <!-- Purificación de Aire -->
+          <!-- Purificación de Aire 
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
               <img src="imagenes/lermont_page5_img1.jpeg" alt="Purificación de Aire" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
@@ -226,9 +231,9 @@
               <span>Ver más</span>
               <i class="fas fa-arrow-right ml-2"></i>
             </a>
-          </div>
+          </div>-->
 
-          <!-- Iluminación LED -->
+          <!-- Iluminación LED 
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
               <img src="imagenes/lermont_page13_img3.png" alt="Iluminación LED" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
@@ -240,12 +245,12 @@
               <span>Ver más</span>
               <i class="fas fa-arrow-right ml-2"></i>
             </a>
-          </div>
+          </div>-->
 
           <!-- Mantenimiento -->
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page11_img2.jpeg" alt="Mantenimiento" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <img src="imagenes/mantenimiento_Preventivo.jpg" alt="Mantenimiento" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
               <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <h3 class="text-xl font-bold text-primary mb-3">Mantenimiento</h3>
@@ -258,10 +263,10 @@
 
           <!-- === SERVICIOS ADICIONALES === -->
 
-          <!-- Automatización y Control -->
+          <!-- Automatización y Control 
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page15_img1.jpeg" alt="Automatización y Control" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <img src="imagenes/Logo-removebg-preview.png" alt="Automatización y Control" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
               <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <h3 class="text-xl font-bold text-primary mb-3">Automatización y Control</h3>
@@ -270,12 +275,12 @@
               <span>Ver más</span>
               <i class="fas fa-arrow-right ml-2"></i>
             </a>
-          </div>
+          </div>-->
 
           <!-- Auditoría Energética -->
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page5_img1.jpeg" alt="Auditoría Energética" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+              <img src="imagenes/soluciones_Electricas.jpg" alt="Auditoría Energética" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
               <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <h3 class="text-xl font-bold text-primary mb-3">Auditoría Energética</h3>
@@ -286,7 +291,7 @@
             </a>
           </div>
 
-          <!-- Ingeniería y Consultoría -->
+          <!-- Ingeniería y Consultoría 
           <div class="card group" data-animate>
             <div class="relative overflow-hidden rounded-xl mb-4">
               <img src="imagenes/lermont_page11_img2.jpeg" alt="Ingeniería y Consultoría" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
@@ -298,7 +303,7 @@
               <span>Ver más</span>
               <i class="fas fa-arrow-right ml-2"></i>
             </a>
-          </div>
+          </div>-->
 
         </div>
       </div>
@@ -621,7 +626,7 @@
         </div>
       </div>
 
-      <!-- Newsletter -->
+      <!-- Newsletter 
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-paper-plane floating-icon"></i> Newsletter</h3>
         <p>Suscríbete para recibir nuestras últimas noticias y ofertas especiales.</p>
@@ -630,11 +635,11 @@
           <input type="email" placeholder="Tu correo electrónico" required>
           <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
         </form>
-      </div>
+      </div>-->
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2025 <a href="Index.html">Lermont Group SRL</a>. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+      <p>&copy; 2025 <a href="index.html">Lermont Group SRL</a>. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
     </div>
   </footer>
 

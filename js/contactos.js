@@ -1,28 +1,98 @@
-// js/contactos.js - Versión moderna con header blanco permanente
+// js/contactos.js - Versión completamente corregida
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
-     Helpers modernos
+     Variables globales corregidas
      ===================== */
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const header = document.querySelector('.header-modern');
+  const btnMenu = document.getElementById('btn-menu');
+  const mobileNav = document.getElementById('main-nav-mobile');
+  const contactForm = document.getElementById('contactForm');
 
   /* =====================
-     Variables globales
-     ===================== */
-  const header = $('.header-modern');
-  const btnMenu = $('#btn-menu');
-  const btnClose = $('#btn-close');
-  const mobileNav = $('#mobile-nav');
-  const contactForm = $('#contactForm');
-  const submitBtn = $('#submitBtn');
-  const successMessage = $('#successMessage');
-  const errorMessage = $('#errorMessage');
+   MENÚ MÓVIL - Versión completamente corregida y probada
+   ===================== */
+function initMobileMenu() {
+  const btnMenu = document.getElementById('btn-menu');
+  const mobileNav = document.getElementById('main-nav-mobile');
+
+  if (!btnMenu || !mobileNav) {
+    console.error('Elementos del menú móvil no encontrados');
+    return;
+  }
+
+  console.log('Inicializando menú móvil...');
+
+  // Estado inicial - forzar cierre
+  mobileNav.classList.remove('mobile-open');
+  btnMenu.classList.remove('active');
+  btnMenu.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('menu-open');
+
+  // Event listener para el botón hamburguesa
+  btnMenu.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const isOpen = mobileNav.classList.contains('mobile-open');
+    
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  // Cerrar menú al hacer clic en enlaces del menú móvil
+  const mobileLinks = mobileNav.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      // Permitir que el enlace funcione normalmente, pero cerrar el menú
+      setTimeout(() => {
+        closeMobileMenu();
+      }, 300); // Pequeño delay para que se note la navegación
+    });
+  });
+
+  // Cerrar menú al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    if (mobileNav.classList.contains('mobile-open') && 
+        !mobileNav.contains(e.target) && 
+        !btnMenu.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+
+  // Cerrar menú con Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('mobile-open')) {
+      closeMobileMenu();
+    }
+  });
+
+  function openMobileMenu() {
+    mobileNav.classList.add('mobile-open');
+    btnMenu.classList.add('active');
+    btnMenu.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+    
+    console.log('Menú móvil abierto');
+  }
+
+  function closeMobileMenu() {
+    mobileNav.classList.remove('mobile-open');
+    btnMenu.classList.remove('active');
+    btnMenu.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    
+    console.log('Menú móvil cerrado');
+  }
+}
 
   /* =====================
      Sistema de partículas para el hero de contacto
      ===================== */
   function createContactParticles() {
-    const hero = $('#contact-hero');
+    const hero = document.getElementById('contact-hero');
     if (!hero) return;
 
     const particlesContainer = document.createElement('div');
@@ -52,72 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Navegación Mejorada - Fondo blanco permanente
-     ===================== */
-  function initNavigation() {
-    if (!header || !btnMenu || !mobileNav) return;
-
-    // Aplicar estilo permanente de fondo blanco
-    header.classList.remove('header--dark', 'header--scrolled');
-    header.classList.add('header--light');
-
-    // Abrir menú móvil
-    btnMenu.addEventListener('click', openMobileMenu);
-    
-    // Cerrar menú móvil
-    btnClose.addEventListener('click', closeMobileMenu);
-    
-    // Cerrar menú al hacer clic en enlaces
-    $$('.nav-link-mobile').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-
-    // Cerrar menú al hacer clic fuera
-    mobileNav.addEventListener('click', (e) => {
-      if (e.target === mobileNav) {
-        closeMobileMenu();
-      }
-    });
-
-    // Cerrar menú con Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-        closeMobileMenu();
-      }
-    });
-  }
-
-  function openMobileMenu() {
-    mobileNav.classList.add('open');
-    btnMenu.classList.add('active');
-    btnMenu.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    
-    // Animar icono hamburguesa
-    btnMenu.style.transform = 'scale(0.9)';
-    setTimeout(() => {
-      btnMenu.style.transform = 'scale(1)';
-    }, 300);
-  }
-
-  function closeMobileMenu() {
-    mobileNav.classList.remove('open');
-    btnMenu.classList.remove('active');
-    btnMenu.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    
-    // Animar icono hamburguesa
-    btnMenu.style.transform = 'scale(0.9)';
-    setTimeout(() => {
-      btnMenu.style.transform = 'scale(1)';
-    }, 300);
-  }
-
-  /* =====================
      Sistema de FAQ interactivo
      ===================== */
   function initFAQSystem() {
-    const faqQuestions = $$('.faq-question');
+    const faqQuestions = document.querySelectorAll('.faq-question');
     
     faqQuestions.forEach(question => {
       question.addEventListener('click', function() {
@@ -129,7 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
           if (otherQuestion !== this) {
             otherQuestion.classList.remove('active');
             otherQuestion.nextElementSibling.classList.add('hidden');
-            otherQuestion.querySelector('i').style.transform = 'rotate(0deg)';
+            const otherIcon = otherQuestion.querySelector('i');
+            if (otherIcon) {
+              otherIcon.style.transform = 'rotate(0deg)';
+            }
           }
         });
         
@@ -138,11 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
         answer.classList.toggle('hidden');
         
         if (this.classList.contains('active')) {
-          icon.style.transform = 'rotate(180deg)';
-          answer.style.maxHeight = answer.scrollHeight + 'px';
+          if (icon) {
+            icon.style.transform = 'rotate(180deg)';
+          }
         } else {
-          icon.style.transform = 'rotate(0deg)';
-          answer.style.maxHeight = '0';
+          if (icon) {
+            icon.style.transform = 'rotate(0deg)';
+          }
         }
       });
       
@@ -160,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
      Efectos para tarjetas de contacto
      ===================== */
   function initContactCards() {
-    const contactCards = $$('.contact-info-card, .office-card');
+    const contactCards = document.querySelectorAll('.contact-info-card, .office-card');
     
     contactCards.forEach(card => {
       card.addEventListener('mouseenter', function() {
@@ -181,80 +194,77 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Animaciones de entrada mejoradas
-     ===================== */
-  function initAnimations() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          
-          // Efecto escalonado para elementos en grid
-          if (entry.target.parentElement.classList.contains('grid')) {
-            const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
-            entry.target.style.transitionDelay = `${index * 0.1}s`;
-          }
-        }
-      });
-    }, observerOptions);
-
-    $$('[data-animate]').forEach(el => {
-      observer.observe(el);
-    });
-  }
-
-  /* =====================
-     FORMULARIO con validación mejorada
+     FORMULARIO con EmailJS
      ===================== */
   function initContactForm() {
-    if (!contactForm) return;
+    if (!contactForm) {
+      console.error('Formulario de contacto no encontrado');
+      return;
+    }
 
-    const inputs = $$('input, textarea, select', contactForm);
-    
-    inputs.forEach(input => {
-      // Efecto de focus mejorado
-      input.addEventListener('focus', () => {
-        input.parentElement.classList.add('focused');
-      });
-      
-      input.addEventListener('blur', () => {
-        if (!input.value) {
-          input.parentElement.classList.remove('focused');
-        }
-      });
+    console.log('Inicializando formulario de contacto...');
 
-      // Validación en tiempo real
-      input.addEventListener('input', () => {
-        validateField(input);
-      });
-    });
+    const inputs = contactForm.querySelectorAll('.form-input');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
 
+    // Manejar envío del formulario
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      console.log('Formulario enviado');
       
+      // Validar formulario
       const isValid = validateForm();
-      if (!isValid) return;
+      if (!isValid) {
+        showNotification('error', 'Por favor, completa todos los campos requeridos correctamente.');
+        return;
+      }
 
-      // Animación de envío
-      const submitBtn = $('#submitBtn');
+      // Mostrar estado de envío
       const originalText = submitBtn.innerHTML;
-      
       submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Enviando...';
       submitBtn.disabled = true;
 
       try {
-        // Simular envío (reemplaza con tu endpoint real)
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Preparar datos para EmailJS
+        const formData = {
+          nombre: document.getElementById('nombre').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          telefono: document.getElementById('telefono').value.trim(),
+          servicio: document.getElementById('servicio').value,
+          mensaje: document.getElementById('mensaje').value.trim(),
+          fecha: new Date().toLocaleString('es-ES')
+        };
+
+        console.log('Datos a enviar:', formData);
+
+        // Verificar que EmailJS esté disponible
+        if (typeof emailjs === 'undefined') {
+          throw new Error('EmailJS no está cargado correctamente');
+        }
+
+        // Enviar email usando EmailJS
+        const response = await emailjs.send(
+          'service_dz866kp',
+          'template_wsd5nkp',
+          formData
+        );
+
+        console.log('Respuesta de EmailJS:', response);
+
+        if (response.status === 200) {
+          showNotification('success', '¡Mensaje enviado correctamente! Te contactaremos en breve.');
+          contactForm.reset();
+          showFormMessage('success');
+        } else {
+          throw new Error('Error en la respuesta de EmailJS');
+        }
         
-        showMessage('success', '¡Mensaje enviado correctamente!');
-        contactForm.reset();
       } catch (error) {
-        showMessage('error', 'Error al enviar el mensaje. Intenta nuevamente.');
+        console.error('Error EmailJS:', error);
+        showNotification('error', 'Error al enviar el mensaje. Por favor, intenta nuevamente.');
+        showFormMessage('error');
       } finally {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
@@ -262,94 +272,95 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Reset form handlers
-    $('#resetForm')?.addEventListener('click', resetContactForm);
-    $('#resetErrorForm')?.addEventListener('click', resetContactForm);
-  }
-
-  function validateField(field) {
-    const value = field.value.trim();
-    let isValid = true;
-
-    switch (field.type) {
-      case 'email':
-        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        break;
-      case 'text':
-        isValid = value.length >= 2;
-        break;
-      default:
-        isValid = value.length > 0;
+    const resetForm = document.getElementById('resetForm');
+    const resetErrorForm = document.getElementById('resetErrorForm');
+    
+    if (resetForm) {
+      resetForm.addEventListener('click', resetContactForm);
+    }
+    if (resetErrorForm) {
+      resetErrorForm.addEventListener('click', resetContactForm);
     }
 
-    field.style.borderColor = isValid ? '#10b981' : '#ef4444';
-    return isValid;
-  }
+    function validateForm() {
+      const requiredInputs = contactForm.querySelectorAll('.form-input[required]');
+      let isValid = true;
 
-  function validateForm() {
-    const inputs = $$('input[required], textarea[required]');
-    let isValid = true;
+      requiredInputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.style.borderColor = '#ef4444';
+        } else {
+          input.style.borderColor = '#10b981';
+        }
+      });
 
-    inputs.forEach(input => {
-      if (!validateField(input)) {
-        isValid = false;
+      return isValid;
+    }
+
+    function resetContactForm() {
+      contactForm.style.display = 'block';
+      if (successMessage) successMessage.classList.add('hidden');
+      if (errorMessage) errorMessage.classList.add('hidden');
+      
+      submitBtn.innerHTML = '<span>Enviar Mensaje</span><i class="fas fa-paper-plane ml-2"></i>';
+      submitBtn.disabled = false;
+    }
+
+    function showFormMessage(type) {
+      contactForm.style.display = 'none';
+      
+      if (type === 'success' && successMessage) {
+        successMessage.classList.remove('hidden');
+        if (errorMessage) errorMessage.classList.add('hidden');
+      } else if (type === 'error' && errorMessage) {
+        errorMessage.classList.remove('hidden');
+        if (successMessage) successMessage.classList.add('hidden');
       }
-    });
-
-    return isValid;
-  }
-
-  function resetContactForm() {
-    const contactForm = $('#contactForm');
-    const successMessage = $('#successMessage');
-    const errorMessage = $('#errorMessage');
-    const submitBtn = $('#submitBtn');
-
-    contactForm.classList.remove('hidden');
-    successMessage?.classList.add('hidden');
-    errorMessage?.classList.add('hidden');
-    submitBtn.innerHTML = '<span>Enviar Mensaje</span>';
-    submitBtn.disabled = false;
-    
-    Array.from(contactForm.elements).forEach(elem => elem.disabled = false);
-  }
-
-  function showMessage(type, message) {
-    const contactForm = $('#contactForm');
-    const successMessage = $('#successMessage');
-    const errorMessage = $('#errorMessage');
-
-    contactForm.classList.add('hidden');
-    
-    if (type === 'success') {
-      successMessage.classList.remove('hidden');
-    } else {
-      errorMessage.classList.remove('hidden');
     }
+  }
 
-    // También mostrar notificación flotante
+  function showNotification(type, message) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
       type === 'success' ? 'bg-green-500' : 'bg-red-500'
-    } text-white`;
+    } text-white transform transition-all duration-300 ease-in-out`;
+    messageDiv.style.transform = 'translateX(100%)';
+    messageDiv.style.opacity = '0';
     messageDiv.textContent = message;
 
     document.body.appendChild(messageDiv);
 
+    // Animación de entrada
     setTimeout(() => {
-      messageDiv.remove();
+      messageDiv.style.transform = 'translateX(0)';
+      messageDiv.style.opacity = '1';
+    }, 100);
+
+    // Remover después de 5 segundos
+    setTimeout(() => {
+      messageDiv.style.transform = 'translateX(100%)';
+      messageDiv.style.opacity = '0';
+      setTimeout(() => {
+        if (messageDiv.parentNode) {
+          messageDiv.parentNode.removeChild(messageDiv);
+        }
+      }, 300);
     }, 5000);
   }
 
   /* =====================
-     Efectos de scroll suave mejorados
+     Efectos de scroll suave
      ===================== */
   function initSmoothScroll() {
-    $$('a[href^="#"]').forEach(link => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         
         const targetId = this.getAttribute('href');
-        const targetElement = $(targetId);
+        const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
           const headerHeight = header?.offsetHeight || 0;
@@ -369,18 +380,17 @@ document.addEventListener('DOMContentLoaded', () => {
      ===================== */
   function init() {
     createContactParticles();
-    initNavigation();
+    initMobileMenu(); // Esto es lo más importante - menú móvil corregido
     initFAQSystem();
     initContactCards();
-    initAnimations();
     initContactForm();
     initSmoothScroll();
 
     // Ajustar altura del hero
     setTimeout(() => {
-      const hero = $('#contact-hero');
-      if (hero) {
-        hero.style.minHeight = `calc(100vh - ${header?.offsetHeight || 0}px)`;
+      const hero = document.getElementById('contact-hero');
+      if (hero && header) {
+        hero.style.minHeight = `calc(100vh - ${header.offsetHeight}px)`;
       }
     }, 100);
   }
@@ -388,26 +398,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Iniciar la aplicación
   init();
 
-  /* =====================
-     Efectos de performance
-     ===================== */
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      const hero = $('#contact-hero');
-      if (hero) {
-        hero.style.minHeight = `calc(100vh - ${header?.offsetHeight || 0}px)`;
-      }
-    }, 250);
-  });
-
   // Precargar imágenes críticas para contacto
   function preloadContactImages() {
     const criticalImages = [
       'imagenes/Logo-removebg-preview.png',
-      'imagenes/imagen3.jpg',
-      'imagenes/lermont_page16_img1.jpeg'
+      'imagenes/imagen3.jpg'
     ];
 
     criticalImages.forEach(src => {
@@ -418,62 +413,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   preloadContactImages();
 });
-
-/* =====================
-   Animaciones del Footer para contacto
-   ===================== */
-function initFooterAnimations() {
-  const footerSections = $$('.footer-section');
-  const footer = $('footer');
-  
-  if (!footer || !footerSections.length) return;
-
-  // Observer para animar las secciones al hacer scroll
-  const footerObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        footerSections.forEach((section, index) => {
-          setTimeout(() => {
-            section.classList.add('animate-in');
-          }, index * 200);
-        });
-      }
-    });
-  }, { threshold: 0.1 });
-
-  footerObserver.observe(footer);
-
-  // Efectos hover mejorados para los enlaces
-  initFooterHoverEffects();
-}
-
-function initFooterHoverEffects() {
-  // Efectos para los enlaces de contacto
-  const contactItems = $$('.footer-section address p');
-  contactItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateX(10px)';
-    });
-    
-    item.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateX(0)';
-    });
-  });
-
-  // Efectos para el formulario de newsletter
-  const newsletterInputs = $$('.newsletter-form input');
-  newsletterInputs.forEach(input => {
-    input.addEventListener('focus', function() {
-      this.parentElement.classList.add('focused');
-    });
-    
-    input.addEventListener('blur', function() {
-      if (!this.value) {
-        this.parentElement.classList.remove('focused');
-      }
-    });
-  });
-}
-
-// Inicializar animaciones del footer cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initFooterAnimations);

@@ -1,4 +1,4 @@
-// js/services.js - Versión moderna con header blanco permanente
+// js/services.js - Versión moderna con header blanco permanente - MENÚ MÓVIL CORREGIDO
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     HEADER & MENÚ MÓVIL - Fondo blanco permanente
+     HEADER & MENÚ MÓVIL - Fondo blanco permanente - CORREGIDO
      ===================== */
   const header = $('header');
   const btnMenu = $('#btn-menu');
@@ -108,9 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initMobileMenu() {
-    if (!btnMenu || !mainNav) return;
+    if (!btnMenu || !mainNav) {
+      console.error('Elementos del menú móvil no encontrados');
+      return;
+    }
 
-    btnMenu.addEventListener('click', () => {
+    // CERRAR MENÚ AL INICIO - ESTA ES LA CLAVE
+    closeMobileMenu();
+
+    btnMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = mainNav.classList.contains('mobile-open');
       
       if (isOpen) {
@@ -127,7 +134,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cerrar menú al hacer clic fuera
     document.addEventListener('click', (e) => {
-      if (!mainNav.contains(e.target) && !btnMenu.contains(e.target)) {
+      if (mainNav.classList.contains('mobile-open') && 
+          !mainNav.contains(e.target) && 
+          !btnMenu.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Cerrar menú con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mainNav.classList.contains('mobile-open')) {
         closeMobileMenu();
       }
     });
@@ -138,6 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btnMenu.classList.add('active');
     btnMenu.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    
+    // Animar icono hamburguesa
+    btnMenu.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+      btnMenu.style.transform = 'scale(1)';
+    }, 300);
   }
 
   function closeMobileMenu() {
@@ -145,6 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btnMenu.classList.remove('active');
     btnMenu.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    
+    // Animar icono hamburguesa
+    btnMenu.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+      btnMenu.style.transform = 'scale(1)';
+    }, 300);
   }
 
   /* =====================
@@ -363,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createScrollProgress();
     createInteractiveCursor();
     initHeader();
-    initMobileMenu();
+    initMobileMenu(); // IMPORTANTE: Esta línea debe estar presente
     initAnimations();
     initContactForm();
     initSmoothScroll();
@@ -419,8 +447,8 @@ document.addEventListener('DOMContentLoaded', () => {
    Animaciones del Footer para servicios
    ===================== */
 function initFooterAnimations() {
-  const footerSections = $$('.footer-section');
-  const footer = $('footer');
+  const footerSections = document.querySelectorAll('.footer-section');
+  const footer = document.querySelector('footer');
   
   if (!footer || !footerSections.length) return;
 
@@ -445,7 +473,7 @@ function initFooterAnimations() {
 
 function initFooterHoverEffects() {
   // Efectos para los enlaces de contacto
-  const contactItems = $$('.footer-section address p');
+  const contactItems = document.querySelectorAll('.footer-section address p');
   contactItems.forEach(item => {
     item.addEventListener('mouseenter', function() {
       this.style.transform = 'translateX(10px)';
@@ -457,7 +485,7 @@ function initFooterHoverEffects() {
   });
 
   // Efectos para el formulario de newsletter
-  const newsletterInputs = $$('.newsletter-form input');
+  const newsletterInputs = document.querySelectorAll('.newsletter-form input');
   newsletterInputs.forEach(input => {
     input.addEventListener('focus', function() {
       this.parentElement.classList.add('focused');
@@ -476,7 +504,7 @@ document.addEventListener('DOMContentLoaded', initFooterAnimations);
 
 // Exportar funciones globales si es necesario
 window.addServiceCard = function(title, description, imageSrc, link) {
-  const grid = $('#servicios-grid .grid');
+  const grid = document.querySelector('#servicios-grid .grid');
   if (!grid) return;
 
   const card = document.createElement('div');
@@ -497,45 +525,3 @@ window.addServiceCard = function(title, description, imageSrc, link) {
   
   grid.appendChild(card);
 };
-
-/* =====================
-   Efectos para nuevas secciones de servicios
-   ===================== */
-function initServiceSections() {
-  // Efectos para cards de especialidades
-  const specialtyCards = $$('.specialty-card');
-  specialtyCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      const icon = this.querySelector('.fa-cogs, .fa-solar-panel, .fa-wind');
-      if (icon) {
-        icon.style.transform = 'rotate(10deg) scale(1.1)';
-      }
-    });
-    
-    card.addEventListener('mouseleave', function() {
-      const icon = this.querySelector('.fa-cogs, .fa-solar-panel, .fa-wind');
-      if (icon) {
-        icon.style.transform = 'rotate(0deg) scale(1)';
-      }
-    });
-  });
-
-  // Efectos para sectores
-  const sectorCards = $$('.sector-card');
-  sectorCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      const icon = this.querySelector('.fa-building, .fa-hospital, .fa-industry, .fa-home, .fa-server, .fa-utensils');
-      if (icon) {
-        icon.style.transform = 'scale(1.2)';
-        icon.style.transition = 'transform 0.3s ease';
-      }
-    });
-    
-    card.addEventListener('mouseleave', function() {
-      const icon = this.querySelector('.fa-building, .fa-hospital, .fa-industry, .fa-home, .fa-server, .fa-utensils');
-      if (icon) {
-        icon.style.transform = 'scale(1)';
-      }
-    });
-  });
-}

@@ -16,6 +16,13 @@
   
   <!-- Preload de imágenes críticas -->
   <link rel="preload" href="imagenes/imagen3.jpg" as="image">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="svg/logo.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="svg/logo.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="svg/logo.svg">
+  <link rel="icon" type="image/x-icon" href="svg/logo.svg">
+  <link rel="manifest" href="svg/logo.svg">
+  <meta name="theme-color" content="#434c88">
   
   <!-- Tailwind Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -35,106 +42,67 @@
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="Estilos/contactos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Navegación Mejorada -->
+    <!-- Navegación - Versión corregida -->
   <header class="header-modern fixed w-full z-[1000]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 lg:h-20">
+      <div class="flex items-center justify-between h-16">
         
         <!-- Logo -->
-        <div class="flex items-center flex-shrink-0">
-          <a href="Index.html" class="site-logo" aria-label="Lermont Group - Inicio">
+        <div class="flex items-center">
+          <a href="index.html" class="site-logo text-2xl font-bold" aria-label="Lermont Group - Inicio">
             <img id="site-logo" src="imagenes/Logo-removebg-preview.png" 
                 alt="Lermont Group SRL - Especialistas en soluciones eléctricas y climatización" 
-                class="h-10 lg:h-12 transition-all duration-500 hover:scale-110 hover:rotate-[-2deg]">
+                class="h-12 mr-4 logo-fixed-contrast logo-hover-effect">
           </a>
         </div>
 
         <!-- Menú Desktop -->
-        <nav class="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
-          <a href="Index.html" class="nav-link-desktop text-gray-700 hover:text-primary font-semibold transition-all duration-300 relative py-2">
-            Inicio
-          </a>
-          <a href="services.html" class="nav-link-desktop text-gray-700 hover:text-primary font-semibold transition-all duration-300 relative py-2">
-            Servicios
-          </a>
-          <a href="Proyectos.html" class="nav-link-desktop text-gray-700 hover:text-primary font-semibold transition-all duration-300 relative py-2">
-            Proyectos
-          </a>
-          <a href="Contactos.html" class="nav-link-desktop text-primary font-semibold transition-all duration-300 relative py-2 active">
-            Contacto
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-100 transition-transform duration-300"></span>
-          </a>
+        <nav id="main-nav" class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+          <a href="index.html" class="nav-link-desktop text-gray-700 hover:text-primary font-medium transition-colors duration-300">Inicio</a>
+          <a href="services.html" class="nav-link-desktop text-gray-700 hover:text-primary font-medium transition-colors duration-300">Servicios</a>
+          <a href="Proyectos.html" class="nav-link-desktop text-gray-700 hover:text-primary font-medium transition-colors duration-300">Proyectos</a>
+          <a href="Contactos.html" class="nav-link-desktop text-primary font-medium transition-colors duration-300 active">Contacto</a>
         </nav>
 
         <!-- Botón CTA Desktop -->
-        <div class="hidden lg:flex items-center">
-          <a href="tel:+18095551234" class="cta-nav-button bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-            <i class="fas fa-phone mr-2"></i>
-            Llamar Ahora
+        <div class="hidden md:block">
+          <a href="#contact-form" class="cta-nav-button bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300">
+            Cotizar Ahora
           </a>
         </div>
 
-        <!-- Botón hamburguesa (Mobile) -->
-        <button id="btn-menu" class="lg:hidden flex flex-col justify-center items-center w-8 h-8 relative focus:outline-none hamburger" 
-                type="button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Abrir menú">
+        <!-- Botón hamburguesa (móvil) -->
+        <button id="btn-menu" class="md:hidden focus:outline-none hamburger" type="button" aria-controls="main-nav-mobile" aria-expanded="false" aria-label="Abrir menú">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
         </button>
-
       </div>
 
-      <!-- Menú Mobile -->
-      <div id="mobile-nav" class="lg:hidden mobile-nav-container fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
-        <div class="fixed inset-0 bg-black bg-opacity-50" aria-hidden="true"></div>
-        <div class="relative bg-white w-80 max-w-full h-full ml-auto shadow-2xl">
+      <!-- Menú Móvil -->
+      <nav id="main-nav-mobile" class="mobile-nav md:hidden" aria-label="Mobile navigation">
+        <div class="py-4 space-y-2">
+          <a href="index.html" class="nav-link-mobile block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors duration-300">Inicio</a>
+          <a href="services.html" class="nav-link-mobile block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors duration-300">Servicios</a>
+          <a href="Proyectos.html" class="nav-link-mobile block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors duration-300">Proyectos</a>
+          <a href="Contactos.html" class="nav-link-mobile block px-4 py-3 text-primary bg-primary/10 rounded-lg font-medium">Contacto</a>
           
-          <!-- Header Mobile -->
-          <div class="flex items-center justify-between p-6 border-b border-gray-200">
-            <img src="imagenes/Logo-removebg-preview.png" alt="Lermont Group" class="h-8">
-            <button id="btn-close" class="text-gray-500 hover:text-primary p-2">
-              <i class="fas fa-times text-xl"></i>
-            </button>
+          <!-- Botón CTA Mobile -->
+          <div class="px-4 py-3">
+            <a href="#contact-form" class="cta-nav-mobile w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 text-center block">
+              Cotizar Ahora
+            </a>
           </div>
-
-          <!-- Navegación Mobile -->
-          <nav class="p-6 space-y-4" aria-label="Mobile navigation">
-            <a href="Index.html" class="nav-link-mobile block text-gray-700 hover:text-primary font-semibold py-3 px-4 rounded-lg hover:bg-primary/5 transition-all duration-300">
-              <i class="fas fa-home mr-3"></i>
-              Inicio
-            </a>
-            <a href="services.html" class="nav-link-mobile block text-gray-700 hover:text-primary font-semibold py-3 px-4 rounded-lg hover:bg-primary/5 transition-all duration-300">
-              <i class="fas fa-cogs mr-3"></i>
-              Servicios
-            </a>
-            <a href="Proyectos.html" class="nav-link-mobile block text-gray-700 hover:text-primary font-semibold py-3 px-4 rounded-lg hover:bg-primary/5 transition-all duration-300">
-              <i class="fas fa-project-diagram mr-3"></i>
-              Proyectos
-            </a>
-            <a href="Contactos.html" class="nav-link-mobile block text-primary font-semibold py-3 px-4 rounded-lg bg-primary/10 transition-all duration-300">
-              <i class="fas fa-phone mr-3"></i>
-              Contacto
-            </a>
-          </nav>
-
-          <!-- CTA Mobile -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200 bg-gray-50">
-            <a href="tel:+18095551234" class="cta-nav-mobile w-full bg-primary text-white text-center py-3 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 transform hover:scale-105 shadow-lg block">
-              <i class="fas fa-phone mr-2"></i>
-              Llamar Ahora
-            </a>
-            <div class="mt-4 text-center text-sm text-gray-600">
-              <p><i class="fas fa-clock mr-2"></i>Lun-Vie: 8AM-5PM</p>
-            </div>
-          </div>
-
         </div>
-      </div>
+      </nav>
     </div>
   </header>
+
   <!-- Contenido principal -->
   <main role="main" class="pt-16">
     <!-- Hero Section para Contacto -->
@@ -442,6 +410,7 @@
                 </div>
               </form>
               
+              <!-- Mensajes de éxito y error (se muestran dinámicamente) -->
               <div id="successMessage" class="hidden text-center py-8 form-success">
                 <div class="success-checkmark text-green-500 text-6xl mb-4">
                   <i class="fas fa-check-circle"></i>
@@ -574,19 +543,19 @@
           <a href="#" aria-label="LinkedIn de Lermont Group"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-  
+
       <!-- Enlaces rápidos -->
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-link floating-icon"></i> Enlaces Rápidos</h3>
         <ul class="footer-links">
-          <li><a href="Index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
           <li><a href="services.html"><i class="fas fa-chevron-right"></i> Servicios</a></li>
           <li><a href="Proyectos.html"><i class="fas fa-chevron-right"></i> Portafolio</a></li>
           <li><a href="#quienes"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
           <li><a href="Contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
         </ul>
       </div>
-  
+
       <!-- Mapa -->
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-map-marked-alt floating-icon"></i> Ubicación</h3>
@@ -597,8 +566,8 @@
                   title="Ubicación de Lermont Group SRL en Santo Domingo, República Dominicana"></iframe>
         </div>
       </div>
-  
-      <!-- Newsletter -->
+
+      <!-- Newsletter
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-paper-plane floating-icon"></i> Newsletter</h3>
         <p>Suscríbete para recibir nuestras últimas noticias y ofertas especiales.</p>
@@ -607,11 +576,11 @@
           <input type="email" placeholder="Tu correo electrónico" required>
           <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
         </form>
-      </div>
+      </div>-->
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2025 <a href="Index.html">Lermont Group SRL</a>. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
+      <p>&copy; 2025 <a href="index.html">Lermont Group SRL</a>. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Servicio</a></p>
     </div>
   </footer>
 

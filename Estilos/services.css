@@ -282,42 +282,99 @@ header.header--transparent .nav-link::before {
   background: linear-gradient(90deg, #ffffff, var(--primary-glow));
 }
 
-/* Menú hamburguesa mejorado */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
-  padding: 8px;
-  background: transparent;
-  border: none;
-  transition: transform var(--transition);
+/* ESTILOS CRÍTICOS PARA MENÚ MÓVIL */
+#main-nav {
+  transition: all 0.3s ease-in-out;
 }
 
-.hamburger:hover {
-  transform: scale(1.1);
+/* EN MÓVIL: Menú oculto por defecto */
+@media (max-width: 767px) {
+  #main-nav {
+    position: fixed;
+    top: 64px; /* Ajusta según la altura de tu header */
+    left: 0;
+    right: 0;
+    background: white;
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+
+  #main-nav.mobile-open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #main-nav .nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+  }
+
+  #main-nav .nav-link:hover {
+    background: #f3f4f6;
+  }
+
+  /* Asegurar que el botón hamburguesa sea visible */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background: #374151;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
 }
 
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--primary);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
+/* En escritorio: menú normal */
+@media (min-width: 768px) {
+  #main-nav {
+    display: flex !important;
+    position: static;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: transparent;
+    box-shadow: none;
+    height: auto;
+    overflow: visible;
+  }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  .hamburger {
+    display: none !important;
+  }
 }
 
 /* =========================
