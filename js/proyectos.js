@@ -208,14 +208,14 @@ document.addEventListener('DOMContentLoaded', () => {
      ===================== */
   const projectsData = {
     'planta-tratamiento': {
-      image: 'imagenes/lermont_page30_img2.jpeg',
-      title: 'CONSTRUCCIÓN PLANTA DE TRATAMIENTO AGUAS RESIDUALES - BONAO',
+      image: 'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTA 11.jpeg.jpg',
+      title: 'PALACIO DE BELLAS ARTES - 2023 - SD',
       description: `
-        <p class="mb-3">Proyecto integral de construcción de planta de tratamiento de aguas residuales en Bonao, diseñado para procesar eficientemente los desechos líquidos de la comunidad.</p>
-        <p class="mb-3">La obra fue terminada con estricto control de calidad y cumplimiento total de las normativas locales ambientales y de construcción.</p>
-        <p><strong>Ubicación:</strong> Bonao, República Dominicana</p>
-        <p><strong>Duración:</strong> 12 meses</p>
-        <p><strong>Capacidad:</strong> 500 m³/día</p>
+      <p class="mb-3">Instalación de dos chiller enfriado por aire de 182 T con su sistema de bombeo y controles</p>
+      <h2><strong>Objetivo del proyecto</strong></h2>
+      <p class="mb-3">Implementar un sistema de climatización eficiente y confiable mediante la instalación de dos chillers enfriados por aire, con el fin de mejorar la capacidad de enfriamiento, optimizar el consumo energético y asegurar el confort térmico en las instalaciones.</p>
+      <h2><strong>Descripción:</strong></h2>
+      <p class="mb-3">Este proyecto contempló la instalación de dos unidades de chiller enfriados por aire, cada uno con una capacidad de 182 toneladas de refrigeración (TR), así como la integración de sus respectivos sistemas de bombeo y control.</p>
       `,
       features: [
         'Sistema de tratamiento biológico avanzado',
@@ -227,14 +227,14 @@ document.addEventListener('DOMContentLoaded', () => {
       tags: ['Tratamiento de Aguas', 'Infraestructura', 'Medio Ambiente']
     },
     'remozamiento-oficina': {
-      image: 'imagenes/lermont_page33_img1.jpeg',
-      title: 'REMOZAMIENTO OFICINA - COOPERATIVA SAN JOSÉ',
+      image: 'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/ISAJE (3).jpg',
+      title: 'PROYECTO HOTEL JARAGUA - 2024 - SD',
       description: `
-        <p class="mb-3">Remodelación completa de las oficinas principales de la Cooperativa San José, transformando espacios obsoletos en áreas de trabajo modernas y funcionales.</p>
-        <p class="mb-3">El proyecto incluyó diseño de interiores, instalación de sistemas eléctricos modernos y optimización del flujo de trabajo para mejorar la productividad del personal.</p>
-        <p><strong>Ubicación:</strong> Santo Domingo</p>
-        <p><strong>Duración:</strong> 3 meses</p>
-        <p><strong>Área:</strong> 450 m²</p>
+        <p class="mb-3">Instalación de un chiller y torre de enfriamiento enfriado por agua de 250 T con su sistema de bombeo y controles </p>
+        <h2><strong>Objetivo del proyecto</strong></h2>
+        <p class="mb-3">Modernizar el sistema de climatización mediante la instalación de un chiller enfriado por agua de 250 TR en conjunto con una torre de enfriamiento, buscando mejorar el rendimiento térmico, reducir el consumo energético y garantizar un control más eficiente de las condiciones ambientales en la instalación.</p>
+        <h2><strong>Descripción:</strong></h2>
+        <p class="mb-3">Este proyecto incluyó la instalación de un sistema completo de enfriamiento centralizado, compuesto por un chiller enfriado por agua de 250 toneladas de refrigeración (TR) y una torre de enfriamiento, junto con sus sistemas de bombeo y controles automatizados.</p>
       `,
       features: [
         'Diseño de interiores moderno',
@@ -243,17 +243,17 @@ document.addEventListener('DOMContentLoaded', () => {
         'Instalación de mobiliario ergonómico',
         'Sistemas de iluminación eficiente'
       ],
-      tags: ['Remodelación', 'Oficinas', 'Diseño Interior']
+      tags: ['Remodelación', 'Instalacion', 'chiller']
     },
     'pavimentacion': {
-      image: 'imagenes/lermont_page35_img2.jpeg',
-      title: 'PAVIMENTACIÓN Y PARQUEOS - PROYECTO URBANO',
+      image: 'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO DESMONTE EXISTENTE 2 (1).jpg',
+      title: 'PALACIO PRESIDENCIAL - 2023 - SD',
       description: `
-        <p class="mb-3">Proyecto integral de pavimentación y construcción de áreas de parqueo utilizando materiales de alta durabilidad y técnicas de drenaje avanzadas.</p>
-        <p class="mb-3">El diseño incluyó consideraciones especiales para drenaje pluvial y accesibilidad universal, garantizando la longevidad de las superficies en condiciones climáticas variables.</p>
-        <p><strong>Ubicación:</strong> Zona Metropolitana</p>
-        <p><strong>Duración:</strong> 6 meses</p>
-        <p><strong>Área pavimentada:</strong> 8,000 m²</p>
+      <p class="mb-3">-	Instalacion de 2 Mini Chiller de 5T</p>
+      <h2><strong>Objetivo del proyecto</strong></h2>
+      <p lass="mb-3> Mejorar el sistema de climatización de áreas específicas mediante la instalación de dos mini chillers de 5 toneladas de refrigeración (TR) cada uno, con el objetivo de proporcionar un control térmico más eficiente, localizado y de bajo consumo energético.</p>
+      <h2><strong>Descripción:</strong></h2>
+      <p class="mb-3">El proyecto comprendió la instalación de dos unidades mini chiller enfriadas por aire, cada una con una capacidad de 5 TR, orientadas a climatizar zonas de menor demanda térmica o con requerimientos independientes del sistema central.</p>
       `,
       features: [
         'Pavimento asfáltico de alta resistencia',
@@ -265,14 +265,14 @@ document.addEventListener('DOMContentLoaded', () => {
       tags: ['Pavimentación', 'Infraestructura Urbana', 'Parqueos']
     },
     'iluminacion': {
-      image: 'imagenes/lermont_page44_img1.jpeg',
-      title: 'ILUMINACIÓN AV. WINSTON CHURCHILL',
+      image: 'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/CHILLER INSTALADO (6).jpg',
+      title: 'INSTALACIÓN DE CHILLER PGR - 2025 - SD',
       description: `
-        <p class="mb-3">Instalación de sistema de iluminación moderna en la Avenida Winston Churchill utilizando tecnología LED de alta eficiencia energética.</p>
-        <p class="mb-3">El proyecto incluyó sistemas de control inteligente para optimizar el consumo eléctrico y mejorar la seguridad vial durante las horas nocturnas.</p>
-        <p><strong>Ubicación:</strong> Av. Winston Churchill, Santo Domingo</p>
-        <p><strong>Duración:</strong> 4 meses</p>
-        <p><strong>Luminarias instaladas:</strong> 120 unidades</p>
+      <p class="mb-3">-	Instalación de un chiller enfriado por aire 170T </p>
+      <h2><strong>Objetivo del proyecto</strong></h2>
+      <p lass="mb-3> Reforzar la capacidad del sistema de climatización mediante la incorporación de un chiller enfriado por aire de 170 toneladas de refrigeración (TR), con el fin de mejorar la eficiencia energética, garantizar el confort térmico y asegurar una operación continua y confiable.</p>
+      <h2><strong>Descripción:</strong></h2>
+      <p class="mb-3">El proyecto consistió en la instalación de un chiller enfriado por aire con una capacidad de 170 TR, diseñado para atender la demanda térmica de las instalaciones con un sistema más eficiente y de menor mantenimiento en comparación con otras tecnologías.</p>
       `,
       features: [
         'Tecnología LED de alta eficiencia',
