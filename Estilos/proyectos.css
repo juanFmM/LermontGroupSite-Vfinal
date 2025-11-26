@@ -608,9 +608,10 @@ header.header--transparent .nav-link::before {
 }
 
 /* =========================
-   Footer modernizado específico para proyectos
-   ========================= */
-.footer-modern {
+  Footer Modernizado con Glassmorphism
+  ========================= */
+
+  footer {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #2d3748 100%);
   color: white;
   position: relative;
@@ -618,7 +619,8 @@ header.header--transparent .nav-link::before {
   padding: 4rem 0 0;
 }
 
-.footer-modern::before {
+/* Efecto de partículas en el fondo del footer */
+footer::before {
   content: '';
   position: absolute;
   top: 0;
@@ -641,6 +643,7 @@ header.header--transparent .nav-link::before {
   }
 }
 
+/* Container principal del footer */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -652,6 +655,7 @@ header.header--transparent .nav-link::before {
   z-index: 2;
 }
 
+/* Secciones del footer con glassmorphism */
 .footer-section {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
@@ -688,6 +692,7 @@ header.header--transparent .nav-link::before {
     0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
+/* Títulos de sección */
 .footer-section h3 {
   font-size: 1.4rem;
   font-weight: 700;
@@ -713,12 +718,52 @@ header.header--transparent .nav-link::before {
   width: 100%;
 }
 
-.floating-icon {
-  animation: float 3s ease-in-out infinite;
+/* Iconos flotantes mejorados */
+.footer-section h3 .floating-icon {
   margin-right: 0.5rem;
+  animation: float 3s ease-in-out infinite;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-8px) rotate(5deg); 
+  }
+}
+
+/* Información de contacto */
+.footer-section address {
+  font-style: normal;
+  margin-bottom: 2rem;
+}
+
+.footer-section address p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all var(--transition);
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.footer-section address p:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.footer-section address i {
+  margin-right: 0.8rem;
+  width: 20px;
+  text-align: center;
+  color: var(--primary-glow);
+}
+
+/* Enlaces del footer */
 .footer-links {
   list-style: none;
   padding: 0;
@@ -772,6 +817,7 @@ header.header--transparent .nav-link::before {
   transform: rotate(90deg);
 }
 
+/* Redes sociales modernizadas */
 .social-links {
   display: flex;
   gap: 1rem;
@@ -818,6 +864,7 @@ header.header--transparent .nav-link::before {
     0 0 15px rgba(107, 170, 249, 0.2);
 }
 
+/* Mapa con efectos modernos */
 .map-container {
   height: 220px;
   border-radius: 16px;
@@ -858,6 +905,7 @@ header.header--transparent .nav-link::before {
   filter: brightness(1) contrast(1.2);
 }
 
+/* Formulario de newsletter moderno */
 .newsletter-form {
   display: flex;
   flex-direction: column;
@@ -931,6 +979,11 @@ header.header--transparent .nav-link::before {
   background: linear-gradient(135deg, #7bb4ff, var(--primary-glow));
 }
 
+.newsletter-form button:active {
+  transform: translateY(-1px);
+}
+
+/* Sección inferior del footer */
 .footer-bottom {
   position: relative;
   text-align: center;
@@ -982,6 +1035,114 @@ header.header--transparent .nav-link::before {
 
 .footer-bottom a:hover::after {
   width: 100%;
+}
+
+/* Efectos de partículas en el footer */
+.footer-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer-particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animaciones de entrada para las secciones */
+.footer-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .footer-section {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .map-container {
+    height: 200px;
+  }
+
+  .footer-section address p {
+    justify-content: center;
+  }
+
+  .footer-links a:hover {
+    padding-left: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 3rem 0 0;
+  }
+
+  .footer-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    padding: 1rem;
+  }
+}
+
+/* Efectos de scroll reveal para el footer */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .footer-section,
+  .footer-links a,
+  .social-links a,
+  .map-container,
+  .newsletter-form button {
+    transition: none;
+    animation: none;
+  }
+  
+  .floating-icon {
+    animation: none;
+  }
 }
 
 /* =========================

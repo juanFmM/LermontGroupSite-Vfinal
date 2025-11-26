@@ -1,4 +1,4 @@
-// js/index.js - Versión moderna con EmailJS integrado - MENÚ MÓVIL CORREGIDO
+// js/index.js - Versión moderna con EmailJS integrado - HEADER SIEMPRE VISIBLE
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     HEADER & MENÚ MÓVIL - CORREGIDO
+     HEADER & MENÚ MÓVIL - SIMPLIFICADO
      ===================== */
   const header = $('header');
   const btnMenu = $('#btn-menu');
@@ -99,25 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function initHeader() {
     if (!header) return;
 
-    // Mejorar el efecto glassmorphism
-    header.style.backdropFilter = 'blur(20px) saturate(180%)';
+    // HEADER SIEMPRE VISIBLE - Eliminar lógica de cambio de tema
+    // Forzar tema claro permanentemente
+    header.classList.remove('header--transparent', 'header--dark');
+    header.classList.add('header--light');
     
-    // Sistema de temas mejorado
-    function updateHeaderTheme() {
-      const scrollY = window.scrollY;
-      const heroHeight = $('#hero')?.offsetHeight || 600;
-      
-      if (scrollY < heroHeight * 0.3) {
-        header.classList.remove('header--light');
-        header.classList.add('header--transparent');
-      } else {
-        header.classList.remove('header--transparent');
-        header.classList.add('header--light');
-      }
-    }
-
-    window.addEventListener('scroll', updateHeaderTheme);
-    updateHeaderTheme();
+    // Aplicar backdrop-filter para el efecto glass
+    header.style.backdropFilter = 'blur(20px) saturate(180%)';
   }
 
   function initMobileMenu() {
@@ -126,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // CERRAR MENÚ AL INICIO - ESTA ES LA CLAVE
+    // CERRAR MENÚ AL INICIO
     closeMobileMenu();
 
     btnMenu.addEventListener('click', (e) => {
@@ -214,6 +202,33 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-animate]').forEach(el => {
       observer.observe(el);
     });
+  }
+
+  /* =====================
+     CARRUSEL DE LOGOS INFINITO
+     ===================== */
+  function initClientsCarousel() {
+    const track = $('#clients-carousel-track');
+    if (!track) return;
+    
+    // Pausar animación al hacer hover
+    track.addEventListener('mouseenter', () => {
+      track.classList.add('paused');
+    });
+    
+    track.addEventListener('mouseleave', () => {
+      track.classList.remove('paused');
+    });
+    
+    // Duplicar automáticamente los logos para efecto infinito
+    const logos = $$('.client-logo', track);
+    if (logos.length > 0) {
+      // Si no están duplicados, los duplicamos
+      if (logos.length < 48) { // 24 logos originales * 2
+        const originalLogos = track.innerHTML;
+        track.innerHTML += originalLogos;
+      }
+    }
   }
 
   /* =====================
@@ -463,9 +478,10 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     createScrollProgress();
     createInteractiveCursor();
-    initHeader();
-    initMobileMenu(); // IMPORTANTE: Esta línea debe estar presente
+    initHeader(); // Header siempre visible
+    initMobileMenu();
     initAnimations();
+    initClientsCarousel();
     initCarousel();
     initContactForm();
     initSmoothScroll();
@@ -561,7 +577,7 @@ function initFooterHoverEffects() {
     });
   
     // Efectos para el formulario de newsletter
-    const newsletterInputs = $$('.newsletter-form input');
+    const newsletterInputs = document.querySelectorAll('.newsletter-form input');
     newsletterInputs.forEach(input => {
       input.addEventListener('focus', function() {
         this.parentElement.classList.add('focused');
