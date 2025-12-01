@@ -1,35 +1,35 @@
-// js/contactos.js - Versión completamente corregida
+// js/contactos.js - Versión adaptada al estilo de Proyectos
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
-     Variables globales corregidas
+     Variables globales adaptadas
      ===================== */
-  const header = document.querySelector('.header-modern');
+  const header = document.querySelector('header');
   const btnMenu = document.getElementById('btn-menu');
-  const mobileNav = document.getElementById('main-nav-mobile');
+  const mobileMenu = document.getElementById('mobile-menu');
   const contactForm = document.getElementById('contactForm');
 
   /* =====================
-     MENÚ MÓVIL - Versión completamente corregida
+     MENÚ MÓVIL - Versión igual a proyectos.js
      ===================== */
   function initMobileMenu() {
-    if (!btnMenu || !mobileNav) {
+    if (!btnMenu || !mobileMenu) {
       console.error('Elementos del menú móvil no encontrados');
       return;
     }
 
-    console.log('Inicializando menú móvil...');
-
     // Estado inicial - forzar cierre
-    mobileNav.classList.remove('mobile-open');
     btnMenu.classList.remove('active');
     btnMenu.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('mobile-open');
+    mobileMenu.style.transform = 'translateY(-100%)';
+    mobileMenu.style.opacity = '0';
+    document.body.style.overflow = '';
 
-    // Event listener para el botón hamburguesa
     btnMenu.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       
-      const isOpen = mobileNav.classList.contains('mobile-open');
+      const isOpen = btnMenu.classList.contains('active');
       
       if (isOpen) {
         closeMobileMenu();
@@ -38,9 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Cerrar menú al hacer clic en enlaces
-    const mobileLinks = mobileNav.querySelectorAll('a');
-    mobileLinks.forEach(link => {
+    // Cerrar menú al hacer clic en enlaces móviles
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         closeMobileMenu();
       });
@@ -48,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cerrar menú al hacer clic fuera
     document.addEventListener('click', (e) => {
-      if (mobileNav.classList.contains('mobile-open') && 
-          !mobileNav.contains(e.target) && 
+      if (mobileMenu.classList.contains('mobile-open') && 
+          !mobileMenu.contains(e.target) && 
           !btnMenu.contains(e.target)) {
         closeMobileMenu();
       }
@@ -57,65 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cerrar menú con Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileNav.classList.contains('mobile-open')) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-open')) {
         closeMobileMenu();
       }
     });
 
     function openMobileMenu() {
-      mobileNav.classList.add('mobile-open');
       btnMenu.classList.add('active');
       btnMenu.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('mobile-open');
+      mobileMenu.style.transform = 'translateY(0)';
+      mobileMenu.style.opacity = '1';
       document.body.style.overflow = 'hidden';
-      
-      console.log('Menú abierto');
     }
 
     function closeMobileMenu() {
-      mobileNav.classList.remove('mobile-open');
       btnMenu.classList.remove('active');
       btnMenu.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('mobile-open');
+      mobileMenu.style.transform = 'translateY(-100%)';
+      mobileMenu.style.opacity = '0';
       document.body.style.overflow = '';
-      
-      console.log('Menú cerrado');
     }
   }
 
   /* =====================
-     Sistema de partículas para el hero de contacto
-     ===================== */
-  function createContactParticles() {
-    const hero = document.getElementById('contact-hero');
-    if (!hero) return;
-
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'contact-particles-container';
-    hero.appendChild(particlesContainer);
-
-    for (let i = 0; i < 12; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'contact-particle';
-      
-      const size = Math.random() * 6 + 2;
-      const posX = Math.random() * 100;
-      const posY = Math.random() * 100;
-      const delay = Math.random() * 7;
-      const duration = Math.random() * 4 + 4;
-      
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
-      particle.style.left = `${posX}%`;
-      particle.style.top = `${posY}%`;
-      particle.style.animationDelay = `${delay}s`;
-      particle.style.animationDuration = `${duration}s`;
-      particle.style.opacity = Math.random() * 0.4 + 0.2;
-      
-      particlesContainer.appendChild(particle);
-    }
-  }
-
-  /* =====================
-     Sistema de FAQ interactivo
+     Sistema de FAQ interactivo (mantenido)
      ===================== */
   function initFAQSystem() {
     const faqQuestions = document.querySelectorAll('.faq-question');
@@ -163,14 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Efectos para tarjetas de contacto
+     Efectos para tarjetas de contacto adaptadas
      ===================== */
   function initContactCards() {
-    const contactCards = document.querySelectorAll('.contact-info-card, .office-card');
+    const contactCards = document.querySelectorAll('.contact-info-card');
     
     contactCards.forEach(card => {
       card.addEventListener('mouseenter', function() {
-        const icon = this.querySelector('.fa-phone-alt, .fa-envelope, .fa-map-marker-alt, .fa-clock, .fa-building, .fa-tools, .fa-store');
+        const icon = this.querySelector('i');
         if (icon) {
           icon.style.transform = 'scale(1.2) rotate(5deg)';
           icon.style.transition = 'transform 0.3s ease';
@@ -178,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       
       card.addEventListener('mouseleave', function() {
-        const icon = this.querySelector('.fa-phone-alt, .fa-envelope, .fa-map-marker-alt, .fa-clock, .fa-building, .fa-tools, .fa-store');
+        const icon = this.querySelector('i');
         if (icon) {
           icon.style.transform = 'scale(1) rotate(0deg)';
         }
@@ -187,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     FORMULARIO con EmailJS
+     FORMULARIO con EmailJS (mantenido)
      ===================== */
   function initContactForm() {
     if (!contactForm) {
@@ -369,23 +335,61 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
+     Animaciones de entrada
+     ===================== */
+  function initAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  /* =====================
      Inicialización de todos los módulos
      ===================== */
   function init() {
-    createContactParticles();
-    initMobileMenu(); // Esto es lo más importante - menú móvil corregido
+    initMobileMenu();
     initFAQSystem();
     initContactCards();
     initContactForm();
     initSmoothScroll();
+    initAnimations();
 
     // Ajustar altura del hero
     setTimeout(() => {
       const hero = document.getElementById('contact-hero');
       if (hero && header) {
-        hero.style.minHeight = `calc(100vh - ${header.offsetHeight}px)`;
+        const headerHeight = header.offsetHeight;
+        hero.style.paddingTop = `${headerHeight}px`;
+        hero.style.minHeight = `calc(90vh - ${headerHeight}px)`;
       }
     }, 100);
+
+    // Ajuste en resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const hero = document.getElementById('contact-hero');
+        if (hero && header) {
+          const headerHeight = header.offsetHeight;
+          hero.style.paddingTop = `${headerHeight}px`;
+          hero.style.minHeight = `calc(90vh - ${headerHeight}px)`;
+        }
+      }, 250);
+    });
   }
 
   // Iniciar la aplicación
