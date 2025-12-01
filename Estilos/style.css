@@ -1340,3 +1340,142 @@ footer::before {
       animation: none;
     }
   }
+  /* =========================
+   CORRECCIÓN DEL MENÚ MÓVIL PARA INDEX
+   ========================= */
+
+/* Clases para el menú móvil */
+#main-nav.mobile-open {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* EN MÓVIL: Menú oculto por defecto */
+@media (max-width: 767px) {
+  #main-nav {
+    position: fixed;
+    top: 64px; /* Ajusta según la altura de tu header */
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  #main-nav.mobile-open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #main-nav .nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: left;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    color: var(--text) !important;
+    width: 100%;
+  }
+
+  #main-nav .nav-link:hover {
+    background: rgba(67, 76, 136, 0.05);
+    color: var(--primary) !important;
+    padding-left: 2rem;
+  }
+
+  /* Hamburguesa animada */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1000;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--primary) !important;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    display: block;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* En escritorio, mostrar menú normal */
+@media (min-width: 768px) {
+  #main-nav {
+    display: flex !important;
+    position: static;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: transparent;
+    box-shadow: none;
+    height: auto;
+    overflow: visible;
+    flex-direction: row;
+  }
+
+  .hamburger {
+    display: none !important;
+  }
+}
+
+/* Prevenir scroll cuando el menú está abierto */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Efecto de overlay para móvil */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}

@@ -47,247 +47,181 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Navegación - Versión corregida -->
-  <header class="header-modern fixed w-full z-[1000]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        
-        <!-- Logo -->
-        <div class="flex items-center">
-          <a href="index.html" class="site-logo text-2xl font-bold" aria-label="Lermont Group - Inicio">
-            <img id="site-logo" src="imagenes/Logo-removebg-preview.png" 
-                alt="Lermont Group SRL - Especialistas en soluciones eléctricas y climatización" 
-                class="h-12 mr-4 logo-fixed-contrast logo-hover-effect">
-          </a>
-        </div>
-
-        <!-- Menú Desktop -->
-        <nav id="main-nav" class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
-          <a href="index.html" class="nav-link-desktop text-gray-700 hover:text-primary font-medium transition-colors duration-300">Inicio</a>
-          <a href="services.html" class="nav-link-desktop text-gray-700 hover:text-primary font-medium transition-colors duration-300">Servicios</a>
-          <a href="Proyectos.html" class="nav-link-desktop text-gray-700 hover:text-primary font-medium transition-colors duration-300">Proyectos</a>
-          <a href="Contactos.html" class="nav-link-desktop text-primary font-medium transition-colors duration-300 active">Contacto</a>
-        </nav>
-
-        <!-- Botón CTA Desktop -->
-        <div class="hidden md:block">
-          <a href="#contact-form" class="cta-nav-button bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300">
-            Cotizar Ahora
-          </a>
-        </div>
-
-        <!-- Botón hamburguesa (móvil) -->
-        <button id="btn-menu" class="md:hidden focus:outline-none hamburger" type="button" aria-controls="main-nav-mobile" aria-expanded="false" aria-label="Abrir menú">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
+  <!-- Navegación con estilo de Proyectos -->
+  <header class="fixed w-full z-[1000] bg-white/95 backdrop-blur-lg shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="index.html" class="site-logo text-2xl font-bold" aria-label="Lermont Group - Inicio">
+          <img id="site-logo" src="imagenes/Logo-removebg-preview.png" 
+              alt="Lermont Group SRL - Especialistas en soluciones eléctricas y climatización" 
+              class="h-12 mr-4 logo-fixed-contrast logo-hover-effect">
+        </a>
       </div>
 
-      <!-- Menú Móvil -->
-      <nav id="main-nav-mobile" class="mobile-nav md:hidden" aria-label="Mobile navigation">
-        <div class="py-4 space-y-2">
-          <a href="index.html" class="nav-link-mobile block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors duration-300">Inicio</a>
-          <a href="services.html" class="nav-link-mobile block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors duration-300">Servicios</a>
-          <a href="Proyectos.html" class="nav-link-mobile block px-4 py-3 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-lg transition-colors duration-300">Proyectos</a>
-          <a href="Contactos.html" class="nav-link-mobile block px-4 py-3 text-primary bg-primary/10 rounded-lg font-medium">Contacto</a>
-          
-          <!-- Botón CTA Mobile -->
-          <div class="px-4 py-3">
-            <a href="#contact-form" class="cta-nav-mobile w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 text-center block">
-              Cotizar Ahora
-            </a>
-          </div>
-        </div>
+      <!-- Botón hamburguesa (móvil) -->
+      <button id="btn-menu" class="md:hidden focus:outline-none hamburger" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="block w-6 h-0.5 bg-primary mb-1.5 transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-primary mb-1.5 transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-primary transition-all duration-300"></span>
+      </button>
+
+      <!-- Menú Desktop -->
+      <nav id="main-nav" class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+        <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Inicio</a>
+        <a href="services.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Servicios</a>
+        <a href="Proyectos.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Proyectos</a>
+        <a href="Contactos.html" class="nav-link text-primary font-semibold border-b-2 border-primary">Contacto</a>
       </nav>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transform -translate-y-full opacity-0 transition-all duration-300 z-50">
+      <div class="flex flex-col space-y-0 py-4">
+        <a href="index.html" class="mobile-nav-link block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">Inicio</a>
+        <a href="services.html" class="mobile-nav-link block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">Servicios</a>
+        <a href="Proyectos.html" class="mobile-nav-link block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">Proyectos</a>
+        <a href="Contactos.html" class="mobile-nav-link block px-6 py-3 bg-primary/10 text-primary font-semibold border-r-4 border-primary">Contacto</a>
+      </div>
     </div>
   </header>
 
   <!-- Contenido principal -->
   <main role="main" class="pt-16">
-    <!-- Hero Section para Contacto -->
-    <section id="contact-hero" data-header="light" class="relative bg-white overflow-hidden py-20 md:py-28 contact-hero-section">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary-glow/10 z-0"></div>
-      
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          <!-- Texto -->
-          <div class="text-center lg:text-left" data-animate>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-gray-900 hero-title">
-              Contáct<span class="text-primary">anos</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed hero-subtitle">
-              Estamos aquí para ayudarte. Contáctanos para cualquier consulta, cotización o solicitud de servicios. Nuestro equipo de expertos está listo para brindarte la mejor solución.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#contact-form" class="cta-button inline-flex items-center justify-center">
-                <span>Escríbenos</span>
-                <i class="fas fa-edit ml-2"></i>
-              </a>
-              <a href="tel:+18095551234" class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-300">
-                <span>Llamar Ahora</span>
-                <i class="fas fa-phone ml-2"></i>
-              </a>
+    <!-- Hero Section estilo Proyectos -->
+    <section id="contact-hero" class="relative proyectos-hero-section" data-header="light">
+      <!-- Fondo -->
+      <div class="absolute inset-0 z-0">
+        <img src="imagenes/imagen3.jpg" 
+            alt="Equipo de Lermont Group" 
+            class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent"></div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="relative z-20 container mx-auto px-4 h-full flex items-center justify-center">
+        <div class="max-w-4xl text-center py-12">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6" data-animate>
+            <span class="w-2 h-2 bg-primary-glow rounded-full animate-pulse"></span>
+            <span class="text-white/90 text-sm font-medium">Contacto Directo</span>
+          </div>
+
+          <!-- Título -->
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white" data-animate>
+            <span class="block">Contáct</span>
+            <span class="block text-primary-glow">a Nuestro Equipo</span>
+          </h1>
+
+          <!-- Línea decorativa -->
+          <div class="w-24 h-1 bg-gradient-to-r from-primary-glow to-white rounded-full mb-6 mx-auto" data-animate></div>
+
+          <!-- Subtítulo -->
+          <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed" data-animate>
+            Estamos aquí para ayudarte. Contáctanos para cualquier consulta, cotización o solicitud de servicios. 
+            Nuestro equipo de expertos está listo para brindarte la mejor solución.
+          </p>
+
+          <!-- Stats -->
+          <div class="flex justify-center gap-6 md:gap-10 mb-8" data-animate>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
+              <div class="text-white/70 text-sm">Soporte</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
+              <div class="text-white/70 text-sm">Respuesta</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-1">15+</div>
+              <div class="text-white/70 text-sm">Años Exp.</div>
             </div>
           </div>
 
-          <!-- Imagen -->
-          <div class="relative" data-animate>
-            <div class="absolute -inset-4 bg-gradient-to-r from-primary to-primary-glow rounded-2xl transform rotate-3 opacity-20"></div>
-            <div class="relative bg-white rounded-2xl p-2 shadow-2xl">
-              <img src="imagenes/imagen3.jpg" alt="Equipo de Lermont Group" class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg">
-            </div>
+          <!-- Botones -->
+          <div class="flex flex-col sm:flex-row justify-center gap-4" data-animate>
+            <a href="#contact-form" class="cta-button bg-primary hover:bg-primary-dark text-white">
+              <i class="fas fa-edit mr-2"></i>
+              <span>Envíar Mensaje</span>
+            </a>
+            
+            <a href="tel:8099081292" class="cta-button bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white">
+              <i class="fas fa-phone mr-2"></i>
+              <span>Llamar Ahora</span>
+            </a>
           </div>
 
+          <!-- Scroll indicator -->
+          <div class="mt-12 animate-bounce" data-animate>
+            <a href="#contact-info" class="inline-flex flex-col items-center text-white/70 hover:text-white">
+              <span class="text-sm mb-2">Desplazar</span>
+              <i class="fas fa-chevron-down"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Sección de Información de Contacto -->
-    <section class="py-16 bg-gray-100 contact-info-section" data-header="light">
+    <section id="contact-info" class="py-16 bg-white" data-header="light">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-animate>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Nuestra Información</h2>
+        <div class="text-center mb-12" data-animate>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Información de Contacto</h2>
           <p class="text-lg text-gray-600 max-w-3xl mx-auto">
             Puedes contactarnos a través de los siguientes medios. Estamos disponibles para atenderte.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Teléfono -->
-          <div class="contact-info-card bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300" data-animate>
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="contact-info-card card group" data-animate>
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
               <i class="fas fa-phone-alt text-2xl text-primary"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Teléfono</h3>
-            <p class="text-gray-600 mb-2">+1 809-555-1234</p>
-            <p class="text-gray-600">+1 809-555-5678</p>
+            <p class="text-gray-600 mb-2 font-medium">809-908-1292</p>
+            <p class="text-gray-500 text-sm">Lun-Vie: 8:00 AM - 5:00 PM</p>
           </div>
 
           <!-- Email -->
-          <div class="contact-info-card bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300" data-animate>
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="contact-info-card card group" data-animate>
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
               <i class="fas fa-envelope text-2xl text-primary"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
-            <p class="text-gray-600 mb-2">info@lermontgroup.com</p>
-            <p class="text-gray-600">ventas@lermontgroup.com</p>
+            <p class="text-gray-600 mb-2 font-medium">info@lermontgroupsrl.com</p>
+            <p class="text-gray-500 text-sm">Respuesta en menos de 24h</p>
           </div>
 
           <!-- Dirección -->
-          <div class="contact-info-card bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300" data-animate>
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="contact-info-card card group" data-animate>
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
               <i class="fas fa-map-marker-alt text-2xl text-primary"></i>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Dirección</h3>
             <p class="text-gray-600">Calle Principal 123, Santo Domingo</p>
-            <p class="text-gray-600">República Dominicana</p>
+            <p class="text-gray-500 text-sm">República Dominicana</p>
           </div>
 
-          <!-- Horario -->
-          <div class="contact-info-card bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300" data-animate>
-            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-clock text-2xl text-primary"></i>
+          <!-- WhatsApp -->
+          <div class="contact-info-card card group" data-animate>
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <i class="fab fa-whatsapp text-2xl text-primary"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Horario</h3>
-            <p class="text-gray-600 mb-2">Lun - Vie: 8:00 AM - 5:00 PM</p>
-            <p class="text-gray-600">Sáb: 8:00 AM - 12:00 PM</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección de Oficinas y Ubicaciones -->
-    <section class="py-16 bg-white offices-section" data-header="light">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-animate>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Nuestras Oficinas</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Contamos con presencia estratégica para servirte mejor en toda la República Dominicana.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Oficina Principal -->
-          <div class="office-card bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300" data-animate>
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-building text-primary text-xl"></i>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900">Oficina Principal</h3>
-            </div>
-            <div class="space-y-3">
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-map-marker-alt text-primary mr-3"></i>
-                Calle Principal 123, Santo Domingo
-              </p>
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-phone text-primary mr-3"></i>
-                +1 809-555-1234
-              </p>
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-envelope text-primary mr-3"></i>
-                info@lermontgroup.com
-              </p>
-            </div>
-          </div>
-
-          <!-- Centro de Servicios -->
-          <div class="office-card bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300" data-animate>
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-tools text-primary text-xl"></i>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900">Centro de Servicios</h3>
-            </div>
-            <div class="space-y-3">
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-map-marker-alt text-primary mr-3"></i>
-                Av. Industrial 456, Santo Domingo
-              </p>
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-phone text-primary mr-3"></i>
-                +1 809-555-5678
-              </p>
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-envelope text-primary mr-3"></i>
-                servicios@lermontgroup.com
-              </p>
-            </div>
-          </div>
-
-          <!-- Sucursal Norte -->
-          <div class="office-card bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300" data-animate>
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                <i class="fas fa-store text-primary text-xl"></i>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900">Sucursal Norte</h3>
-            </div>
-            <div class="space-y-3">
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-map-marker-alt text-primary mr-3"></i>
-                Plaza Comercial 789, Santiago
-              </p>
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-phone text-primary mr-3"></i>
-                +1 809-555-9012
-              </p>
-              <p class="text-gray-600 flex items-center">
-                <i class="fas fa-envelope text-primary mr-3"></i>
-                norte@lermontgroup.com
-              </p>
-            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">WhatsApp</h3>
+            <p class="text-gray-600 mb-2 font-medium">809-908-1292</p>
+            <p class="text-gray-500 text-sm">Mensajes 24/7</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Formulario de Contacto Moderno -->
-    <section id="contact-form" class="py-16 bg-gray-100 contact-form-section" data-header="light">
+    <section id="contact-form" class="py-16 bg-gray-50" data-header="light">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-animate>
+        <div class="text-center mb-12" data-animate>
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Envíanos un Mensaje</h2>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
             ¿Tienes alguna pregunta o necesitas un presupuesto? Completa el formulario y te contactaremos a la brevedad.
@@ -330,15 +264,15 @@
                 <div class="space-y-2 text-sm">
                   <p class="flex items-center text-gray-600">
                     <i class="fas fa-phone mr-2 text-primary"></i>
-                    +1 809-555-1234
+                    809-908-1292
                   </p>
                   <p class="flex items-center text-gray-600">
-                    <i class="fas fa-whatsapp mr-2 text-primary"></i>
-                    +1 809-555-5678
+                    <i class="fab fa-whatsapp mr-2 text-primary"></i>
+                    809-908-1292
                   </p>
                   <p class="flex items-center text-gray-600">
                     <i class="fas fa-envelope mr-2 text-primary"></i>
-                    info@lermontgroup.com
+                    info@lermontgroupsrl.com
                   </p>
                 </div>
               </div>
@@ -410,7 +344,7 @@
                 </div>
               </form>
               
-              <!-- Mensajes de éxito y error (se muestran dinámicamente) -->
+              <!-- Mensajes de éxito y error -->
               <div id="successMessage" class="hidden text-center py-8 form-success">
                 <div class="success-checkmark text-green-500 text-6xl mb-4">
                   <i class="fas fa-check-circle"></i>
@@ -438,10 +372,96 @@
       </div>
     </section>
 
-    <!-- Sección de Mapa -->
-    <section class="py-16 bg-white map-section" data-header="light">
+    <!-- Sección de Oficinas -->
+    <section class="py-16 bg-white" data-header="light">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-animate>
+        <div class="text-center mb-12" data-animate>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Nuestras Oficinas</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Contamos con presencia estratégica para servirte mejor en toda la República Dominicana.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Oficina Principal -->
+          <div class="office-card card" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-building text-primary text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Oficina Principal</h3>
+            </div>
+            <div class="space-y-3">
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+                Calle Principal 123, Santo Domingo
+              </p>
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-phone text-primary mr-3"></i>
+                809-908-1292
+              </p>
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-envelope text-primary mr-3"></i>
+                info@lermontgroupsrl.com
+              </p>
+            </div>
+          </div>
+
+          <!-- Centro de Servicios -->
+          <div class="office-card card" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-tools text-primary text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Centro de Servicios</h3>
+            </div>
+            <div class="space-y-3">
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+                Av. Industrial 456, Santo Domingo
+              </p>
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-phone text-primary mr-3"></i>
+                809-908-1292
+              </p>
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-envelope text-primary mr-3"></i>
+                info@lermontgroupsrl.com
+              </p>
+            </div>
+          </div>
+
+          <!-- Sucursal Norte -->
+          <div class="office-card card" data-animate>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                <i class="fas fa-store text-primary text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900">Sucursal Norte</h3>
+            </div>
+            <div class="space-y-3">
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+                Plaza Comercial 789, Santiago
+              </p>
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-phone text-primary mr-3"></i>
+                809-908-1292
+              </p>
+              <p class="text-gray-600 flex items-center">
+                <i class="fas fa-envelope text-primary mr-3"></i>
+                info@lermontgroupsrl.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Mapa -->
+    <section class="py-16 bg-gray-50" data-header="light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-animate>
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Visítanos</h2>
           <p class="text-lg text-gray-600 max-w-3xl mx-auto">
             Nuestra oficina principal está ubicada en Santo Domingo. ¡Te esperamos!
@@ -466,9 +486,9 @@
     </section>
 
     <!-- Sección de Preguntas Frecuentes -->
-    <section class="py-16 bg-gray-100 faq-section" data-header="light">
+    <section class="py-16 bg-white" data-header="light">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-animate>
+        <div class="text-center mb-12" data-animate>
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Preguntas Frecuentes</h2>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
             Resolvemos tus dudas más comunes sobre nuestros servicios y procesos.
@@ -477,7 +497,7 @@
 
         <div class="space-y-6" data-animate>
           <!-- FAQ Item 1 -->
-          <div class="faq-item bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="faq-item card">
             <button class="faq-question w-full flex justify-between items-center text-left">
               <span class="text-lg font-semibold text-gray-900">¿Cuál es el tiempo de respuesta para cotizaciones?</span>
               <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
@@ -488,7 +508,7 @@
           </div>
 
           <!-- FAQ Item 2 -->
-          <div class="faq-item bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="faq-item card">
             <button class="faq-question w-full flex justify-between items-center text-left">
               <span class="text-lg font-semibold text-gray-900">¿Ofrecen servicios de emergencia?</span>
               <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
@@ -499,7 +519,7 @@
           </div>
 
           <!-- FAQ Item 3 -->
-          <div class="faq-item bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="faq-item card">
             <button class="faq-question w-full flex justify-between items-center text-left">
               <span class="text-lg font-semibold text-gray-900">¿Qué áreas geográficas cubren?</span>
               <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
@@ -510,13 +530,92 @@
           </div>
 
           <!-- FAQ Item 4 -->
-          <div class="faq-item bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="faq-item card">
             <button class="faq-question w-full flex justify-between items-center text-left">
               <span class="text-lg font-semibold text-gray-900">¿Ofrecen garantía en sus servicios?</span>
               <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
             </button>
             <div class="faq-answer mt-4 hidden">
               <p class="text-gray-600">Todos nuestros servicios incluyen garantía. La duración varía según el tipo de servicio: instalaciones (1-2 años), mantenimiento (6 meses), y reparaciones (3-6 meses).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section estilo Proyectos -->
+    <section class="relative py-20 overflow-hidden cta-section" data-header="dark">
+      <!-- Fondo con gradiente animado -->
+      <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary/90 via-primary-dark/80 to-primary/90"></div>
+      
+      <!-- Contenido principal -->
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <!-- Badge destacado -->
+          <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-3 mb-8 animate-fade-in" data-animate>
+            <span class="w-2 h-2 bg-primary-glow rounded-full animate-pulse"></span>
+            <span class="text-white/95 font-semibold text-sm tracking-wider">¿LISTO PARA COMENZAR TU PROYECTO?</span>
+          </div>
+          
+          <!-- Título con efecto brillo -->
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white" data-animate>
+            <span class="block bg-gradient-to-r from-white via-primary-glow to-white bg-clip-text text-transparent animate-gradient-text">
+              Contáctanos Hoy
+            </span>
+          </h2>
+          
+          <!-- Línea decorativa -->
+          <div class="w-32 h-1.5 bg-gradient-to-r from-transparent via-primary-glow to-transparent rounded-full mb-8 mx-auto animate-expand" data-animate></div>
+          
+          <!-- Descripción -->
+          <div class="max-w-3xl mx-auto mb-12" data-animate>
+            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+              Nuestro equipo de <span class="text-primary-glow font-semibold">expertos</span> está listo para atender tus necesidades y brindarte la mejor solución personalizada.
+            </p>
+          </div>
+          
+          <!-- Botones premium -->
+          <div class="flex flex-col sm:flex-row justify-center items-center gap-5 md:gap-6" data-animate>
+            <!-- Botón principal - Llamar Ahora -->
+            <a href="tel:8099081292" 
+              class="group relative cta-premium-button bg-gradient-to-r from-white to-primary-glow text-primary hover:text-primary-dark inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-2xl shadow-primary-glow/30 hover:shadow-primary-glow/50">
+              <div class="relative">
+                <i class="fas fa-phone text-lg"></i>
+                <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              </div>
+              <span class="font-bold text-lg">Llamar Ahora</span>
+              <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
+            </a>
+            
+            <!-- Botón secundario - Enviar Mensaje -->
+            <a href="#contact-form" 
+              class="group cta-premium-button bg-transparent border-2 border-white/40 hover:border-white text-white hover:text-white hover:bg-white/10 backdrop-blur-sm inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="relative">
+                <i class="fas fa-envelope text-lg"></i>
+                <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary-glow rounded-full animate-pulse"></div>
+              </div>
+              <span class="font-bold text-lg">Enviar Mensaje</span>
+              <i class="fas fa-external-link-alt opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"></i>
+            </a>
+          </div>
+          
+          <!-- Información de contacto adicional -->
+          <div class="mt-12 pt-8 border-t border-white/10" data-animate>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/80">
+              <div class="flex items-center gap-3">
+                <i class="fas fa-phone text-primary-glow"></i>
+                <span>809-908-1292</span>
+              </div>
+              <div class="hidden sm:block w-px h-6 bg-white/20"></div>
+              <div class="flex items-center gap-3">
+                <i class="fas fa-envelope text-primary-glow"></i>
+                <span>info@lermontgroupsrl.com</span>
+              </div>
+              <div class="hidden sm:block w-px h-6 bg-white/20"></div>
+              <div class="flex items-center gap-3">
+                <i class="fas fa-clock text-primary-glow"></i>
+                <span>Lun-Vie: 8:00 AM - 5:00 PM</span>
+              </div>
             </div>
           </div>
         </div>
@@ -533,8 +632,8 @@
         <address>
           <p><i class="fas fa-building"></i> Lermont Group SRL</p>
           <p><i class="fas fa-road"></i> Calle Principal 123, Santo Domingo</p>
-          <p><i class="fas fa-phone"></i> +1 809-555-1234</p>
-          <p><i class="fas fa-envelope"></i> info@lermontgroup.com</p>
+          <p><i class="fas fa-phone"></i> 809-908-1292</p>
+          <p><i class="fas fa-envelope"></i> info@lermontgroupsrl.com</p>
         </address>
         <div class="social-links">
           <a href="#" aria-label="Facebook de Lermont Group"><i class="fab fa-facebook-f"></i></a>
@@ -560,23 +659,13 @@
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-map-marked-alt floating-icon"></i> Ubicación</h3>
         <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.016887889534!2d-69.931248424014!3d18.48362698253928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5626d1a527ea5%3A0x91e0e663492a3dd6!2sSanto%20Domingo%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1ses!2sus!4v1719876543210!5m2!1ses!2sus" 
-                  allowfullscreen="" 
-                  loading="lazy"
-                  title="Ubicación de Lermont Group SRL en Santo Domingo, República Dominicana"></iframe>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.016887889534!2d-69.931248424014!3d18.48362698253928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5626d1a527ea5%3A0x91e0e663492a3dd6!2sSanto%20Domingo%2C%20Rep%C3%BAblica%20Dominicana!5e0!3m2!1ses!2sus!4v1719876543210!5m2!1ses!2sus" 
+            allowfullscreen="" 
+            loading="lazy"
+            title="Ubicación de Lermont Group SRL en Santo Domingo, República Dominicana"></iframe>
         </div>
       </div>
-
-      <!-- Newsletter
-      <div class="footer-section" data-animate>
-        <h3><i class="fas fa-paper-plane floating-icon"></i> Newsletter</h3>
-        <p>Suscríbete para recibir nuestras últimas noticias y ofertas especiales.</p>
-        <form class="newsletter-form">
-          <input type="text" placeholder="Tu nombre" required>
-          <input type="email" placeholder="Tu correo electrónico" required>
-          <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
-        </form>
-      </div>-->
     </div>
     
     <div class="footer-bottom">

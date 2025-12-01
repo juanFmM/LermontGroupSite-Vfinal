@@ -107,72 +107,87 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.backdropFilter = 'blur(20px) saturate(180%)';
   }
 
+  /* =====================
+    MENÚ MÓVIL CORREGIDO - VERSIÓN SIMPLIFICADA
+    ===================== */
   function initMobileMenu() {
-    if (!btnMenu || !mainNav) {
+    const btnMenu = document.getElementById('btn-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+    
+    if (!btnMenu || !mobileMenu) {
       console.error('Elementos del menú móvil no encontrados');
       return;
     }
-
-    // CERRAR MENÚ AL INICIO - ESTA ES LA CLAVE
-    closeMobileMenu();
-
+    
+    // Crear overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+    
+    // Estado del menú
+    let isMenuOpen = false;
+    
+    // Función para abrir el menú
+    function openMobileMenu() {
+      btnMenu.classList.add('active');
+      mobileMenu.classList.add('mobile-open');
+      overlay.classList.add('active');
+      body.classList.add('no-scroll');
+      isMenuOpen = true;
+      btnMenu.setAttribute('aria-expanded', 'true');
+    }
+    
+    // Función para cerrar el menú
+    function closeMobileMenu() {
+      btnMenu.classList.remove('active');
+      mobileMenu.classList.remove('mobile-open');
+      overlay.classList.remove('active');
+      body.classList.remove('no-scroll');
+      isMenuOpen = false;
+      btnMenu.setAttribute('aria-expanded', 'false');
+    }
+    
+    // Toggle del menú
     btnMenu.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = mainNav.classList.contains('mobile-open');
+      e.preventDefault();
       
-      if (isOpen) {
+      if (isMenuOpen) {
         closeMobileMenu();
       } else {
         openMobileMenu();
       }
     });
-
-    // Cerrar menú al hacer clic en enlaces
-    $$('#main-nav a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      if (mainNav.classList.contains('mobile-open') && 
-          !mainNav.contains(e.target) && 
-          !btnMenu.contains(e.target)) {
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
         closeMobileMenu();
-      }
+      });
     });
-
+    
+    // Cerrar menú al hacer clic en el overlay
+    overlay.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+    
     // Cerrar menú con tecla Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mainNav.classList.contains('mobile-open')) {
+      if (e.key === 'Escape' && isMenuOpen) {
         closeMobileMenu();
       }
     });
-  }
-
-  function openMobileMenu() {
-    mainNav.classList.add('mobile-open');
-    btnMenu.classList.add('active');
-    btnMenu.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
     
-    // Animar icono hamburguesa
-    btnMenu.style.transform = 'scale(0.9)';
-    setTimeout(() => {
-      btnMenu.style.transform = 'scale(1)';
-    }, 300);
-  }
-
-  function closeMobileMenu() {
-    mainNav.classList.remove('mobile-open');
-    btnMenu.classList.remove('active');
-    btnMenu.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    // Cerrar menú al redimensionar a desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768 && isMenuOpen) {
+        closeMobileMenu();
+      }
+    });
     
-    // Animar icono hamburguesa
-    btnMenu.style.transform = 'scale(0.9)';
-    setTimeout(() => {
-      btnMenu.style.transform = 'scale(1)';
-    }, 300);
+    // Asegurar que el menú esté cerrado al inicio
+    closeMobileMenu();
   }
 
   /* =====================
@@ -525,3 +540,118 @@ window.addServiceCard = function(title, description, imageSrc, link) {
   
   grid.appendChild(card);
 };
+
+// =====================
+// Efectos para cards de servicios
+// =====================
+function initServiceCards() {
+  const cards = document.querySelectorAll('.service-card');
+  
+  cards.forEach(card => {
+    // Efecto de tilt en mousemove
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const angleY = (x - centerX) / 25;
+      const angleX = (centerY - y) / 25;
+      
+      card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+// =====================
+// Sistema de partículas para hero de servicios
+// =====================
+function createServicesParticles() {
+  const hero = document.getElementById('services-hero');
+  if (!hero) return;
+
+  const particlesContainer = document.createElement('div');
+  particlesContainer.className = 'particles-container';
+  hero.appendChild(particlesContainer);
+
+  for (let i = 0; i < 20; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    const size = Math.random() * 4 + 2;
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    const delay = Math.random() * 5;
+    
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${posX}%`;
+    particle.style.top = `${posY}%`;
+    particle.style.animationDelay = `${delay}s`;
+    particle.style.opacity = Math.random() * 0.6 + 0.2;
+    
+    particlesContainer.appendChild(particle);
+  }
+}
+
+// =====================
+// Actualizar función init()
+// =====================
+function init() {
+  // ... código existente ...
+  
+  createServicesParticles(); // Añadir esta línea
+  initServiceCards(); // Añadir esta línea
+  
+  // ... resto del código existente ...
+}
+
+// Llamar init cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', init);
+
+// =====================
+// Efectos para cards de servicios con imágenes
+// =====================
+function initServiceImageCards() {
+  const cards = document.querySelectorAll('.service-card-with-image');
+  
+  cards.forEach(card => {
+    // Efecto de tilt en mousemove
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const angleY = (x - centerX) / 25;
+      const angleX = (centerY - y) / 25;
+      
+      card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+// =====================
+// Actualizar función init() en services.js
+// =====================
+function init() {
+  // ... código existente ...
+  
+  createServicesParticles();
+  initServiceCards();
+  initServiceImageCards(); // Añadir esta nueva línea
+  
+  // ... resto del código existente ...
+}

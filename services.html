@@ -16,13 +16,14 @@
   
   <!-- Preload de imágenes críticas -->
   <link rel="preload" href="imagenes/imagen3.jpg" as="image">
-      <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="svg/logo.svg">
-      <link rel="icon" type="image/png" sizes="32x32" href="svg/logo.svg">
-      <link rel="icon" type="image/png" sizes="16x16" href="svg/logo.svg">
-      <link rel="icon" type="image/x-icon" href="svg/logo.svg">
-      <link rel="manifest" href="svg/logo.svg">
-      <meta name="theme-color" content="#434c88">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="svg/logo.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="svg/logo.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="svg/logo.svg">
+  <link rel="icon" type="image/x-icon" href="svg/logo.svg">
+  <link rel="manifest" href="svg/logo.svg">
+  <meta name="theme-color" content="#434c88">
+  
   <!-- Tailwind Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -38,13 +39,16 @@
       }
     }
   </script>
+  
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="Estilos/services.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-50 text-gray-800">
   <!-- Navegación -->
-  <header class="fixed w-full z-[1000]">
+  <!-- Navegación CORREGIDA -->
+  <header class="fixed w-full z-[1000] bg-white/95 backdrop-blur-lg shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       
       <!-- Logo -->
@@ -56,60 +60,98 @@
         </a>
       </div>
 
-      <!-- Botón hamburguesa (móvil) -->
+      <!-- Botón hamburguesa (móvil) - CORREGIDO -->
       <button id="btn-menu" class="md:hidden focus:outline-none hamburger" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="block w-6 h-0.5 bg-primary mb-1.5 transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-primary mb-1.5 transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-primary transition-all duration-300"></span>
       </button>
 
-      <!-- Menú -->
-      <nav id="main-nav" class="nav-main" aria-label="Main navigation">
-        <a href="index.html" class="nav-link">Inicio</a>
-        <a href="services.html" class="nav-link active">Servicios</a>
-        <a href="Proyectos.html" class="nav-link">Proyectos</a>
-        <a href="Contactos.html" class="nav-link">Contacto</a>
+      <!-- Menú - CORREGIDO -->
+      <nav id="main-nav" class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+        <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Inicio</a>
+        <a href="services.html" class="nav-link text-primary font-semibold border-b-2 border-primary">Servicios</a>
+        <a href="Proyectos.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Proyectos</a>
+        <a href="Contactos.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Contacto</a>
       </nav>
+    </div>
+
+    <!-- Menú móvil desplegable - NUEVO -->
+    <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transform -translate-y-full opacity-0 transition-all duration-300 z-50">
+      <div class="flex flex-col space-y-0 py-4">
+        <a href="index.html" class="mobile-nav-link block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">Inicio</a>
+        <a href="services.html" class="mobile-nav-link block px-6 py-3 bg-primary/10 text-primary font-semibold border-r-4 border-primary">Servicios</a>
+        <a href="Proyectos.html" class="mobile-nav-link block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">Proyectos</a>
+        <a href="Contactos.html" class="mobile-nav-link block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">Contacto</a>
+      </div>
     </div>
   </header>
 
   <!-- Contenido principal -->
   <main role="main" class="pt-16">
-    <!-- Hero Section para Servicios -->
-    <section id="services-hero" data-header="light" class="relative bg-white overflow-hidden py-20 md:py-28 services-hero-section">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary-glow/10 z-0"></div>
-      
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          <!-- Texto -->
-          <div class="text-center lg:text-left" data-animate>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white-900 hero-title">
-              Nuestros <span class="text-primary">Servicios</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed hero-subtitle">
-              Expertos en soluciones de climatización, refrigeración, ventilación, purificación de aire y energía solar. Más de 20 años de experiencia brindando soluciones innovadoras y eficientes.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a href="#servicios-grid" class="cta-button inline-flex items-center justify-center">
-                <span>Ver Servicios</span>
-                <i class="fas fa-arrow-down ml-2"></i>
-              </a>
-              <a href="Contactos.html" class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-300">
-                <span>Contactar</span>
-                <i class="fas fa-phone ml-2"></i>
-              </a>
+    <!-- HERO MODERNO PARA SERVICIOS (como en proyectos) -->
+    <section id="services-hero" class="relative services-hero-modern" data-header="light">
+      <!-- Fondo -->
+      <div class="absolute inset-0 z-0">
+        <img src="imagenes/imagen3.jpg" 
+             alt="Servicios Lermont Group" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/70 to-primary-dark/80"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent"></div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="relative z-20 container mx-auto px-4 h-full flex items-center justify-center">
+        <div class="max-w-4xl text-center py-12">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6" data-animate>
+            <span class="w-2 h-2 bg-primary-glow rounded-full animate-pulse"></span>
+            <span class="text-white/90 text-sm font-medium">Expertos en Soluciones</span>
+          </div>
+
+          <!-- Título -->
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white" data-animate>
+            <span class="block">Nuestros</span>
+            <span class="block text-primary-glow">Servicios</span>
+          </h1>
+
+          <!-- Línea decorativa -->
+          <div class="w-24 h-1 bg-gradient-to-r from-primary-glow to-white rounded-full mb-6 mx-auto" data-animate></div>
+
+          <!-- Subtítulo -->
+          <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed" data-animate>
+            Más de 20 años de experiencia en climatización, energía solar, ventilación 
+            y soluciones eléctricas con tecnología de vanguardia y los más altos estándares de calidad.
+          </p>
+
+          <!-- Stats -->
+          <div class="flex justify-center gap-6 md:gap-10 mb-8" data-animate>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-1">20+</div>
+              <div class="text-white/70 text-sm">Años Exp.</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
+              <div class="text-white/70 text-sm">Clientes</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
+              <div class="text-white/70 text-sm">Garantía</div>
             </div>
           </div>
 
-          <!-- Imagen -->
-          <div class="relative" data-animate>
-            <div class="absolute -inset-4 bg-gradient-to-r from-primary to-primary-glow rounded-2xl transform rotate-3 opacity-20"></div>
-            <div class="relative bg-white rounded-2xl p-2 shadow-2xl">
-              <img src="imagenes/imagen3.jpg" alt="Equipo técnico de Lermont Group" class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg">
-            </div>
+          <!-- Botones -->
+          <div class="flex flex-col sm:flex-row justify-center gap-4" data-animate>
+            <a href="#servicios-grid" class="cta-button bg-primary hover:bg-primary-dark text-white">
+              <i class="fas fa-cogs mr-2"></i>
+              <span>Explorar Servicios</span>
+            </a>
+            
+            <a href="Contactos.html" class="cta-button bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white">
+              <i class="fas fa-phone mr-2"></i>
+              <span>Contactar Ahora</span>
+            </a>
           </div>
-
         </div>
       </div>
     </section>
@@ -160,151 +202,155 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Servicios Grid -->
-    <section id="servicios-grid" class="py-16 bg-white services-grid-section" data-header="light">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Servicios Grid con Imágenes -->
+    <section id="servicios-grid" class="py-20 bg-white services-grid-section" data-header="light">
+      <div class="max-w-7xl mx-auto px-6">
         <div class="text-center mb-16" data-animate>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Servicios que Ofrecemos</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Nuestros Servicios Especializados</h2>
           <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Descubre nuestra gama completa de servicios profesionales diseñados para satisfacer todas sus necesidades en climatización, energía y más.
+            Soluciones integrales de alta calidad respaldadas por más de 20 años de experiencia y tecnología de vanguardia.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <!-- Climatización -->
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/imagen3.jpg" alt="Climatización y Refrigeración" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="service-card-with-image group" data-animate>
+            <div class="service-image-container">
+              <img src="imagenes/imagen3.jpg" 
+                   alt="Climatización y Refrigeración" 
+                   class="w-full h-48 object-cover">
+              <div class="service-image-overlay">
+                <i class="fas fa-snowflake"></i>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Climatización y Refrigeración</h3>
-            <p class="text-gray-600 mb-4">Auditoría, diseño, ingeniería e instalación de sistemas de climatización en edificios comerciales, residenciales, hospitales, data centers y más.</p>
-            <a href="servicio_climatizacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <div class="service-content">
+              <h3>Climatización y Refrigeración</h3>
+              <p>Auditoría, diseño, ingeniería e instalación de sistemas de climatización en edificios comerciales, residenciales, hospitales, data centers y más.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <a href="servicio_climatizacion.html" class="service-link">
+                  <span>Ver detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+                <span class="service-tag">Popular</span>
+              </div>
+            </div>
           </div>
 
           <!-- Ventilación -->
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/ventilcion.jpg" alt="Ventilación" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="service-card-with-image group" data-animate>
+            <div class="service-image-container">
+              <img src="imagenes/ventilcion.jpg" 
+                   alt="Ventilación" 
+                   class="w-full h-48 object-cover">
+              <div class="service-image-overlay">
+                <i class="fas fa-fan"></i>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Ventilación</h3>
-            <p class="text-gray-600 mb-4">Sistemas de inyección y extracción de aire. Representantes exclusivos de ventiladores HVLS Big Ass Fans, reconocidos mundialmente.</p>
-            <a href="servicio_ventilacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <div class="service-content">
+              <h3>Ventilación</h3>
+              <p>Sistemas de inyección y extracción de aire. Representantes exclusivos de ventiladores HVLS Big Ass Fans, reconocidos mundialmente.</p>
+              <div class="mt-4">
+                <a href="servicio_ventilacion.html" class="service-link">
+                  <span>Ver detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- Energía Solar -->
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/DiseñoHVAC.jpg" alt="Energía Solar" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="service-card-with-image group" data-animate>
+            <div class="service-image-container">
+              <img src="imagenes/DiseñoHVAC.jpg" 
+                   alt="Energía Solar" 
+                   class="w-full h-48 object-cover">
+              <div class="service-image-overlay">
+                <i class="fas fa-solar-panel"></i>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Energía Solar</h3>
-            <p class="text-gray-600 mb-4">Instalación de sistemas solares de alta eficiencia para hogares, comercios e industrias. Proyectos desde residenciales hasta 1.5MW.</p>
-            <a href="servicio_solar.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <div class="service-content">
+              <h3>Energía Solar</h3>
+              <p>Instalación de sistemas solares de alta eficiencia para hogares, comercios e industrias. Proyectos desde residenciales hasta 1.5MW.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <a href="servicio_solar.html" class="service-link">
+                  <span>Ver detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+                <span class="service-tag" style="background: #d1fae5; color: #065f46;">Ecológico</span>
+              </div>
+            </div>
           </div>
-
-          <!-- Purificación de Aire 
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page5_img1.jpeg" alt="Purificación de Aire" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Purificación de Aire</h3>
-            <p class="text-gray-600 mb-4">Sistemas modernos de purificación capaces de eliminar hasta 99.9% de contaminantes y bio agentes presentes en el ambiente.</p>
-            <a href="servicio_purificacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>-->
-
-          <!-- Iluminación LED 
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page13_img3.png" alt="Iluminación LED" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Iluminación LED</h3>
-            <p class="text-gray-600 mb-4">Productos LED de alto rendimiento para ambientes comerciales e industriales. Alta durabilidad y eficiencia energética garantizada.</p>
-            <a href="servicio_led.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>-->
 
           <!-- Mantenimiento -->
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/mantenimiento_Preventivo.jpg" alt="Mantenimiento" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="service-card-with-image group" data-animate>
+            <div class="service-image-container">
+              <img src="imagenes/mantenimiento_Preventivo.jpg" 
+                   alt="Mantenimiento" 
+                   class="w-full h-48 object-cover">
+              <div class="service-image-overlay">
+                <i class="fas fa-tools"></i>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Mantenimiento</h3>
-            <p class="text-gray-600 mb-4">Brigadas técnicas especializadas en mantenimiento preventivo y correctivo de equipos de climatización con respuesta rápida.</p>
-            <a href="servicio_mantenimiento.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <div class="service-content">
+              <h3>Mantenimiento</h3>
+              <p>Brigadas técnicas especializadas en mantenimiento preventivo y correctivo de equipos de climatización con respuesta rápida.</p>
+              <div class="mt-4">
+                <a href="servicio_mantenimiento.html" class="service-link">
+                  <span>Ver detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
           </div>
-
-          <!-- === SERVICIOS ADICIONALES === -->
-
-          <!-- Automatización y Control 
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/Logo-removebg-preview.png" alt="Automatización y Control" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Automatización y Control</h3>
-            <p class="text-gray-600 mb-4">Sistemas inteligentes de control para gestión automatizada de climatización, iluminación y energía. Maximiza eficiencia y confort.</p>
-            <a href="servicio_automatizacion.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>-->
 
           <!-- Auditoría Energética -->
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/soluciones_Electricas.jpg" alt="Auditoría Energética" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="service-card-with-image group" data-animate>
+            <div class="service-image-container">
+              <img src="imagenes/soluciones_Electricas.jpg" 
+                   alt="Auditoría Energética" 
+                   class="w-full h-48 object-cover">
+              <div class="service-image-overlay">
+                <i class="fas fa-chart-line"></i>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Auditoría Energética</h3>
-            <p class="text-gray-600 mb-4">Diagnóstico completo de consumo energético. Identificamos oportunidades de ahorro y optimización en sus instalaciones.</p>
-            <a href="servicio_auditoria.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <div class="service-content">
+              <h3>Auditoría Energética</h3>
+              <p>Diagnóstico completo de consumo energético. Identificamos oportunidades de ahorro y optimización en sus instalaciones.</p>
+              <div class="mt-4">
+                <a href="servicio_auditoria.html" class="service-link">
+                  <span>Ver detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <!-- Ingeniería y Consultoría 
-          <div class="card group" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes/lermont_page11_img2.jpeg" alt="Ingeniería y Consultoría" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <!-- Soluciones Eléctricas -->
+          <div class="service-card-with-image group" data-animate>
+            <div class="service-image-container">
+              <img src="imagenes/soluciones_Electricas.jpg" 
+                   alt="Soluciones Eléctricas" 
+                   class="w-full h-48 object-cover">
+              <div class="service-image-overlay">
+                <i class="fas fa-bolt"></i>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-primary mb-3">Ingeniería y Consultoría</h3>
-            <p class="text-gray-600 mb-4">Servicios de diseño, cálculo y asesoría técnica especializada para proyectos de climatización, electricidad y energía renovable.</p>
-            <a href="servicio_ingenieria.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
-              <span>Ver más</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>-->
-
+            <div class="service-content">
+              <h3>Soluciones Eléctricas</h3>
+              <p>Instalación y mantenimiento de sistemas eléctricos completos para residencias, comercios e industrias con los más altos estándares de seguridad.</p>
+              <div class="mt-4">
+                <a href="servicio_electrico.html" class="service-link">
+                  <span>Ver detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -320,8 +366,8 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="process-step text-center" data-animate>
-            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+          <div class="process-step-modern text-center" data-animate>
+            <div class="process-number">
               1
             </div>
             <h3 class="text-lg font-bold text-gray-900 mb-3">Consulta y Evaluación</h3>
@@ -330,8 +376,8 @@
             </p>
           </div>
 
-          <div class="process-step text-center" data-animate>
-            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+          <div class="process-step-modern text-center" data-animate>
+            <div class="process-number">
               2
             </div>
             <h3 class="text-lg font-bold text-gray-900 mb-3">Diseño y Propuesta</h3>
@@ -340,8 +386,8 @@
             </p>
           </div>
 
-          <div class="process-step text-center" data-animate>
-            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+          <div class="process-step-modern text-center" data-animate>
+            <div class="process-number">
               3
             </div>
             <h3 class="text-lg font-bold text-gray-900 mb-3">Instalación Profesional</h3>
@@ -350,8 +396,8 @@
             </p>
           </div>
 
-          <div class="process-step text-center" data-animate>
-            <div class="process-number w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+          <div class="process-step-modern text-center" data-animate>
+            <div class="process-number">
               4
             </div>
             <h3 class="text-lg font-bold text-gray-900 mb-3">Soporte Continuo</h3>
@@ -449,138 +495,101 @@
       </div>
     </section>
 
-    <!-- CTA Section Mejorada 
-    <section class="py-20 bg-gradient-to-r from-primary to-primary-dark cta-section" data-header="dark">
-      <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white" data-animate>¿Listo para Transformar su Espacio?</h2>
-        <p class="text-xl mb-8 text-white/90" data-animate>
-          Contáctenos hoy mismo y reciba una asesoría gratuita personalizada para su proyecto.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center" data-animate>
-          <a href="Contactos.html" class="cta-button bg-white text-primary hover:bg-gray-50 inline-flex items-center justify-center">
-            <i class="fas fa-file-invoice-dollar mr-2"></i>
-            <span>Solicitar Cotización</span>
-          </a>
-          <a href="tel:+18095551234" class="cta-button border-2 border-white text-white bg-transparent hover:bg-white hover:text-primary inline-flex items-center justify-center">
-            <i class="fas fa-phone mr-2"></i>
-            <span>Llamar Ahora</span>
-          </a>
+    <!-- SECCIÓN CTA MODERNA (como en proyectos) -->
+    <section class="relative py-24 overflow-hidden cta-section" data-header="dark">
+      <!-- Fondo con gradiente animado -->
+      <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary/90 via-primary-dark/80 to-primary/90"></div>
+      
+      <!-- Patrón geométrico animado -->
+      <div class="absolute inset-0 z-0 opacity-20">
+        <div class="absolute inset-0 animate-pulse-slow" 
+            style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\"><path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"0.5\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grid)\"/></svg>');"></div>
+      </div>
+      
+      <!-- Elementos decorativos flotantes -->
+      <div class="absolute inset-0 z-0 overflow-hidden">
+        <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-primary-glow/20 blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        <div class="absolute top-1/2 left-1/4 w-32 h-32 rounded-full bg-primary-glow/15 blur-2xl animate-pulse" style="animation-delay: 0.5s"></div>
+      </div>
+      
+      <!-- Contenido principal -->
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <!-- Badge destacado -->
+          <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-3 mb-8 animate-fade-in" data-animate>
+            <span class="w-2 h-2 bg-primary-glow rounded-full animate-pulse"></span>
+            <span class="text-white/95 font-semibold text-sm tracking-wider">¿LISTO PARA OPTIMIZAR SUS INSTALACIONES?</span>
+          </div>
+          
+          <!-- Título con efecto brillo -->
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white" data-animate>
+            <span class="block bg-gradient-to-r from-white via-primary-glow to-white bg-clip-text text-transparent animate-gradient-text">
+              Transforme su Espacio
+            </span>
+            <span class="block mt-2">con Nuestros Servicios</span>
+          </h2>
+          
+          <!-- Línea decorativa -->
+          <div class="w-32 h-1.5 bg-gradient-to-r from-transparent via-primary-glow to-transparent rounded-full mb-8 mx-auto animate-expand" data-animate></div>
+          
+          <!-- Descripción -->
+          <div class="max-w-3xl mx-auto mb-12" data-animate>
+            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+              Nuestro equipo de <span class="text-primary-glow font-semibold">expertos certificados</span> está listo para implementar soluciones energéticas eficientes que generen ahorros significativos y mejoren el confort de sus instalaciones.
+            </p>
+          </div>
+          
+          <!-- Botones premium -->
+          <div class="flex flex-col sm:flex-row justify-center items-center gap-5 md:gap-6" data-animate>
+            <!-- Botón principal - Solicitar Cotización -->
+            <a href="Contactos.html" 
+              class="group relative cta-premium-button bg-gradient-to-r from-white to-primary-glow text-primary hover:text-primary-dark inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-2xl shadow-primary-glow/30 hover:shadow-primary-glow/50">
+              <div class="relative">
+                <i class="fas fa-file-invoice-dollar text-lg"></i>
+                <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              </div>
+              <span class="font-bold text-lg">Solicitar Cotización</span>
+              <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
+              <!-- Efecto de brillo -->
+              <div class="absolute inset-0 rounded-xl overflow-hidden z-0">
+                <div class="absolute -inset-1 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+            </a>
+            
+            <!-- Botón secundario - Llamar Ahora -->
+            <a href="tel:+18095551234" 
+              class="group cta-premium-button bg-transparent border-2 border-white/40 hover:border-white text-white hover:text-white hover:bg-white/10 backdrop-blur-sm inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="relative">
+                <i class="fas fa-phone text-lg"></i>
+                <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary-glow rounded-full animate-pulse"></div>
+              </div>
+              <span class="font-bold text-lg">Llamar Ahora</span>
+              <i class="fas fa-external-link-alt opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"></i>
+              <!-- Efecto de brillo al pasar el mouse -->
+              <div class="absolute inset-0 rounded-xl overflow-hidden z-0">
+                <div class="absolute -inset-1 bg-gradient-to-r from-transparent via-primary-glow/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+            </a>
+          </div>
+          
+          <!-- Llamada a la acción adicional -->
+          <div class="mt-12 pt-8 border-t border-white/10" data-animate>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div class="flex items-center gap-3 text-white/80">
+                <i class="fas fa-shield-alt text-primary-glow"></i>
+                <span class="text-sm">Garantía extendida en todos nuestros servicios</span>
+              </div>
+              <div class="hidden sm:block w-px h-6 bg-white/20"></div>
+              <div class="flex items-center gap-3 text-white/80">
+                <i class="fas fa-clock text-primary-glow"></i>
+                <span class="text-sm">Respuesta inmediata las 24 horas</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-     Contacto 
-    <section id="contacto" data-header="light" class="py-16 bg-white contact-section">
-      <div class="w-full max-w-4xl mx-auto bg-white rounded-lg shadow overflow-hidden md:flex contact-container">
-         Columna izquierda 
-        <div class="md:w-1/2 p-8 bg-gray-50 contact-features">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6">Nos destacamos por</h2>
-          
-          <div class="mb-6 flex contact-feature">
-            <i class="fas fa-train fa-2x text-primary mr-4 floating-icon"></i>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-800">Calidad de servicio</h3>
-              <p class="text-gray-600 mt-2">Ofrecemos un servicio de alta calidad respaldado por años de experiencia.</p>
-            </div>
-          </div>
-          
-          <div class="mb-6 flex contact-feature">
-            <i class="fas fa-bolt fa-2x text-primary mr-4 floating-icon"></i>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-800">Eficiencia</h3>
-              <p class="text-gray-600 mt-2">Trabajamos rápidamente sin sacrificar la precisión ni la calidad.</p>
-            </div>
-          </div>
-          
-          <div class="mb-6 flex contact-feature">
-            <i class="fas fa-shield-alt fa-2x text-primary mr-4 floating-icon"></i>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-800">Garantía</h3>
-              <p class="text-gray-600 mt-2">Todos nuestros servicios están respaldados con garantía de satisfacción.</p>
-            </div>
-          </div>
-        </div> -->
-        
-        <!-- Columna derecha (formulario) 
-        <div class="md:w-1/2 p-8 bg-blue-50 border-l border-gray-200 contact-form">
-          <h2 class="text-2xl font-bold text-primary mb-6">Contáctanos</h2>
-          <p class="text-primary mb-8">Si necesitas asistencia coloca tus datos en este formulario y un asesor se pondrá en contacto.</p>
-          
-          <form id="contactForm" class="space-y-6">
-             -- Campo anti-spam oculto --
-            <div style="display: none;">
-              <label for="website">Website</label>
-              <input type="text" id="website" name="website" tabindex="-1">
-            </div> 
-            
-            <div>
-              <label for="nombre" class="block text-sm font-semibold text-gray-800 mb-1">Nombre*</label>
-              <input type="text" id="nombre" name="nombre" required 
-                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                     style="font-size: 16px;">
-            </div>
-            
-            <div>
-              <label for="email" class="block text-sm font-semibold text-gray-800 mb-1">Correo electrónico*</label>
-              <input type="email" id="email" name="email" required 
-                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                     class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                     style="font-size: 16px;">
-            </div>
-            
-            <div>
-              <label for="servicio" class="block text-sm font-semibold text-gray-800 mb-1">Tipo de servicio</label>
-              <select id="servicio" name="servicio" 
-                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary appearance-none bg-white"
-                      style="font-size: 16px;">
-                <option value="" disabled selected>Selecciona un tipo de servicio</option>
-                <option value="instalacion">Instalación</option>
-                <option value="mantenimiento">Mantenimiento</option>
-                <option value="consultoria">Consultoría</option>
-                <option value="presupuesto">Solicitud de presupuesto</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-            
-            <div>
-              <label for="mensaje" class="block text-sm font-semibold text-gray-800 mb-1">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows="4" 
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                        style="font-size: 16px;"></textarea>
-            </div>
-            
-            <div>
-              <button type="submit" id="submitBtn" 
-                      class="w-full bg-primary text-white font-bold py-3 px-6 rounded hover:bg-[#535ca0] transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 form-submit">
-                <span>Enviar</span>
-              </button>
-            </div>
-          </form>
-          
-          <div id="successMessage" class="hidden text-center py-8 form-success">
-            <div class="success-checkmark text-green-500 text-6xl mb-4">
-              <i class="fas fa-check-circle"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">¡Mensaje enviado!</h3>
-            <p class="text-gray-600 mb-6">Gracias por contactarnos. Un asesor se pondrá en contacto contigo pronto.</p>
-            <button id="resetForm" class="text-primary font-medium hover:text-[#535ca0] focus:outline-none focus:ring-2 focus:ring-primary">
-              Enviar otro mensaje
-            </button>
-          </div>
-          
-          <div id="errorMessage" class="hidden text-center py-8 form-error">
-            <div class="text-red-500 text-6xl mb-4">
-              <i class="fas fa-exclamation-circle"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Error al enviar</h3>
-            <p class="text-gray-600 mb-6">Ha ocurrido un error. Por favor, inténtalo nuevamente.</p>
-            <button id="resetErrorForm" class="text-primary font-medium hover:text-[#535ca0] focus:outline-none focus:ring-2 focus:ring-primary">
-              Intentar nuevamente
-            </button>
-          </div>
-        </div>
-      </div>
-    </section> -->
   </main>
 
   <!-- Footer -->
@@ -596,7 +605,7 @@
           <p><i class="fas fa-envelope"></i> info@lermontgroup.com</p>
         </address>
         <div class="social-links">
-          <a href="https://www.facebook.com/share/19oSZ3dQvC/?mibextid=wwXIfr " target="_blank" aria-label="Facebook de Lermont Group"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.facebook.com/share/19oSZ3dQvC/?mibextid=wwXIfr" target="_blank" aria-label="Facebook de Lermont Group"><i class="fab fa-facebook-f"></i></a>
           <a href="#" target="_blank" aria-label="Twitter de Lermont Group"><i class="fab fa-twitter"></i></a>
           <a href="https://www.instagram.com/lermontgroup_?igsh=ZW1hMXI2dWo5eXdu" target="_blank" aria-label="Instagram de Lermont Group"><i class="fab fa-instagram"></i></a>
           <a href="#" target="_blank" aria-label="LinkedIn de Lermont Group"><i class="fab fa-linkedin-in"></i></a>
@@ -607,7 +616,7 @@
       <div class="footer-section" data-animate>
         <h3><i class="fas fa-link floating-icon"></i> Enlaces Rápidos</h3>
         <ul class="footer-links">
-          <li><a href="Index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
           <li><a href="services.html"><i class="fas fa-chevron-right"></i> Servicios</a></li>
           <li><a href="Proyectos.html"><i class="fas fa-chevron-right"></i> Portafolio</a></li>
           <li><a href="#quienes"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
@@ -625,17 +634,6 @@
                   title="Ubicación de Lermont Group SRL en Santo Domingo, República Dominicana"></iframe>
         </div>
       </div>
-
-      <!-- Newsletter 
-      <div class="footer-section" data-animate>
-        <h3><i class="fas fa-paper-plane floating-icon"></i> Newsletter</h3>
-        <p>Suscríbete para recibir nuestras últimas noticias y ofertas especiales.</p>
-        <form class="newsletter-form">
-          <input type="text" placeholder="Tu nombre" required>
-          <input type="email" placeholder="Tu correo electrónico" required>
-          <button type="submit">Suscribirse <i class="fas fa-paper-plane"></i></button>
-        </form>
-      </div>-->
     </div>
     
     <div class="footer-bottom">

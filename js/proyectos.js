@@ -16,24 +16,76 @@ document.addEventListener('DOMContentLoaded', () => {
     const particlesContainer = $('.particles-container');
     if (!particlesContainer) return;
 
-    for (let i = 0; i < 12; i++) {
+    // Limpiar partículas existentes
+    particlesContainer.innerHTML = '';
+
+    const particleCount = window.innerWidth < 768 ? 15 : 30;
+
+    for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
       
-      const size = Math.random() * 4 + 2;
+      const size = Math.random() * 6 + 2;
       const posX = Math.random() * 100;
       const posY = Math.random() * 100;
-      const delay = Math.random() * 5;
+      const delay = Math.random() * 8;
+      const duration = Math.random() * 4 + 4;
+      const blur = Math.random() * 4 + 2;
+      
+      // Tipos de partículas (círculos, cuadrados, triángulos)
+      const types = ['circle', 'square', 'triangle'];
+      const type = types[Math.floor(Math.random() * types.length)];
       
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
       particle.style.left = `${posX}%`;
       particle.style.top = `${posY}%`;
       particle.style.animationDelay = `${delay}s`;
-      particle.style.opacity = Math.random() * 0.6 + 0.2;
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.opacity = Math.random() * 0.4 + 0.1;
+      particle.style.filter = `blur(${blur}px)`;
+      
+      // Colores aleatorios dentro de la paleta
+      const colors = [
+        'rgba(107, 170, 249, 0.6)',  // primary-glow
+        'rgba(255, 255, 255, 0.8)',  // white
+        'rgba(67, 76, 136, 0.4)',    // primary
+      ];
+      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      
+      // Formas diferentes
+      if (type === 'circle') {
+        particle.style.borderRadius = '50%';
+      } else if (type === 'triangle') {
+        particle.style.width = '0';
+        particle.style.height = '0';
+        particle.style.borderLeft = `${size/2}px solid transparent`;
+        particle.style.borderRight = `${size/2}px solid transparent`;
+        particle.style.borderBottom = `${size}px solid ${colors[Math.floor(Math.random() * colors.length)]}`;
+        particle.style.background = 'none';
+      }
+      
+      // Animación personalizada
+      particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
       
       particlesContainer.appendChild(particle);
     }
+
+    // Añadir partículas interactivas
+    hero.addEventListener('mousemove', (e) => {
+      const particles = $$('.particle');
+      particles.forEach(particle => {
+        const rect = particle.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const distance = Math.sqrt(x * x + y * y);
+        
+        if (distance < 100) {
+          const force = (100 - distance) / 100;
+          particle.style.transform = `translate(${x * force * 0.1}px, ${y * force * 0.1}px)`;
+        }
+      });
+    });
   }
 
   /* =====================
@@ -104,26 +156,31 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.backdropFilter = 'blur(20px) saturate(180%)';
   }
 
+  /* =====================
+     NUEVA FUNCIÓN DE MENÚ MÓVIL (igual que en services.js)
+     ===================== */
   function initMobileMenu() {
     const btnMenu = document.getElementById('btn-menu');
-    const mainNav = document.getElementById('main-nav');
+    const mobileMenu = document.getElementById('mobile-menu');
     
-    if (!btnMenu || !mainNav) {
+    if (!btnMenu || !mobileMenu) {
       console.error('Elementos del menú móvil no encontrados');
       return;
     }
   
     // FORZAR CIERRE AL INICIO
-    mainNav.classList.remove('mobile-open');
     btnMenu.classList.remove('active');
     btnMenu.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('mobile-open');
+    mobileMenu.style.transform = 'translateY(-100%)';
+    mobileMenu.style.opacity = '0';
     document.body.style.overflow = '';
   
     btnMenu.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       
-      const isOpen = mainNav.classList.contains('mobile-open');
+      const isOpen = btnMenu.classList.contains('active');
       
       if (isOpen) {
         closeMobileMenu();
@@ -132,22 +189,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
-    // Cerrar menú al hacer clic en enlaces
-    document.querySelectorAll('#main-nav a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
+    // Cerrar menú al hacer clic en enlaces móviles
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
         closeMobileMenu();
-        const target = link.getAttribute('href');
-        setTimeout(() => {
-          window.location.href = target;
-        }, 300);
       });
     });
   
     // Cerrar menú al hacer clic fuera
     document.addEventListener('click', (e) => {
-      if (mainNav.classList.contains('mobile-open') && 
-          !mainNav.contains(e.target) && 
+      if (mobileMenu.classList.contains('mobile-open') && 
+          !mobileMenu.contains(e.target) && 
           !btnMenu.contains(e.target)) {
         closeMobileMenu();
       }
@@ -155,22 +207,26 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Cerrar menú con Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mainNav.classList.contains('mobile-open')) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-open')) {
         closeMobileMenu();
       }
     });
   
     function openMobileMenu() {
-      mainNav.classList.add('mobile-open');
       btnMenu.classList.add('active');
       btnMenu.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('mobile-open');
+      mobileMenu.style.transform = 'translateY(0)';
+      mobileMenu.style.opacity = '1';
       document.body.style.overflow = 'hidden';
     }
   
     function closeMobileMenu() {
-      mainNav.classList.remove('mobile-open');
       btnMenu.classList.remove('active');
       btnMenu.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('mobile-open');
+      mobileMenu.style.transform = 'translateY(-100%)';
+      mobileMenu.style.opacity = '0';
       document.body.style.overflow = '';
     }
   }
@@ -282,101 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'Mantenimiento predictivo'
       ],
       tags: ['Iluminación', 'Eficiencia Energética', 'Infraestructura']
-    },
-    'chiller': {
-      image: 'imagenes/lermont_page8_img3.jpeg',
-      title: 'INSTALACIÓN CHILLER DE AGUA HELADA - PALACIO DE BELLAS ARTES',
-      description: `
-        <p class="mb-3">Sistema de climatización del Palacio de Bellas Artes mediante chiller de agua helada de 182.7 toneladas de capacidad.</p>
-        <p class="mb-3">Este sistema de alta eficiencia garantiza condiciones climáticas óptimas para la preservación de obras de arte y comodidad de visitantes, manteniendo temperatura y humedad controladas.</p>
-        <p><strong>Ubicación:</strong> Palacio de Bellas Artes</p>
-        <p><strong>Duración:</strong> 5 meses</p>
-        <p><strong>Capacidad:</strong> 182.7 toneladas</p>
-      `,
-      features: [
-        'Chiller de agua helada de alta eficiencia',
-        'Control de temperatura y humedad preciso',
-        'Sistema silencioso para ambiente cultural',
-        'Mantenimiento preventivo programado',
-        'Monitoreo remoto 24/7'
-      ],
-      tags: ['Climatización', 'HVAC', 'Eficiencia Energética']
-    },
-    'transformador': {
-      image: 'imagenes/lermont_page48_img1.jpeg',
-      title: 'TRANSFORMADOR 1000KVA - ESTACIÓN T3 SABANA PERDIDA',
-      description: `
-        <p class="mb-3">Instalación de transformador de 1000KVA e ITM en la estación T3 de Sabana Perdida para mejorar la capacidad de distribución eléctrica de la zona.</p>
-        <p class="mb-3">El proyecto requirió planificación detallada y coordinación con las autoridades eléctricas para garantizar la continuidad del servicio durante la instalación.</p>
-        <p><strong>Ubicación:</strong> Estación T3, Sabana Perdida</p>
-        <p><strong>Duración:</strong> 2 meses</p>
-        <p><strong>Capacidad:</strong> 1000 KVA</p>
-      `,
-      features: [
-        'Transformador de 1000KVA de capacidad',
-        'Sistemas de protección ITM',
-        'Coordinación con autoridades eléctricas',
-        'Pruebas de carga completas',
-        'Documentación técnica completa'
-      ],
-      tags: ['Eléctrico', 'Subestación', 'Infraestructura']
-    },
-    'cables': {
-      image: 'imagenes/lermont_page49_img2.jpeg',
-      title: 'INSTALACIÓN DE CABLES - ESTACIÓN 21 METRO DE SANTO DOMINGO',
-      description: `
-        <p class="mb-3">Instalación de sistema de cableado especializado en la Estación 21 del Metro de Santo Domingo para garantizar la seguridad y eficiencia del sistema de transporte.</p>
-        <p class="mb-3">El proyecto incluyó la implementación de cables de alta capacidad y sistemas de protección avanzados para operaciones críticas.</p>
-        <p><strong>Ubicación:</strong> Estación 21, Metro de Santo Domingo</p>
-        <p><strong>Duración:</strong> 3 meses</p>
-        <p><strong>Cableado:</strong> 5,000 metros lineales</p>
-      `,
-      features: [
-        'Cables de alta capacidad instalados',
-        'Sistemas de protección avanzados',
-        'Cumplimiento normas de seguridad',
-        'Documentación as-built completa',
-        'Pruebas de funcionamiento'
-      ],
-      tags: ['Cableado', 'Metro', 'Infraestructura']
-    },
-    'generadores': {
-      image: 'imagenes/lermont_page51_img2.jpeg',
-      title: 'INSTALACIÓN DE GENERADORES ELÉCTRICOS - SISTEMA DE RESPALDO',
-      description: `
-        <p class="mb-3">Instalación completa de generadores eléctricos y sistemas de mantenimiento para garantizar energía de respaldo en instalaciones críticas.</p>
-        <p class="mb-3">Los sistemas incluyen transferencia automática y monitoreo continuo para operación sin interrupciones durante cortes de energía.</p>
-        <p><strong>Ubicación:</strong> Múltiples ubicaciones</p>
-        <p><strong>Duración:</strong> Variable por proyecto</p>
-        <p><strong>Capacidad:</strong> Hasta 500 KVA</p>
-      `,
-      features: [
-        'Generadores de diversas capacidades',
-        'Sistemas de transferencia automática',
-        'Monitoreo continuo 24/7',
-        'Mantenimiento preventivo programado',
-        'Pruebas periódicas de funcionamiento'
-      ],
-      tags: ['Generadores', 'Energía', 'Respaldo']
-    },
-    'vrf': {
-      image: 'imagenes/lermont_page16_img1.jpeg',
-      title: 'SISTEMA VRF - MINISTERIO ADMINISTRATIVO DE LA PRESIDENCIA (MAPRE)',
-      description: `
-        <p class="mb-3">Instalación de sistema VRF de 20 toneladas para la recepción del Ministerio Administrativo de la Presidencia (MAPRE).</p>
-        <p class="mb-3">Este sistema de climatización variable permite un control independiente de temperatura en diferentes zonas del edificio, optimizando el confort y el consumo energético.</p>
-        <p><strong>Ubicación:</strong> MAPRE, Santo Domingo</p>
-        <p><strong>Duración:</strong> 4 meses</p>
-        <p><strong>Capacidad:</strong> 20 toneladas</p>
-      `,
-      features: [
-        'Sistema VRF de 20 toneladas',
-        'Control zonal independiente',
-        'Alta eficiencia energética',
-        'Operación silenciosa',
-        'Mantenimiento predictivo'
-      ],
-      tags: ['VRF', 'Climatización', 'Eficiencia Energética']
     }
   };
 
@@ -516,24 +477,44 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Inicialización de todos los módulos para proyectos
      ===================== */
-  function init() {
+    function init() {
     createParticles();
     createScrollProgress();
     createInteractiveCursor();
     initHeader();
-    initMobileMenu();
+    initMobileMenu(); // Usar la nueva función
     initAnimations();
     initProjectModals();
     initSmoothScroll();
     initProjectCards();
 
-    // Ajustar altura del hero
+    // Ajuste simple de altura - sin cálculos complejos
     setTimeout(() => {
       const hero = $('#proyectos-hero');
-      if (hero) {
-        hero.style.minHeight = `calc(100vh - ${header?.offsetHeight || 0}px)`;
+      const header = $('header');
+      
+      if (hero && header) {
+        const headerHeight = header.offsetHeight;
+        hero.style.paddingTop = `${headerHeight}px`;
+        hero.style.minHeight = `calc(90vh - ${headerHeight}px)`;
       }
     }, 100);
+
+    // Ajustar en resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const hero = $('#proyectos-hero');
+        const header = $('header');
+        
+        if (hero && header) {
+          const headerHeight = header.offsetHeight;
+          hero.style.paddingTop = `${headerHeight}px`;
+          hero.style.minHeight = `calc(90vh - ${headerHeight}px)`;
+        }
+      }, 250);
+    });
   }
 
   // Iniciar la aplicación
@@ -665,3 +646,48 @@ window.addProjectCard = function(projectData) {
   
   grid.appendChild(card);
 };
+// Interacciones para la sección CTA
+function initCTAEffects() {
+  const ctaButtons = document.querySelectorAll('.cta-premium-button');
+  
+  ctaButtons.forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const angleY = (x - centerX) / 20;
+      const angleX = (centerY - y) / 20;
+      
+      button.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+    });
+    
+    button.addEventListener('mouseleave', () => {
+      button.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+  });
+  
+  // Efecto de conteo para estadísticas (si las añades con números reales)
+  const stats = document.querySelectorAll('.stat-number');
+  stats.forEach(stat => {
+    const target = parseInt(stat.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      stat.textContent = Math.floor(current) + '+';
+    }, 16);
+  });
+}
+
+// Llamar la función después de que se cargue el DOM
+document.addEventListener('DOMContentLoaded', initCTAEffects);
