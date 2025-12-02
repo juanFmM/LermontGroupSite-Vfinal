@@ -265,9 +265,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectsDataExtended = {
     'planta-tratamiento': {
       images: [
-        'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTA 11.jpeg.jpg',
-        'imagenes/lermont_page30_img2.jpeg',
-        'imagenes/lermont_page33_img1.jpeg'
+        'imagenes 2.0/PALACION DE BELLAS ARTES/ARRANQUE INSTALACIÓN CHILLER (4).jpg',
+        'imagenes 2.0/PALACION DE BELLAS ARTES/DESARME.jpg',
+        'imagenes 2.0/PALACION DE BELLAS ARTES/DESMONTE CHILLER VIEJO 2 (1).jpg',
+        'imagenes 2.0/PALACION DE BELLAS ARTES/DESMONTE DE CHILLER VIEJO (1).jpg',
+        'imagenes 2.0/PALACION DE BELLAS ARTES/DESMONTE MANEJADORA VIEJA (1.5).jpg',
+        'imagenes 2.0/PALACION DE BELLAS ARTES/LISTA 2.jpg'
       ],
       title: 'PALACIO DE BELLAS ARTES - 2023 - SD',
       description: `
@@ -289,8 +292,17 @@ document.addEventListener('DOMContentLoaded', () => {
     'remozamiento-oficina': {
       images: [
         'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/ISAJE (3).jpg',
-        'imagenes/lermont_page35_img2.jpeg',
-        'imagenes/lermont_page44_img1.jpeg'
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/INSTALACION TUBERIA DE TORRE (6).jpeg',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/INSTALACION TUBERIA DE TORRE 2 (6).jpeg',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/INSTALACION TUBERIA DE TORRE 3 (6).jpeg',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/INSTALACION TUBERIA DE TORRE 4 (6).jpeg',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/INSTALACION TUBERIA DE TORRE 5 (6).jpeg',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/INSTALACION TUBERIA DE TORRE 6 (6).jpeg',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/DESMONTE 2 (1).png',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/DESMONTE 3 (1).png',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/CUARTO DE MAQUINA.png',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/CUARTO DE MAQUINA (7).png',
+        'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/CUARTO DE MAQUINA 2 (7).png'
       ],
       title: 'PROYECTO HOTEL JARAGUA - 2024 - SD',
       description: `
@@ -312,8 +324,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'pavimentacion': {
       images: [
         'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO DESMONTE EXISTENTE 2 (1).jpg',
-        'imagenes/lermont_page8_img3.jpeg',
-        'imagenes/lermont_page48_img1.jpeg'
+        'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO DESMONTE EXISTENTE (1).jpg',
+        'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO DESMONTE EXISTENTE 3 (1).jpg',
+        'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO GRUA (3).jpg',
+        'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO INST. SISTEMA DE CONTROL.jpg',
+        'imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO LLEGADA DE EQUIPOS( 3).jpg',
       ],
       title: 'PALACIO PRESIDENCIAL - 2023 - SD',
       description: `
@@ -335,8 +350,14 @@ document.addEventListener('DOMContentLoaded', () => {
     'iluminacion': {
       images: [
         'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/CHILLER INSTALADO (6).jpg',
-        'imagenes/lermont_page49_img2.jpeg',
-        'imagenes/lermont_page51_img2.jpeg'
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/CHILLER INSTALADO (6.5).jpg',
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/DESMONTE CHILLER VIEJO (2).jpg',
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/DESMONTE CHILLER VIEJO (2.5).jpg',
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/INSTALACION MECANICA CHILLER (5).jpg',
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/INSTALACION MECANICA CHILLER 2 (5.5).jpg',
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/llEGADA CHILLER (1).jpg',
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/ISAJE CHILLER NUEVO (3).jpg',
+        'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/ISAJE CHILLER NUEVO (3.5).jpg',
       ],
       title: 'INSTALACIÓN DE CHILLER PGR - 2025 - SD',
       description: `
@@ -716,6 +737,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, 250);
     });
+    
+
+    
   }
 
   // Iniciar la aplicación
