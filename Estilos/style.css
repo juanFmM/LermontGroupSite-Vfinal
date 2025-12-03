@@ -518,9 +518,9 @@ header {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
-/* -------------------------
+/* =========================
    Secciones modernizadas
-   ------------------------- */
+   ========================= */
 section {
   padding: 5rem 0;
   position: relative;
@@ -1478,4 +1478,346 @@ body.no-scroll {
 .menu-overlay.active {
   opacity: 1;
   visibility: visible;
+}
+
+/* =========================
+   Mejoras para el Hero - Texto completo
+   ========================= */
+.hero-title {
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.025em;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+}
+
+/* =========================
+   Modernización de "Quiénes Somos"
+   ========================= */
+.about-section {
+  position: relative;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(67, 76, 136, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(107, 170, 249, 0.05) 0%, transparent 50%);
+}
+
+.about-section > div {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.about-section ul {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.about-section li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  transition: all var(--transition);
+}
+
+.about-section li::before {
+  content: '✓';
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.about-section li:hover {
+  transform: translateX(10px);
+  color: var(--primary);
+}
+
+/* =========================
+   Modernización de Misión, Visión, Valores
+   ========================= */
+.values-section .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  border: 1px solid rgba(67, 76, 136, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.values-section .card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-glow));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.values-section .card:hover::after {
+  transform: scaleX(1);
+}
+
+.values-section .card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.values-section .card:nth-child(1) h3::before {
+  content: '🎯';
+}
+
+.values-section .card:nth-child(2) h3::before {
+  content: '👁️';
+}
+
+.values-section .card:nth-child(3) h3::before {
+  content: '💎';
+}
+
+.values-section .card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(67, 76, 136, 0.1);
+}
+
+.values-section .card ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  transition: all var(--transition);
+}
+
+.values-section .card ul li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 0.8rem;
+  transition: transform var(--transition);
+}
+
+.values-section .card:hover ul li {
+  transform: translateX(5px);
+}
+
+.values-section .card:hover ul li::before {
+  transform: translateX(3px);
+}
+
+/* =========================
+   Modernización de Servicios
+   ========================= */
+.services-section .card {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(67, 76, 136, 0.1);
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services-section .card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(transparent, rgba(67, 76, 136, 0.1), transparent);
+  animation: rotate 4s linear infinite;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.services-section .card:hover::before {
+  opacity: 1;
+}
+
+.services-section .card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.services-section .card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+}
+
+.services-section .card:nth-child(1) h3::before {
+  content: '⚡';
+  font-size: 1.5rem;
+}
+
+.services-section .card:nth-child(2) h3::before {
+  content: '❄️';
+  font-size: 1.5rem;
+}
+
+.services-section .card:nth-child(3) h3::before {
+  content: '💨';
+  font-size: 1.5rem;
+}
+
+.services-section .card:nth-child(4) h3::before {
+  content: '🔧';
+  font-size: 1.5rem;
+}
+
+.services-section .card:nth-child(5) h3::before {
+  content: '🏗️';
+  font-size: 1.5rem;
+}
+
+.services-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(67, 76, 136, 0.1);
+  background: linear-gradient(145deg, #ffffff, #fafcff);
+}
+
+/* =========================
+   Modernización de la sección de Contacto
+   ========================= */
+.contact-container {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.contact-features .contact-feature {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
+  border: 1px solid rgba(67, 76, 136, 0.1);
+}
+
+.contact-features .floating-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+.contact-feature:hover .floating-icon {
+  animation: spin 0.6s ease;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* =========================
+   Efectos de gradiente animado para títulos
+   ========================= */
+.section-title {
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    var(--primary-glow) 25%,
+    var(--text) 50%,
+    var(--primary-glow) 75%,
+    var(--primary) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* =========================
+   Responsive mejorado
+   ========================= */
+@media (max-width: 768px) {
+  .about-section > div {
+    padding: 2rem 1.5rem;
+  }
+  
+  .values-section .card,
+  .services-section .card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .services-section .card h3 {
+    min-height: auto;
+    font-size: 1.2rem;
+  }
+  
+  .contact-features .contact-feature {
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  .contact-features .floating-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* =========================
+   Efectos de entrada más suaves
+   ========================= */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }

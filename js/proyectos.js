@@ -1,4 +1,4 @@
-// js/proyectos.js - Versión moderna con header blanco permanente y carrusel de imágenes
+// js/proyectos.js - Versión moderna mejorada
 document.addEventListener('DOMContentLoaded', () => {
   /* =====================
      Helpers modernos
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
   /* =====================
-     Sistema de partículas para el hero de proyectos
+     Sistema de partículas para el hero
      ===================== */
   function createParticles() {
     const hero = $('#proyectos-hero');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const duration = Math.random() * 4 + 4;
       const blur = Math.random() * 4 + 2;
       
-      // Tipos de partículas (círculos, cuadrados, triángulos)
+      // Tipos de partículas
       const types = ['circle', 'square', 'triangle'];
       const type = types[Math.floor(Math.random() * types.length)];
       
@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
       particle.style.opacity = Math.random() * 0.4 + 0.1;
       particle.style.filter = `blur(${blur}px)`;
       
-      // Colores aleatorios dentro de la paleta
+      // Colores aleatorios
       const colors = [
-        'rgba(107, 170, 249, 0.6)',  // primary-glow
-        'rgba(255, 255, 255, 0.8)',  // white
-        'rgba(67, 76, 136, 0.4)',    // primary
+        'rgba(107, 170, 249, 0.6)',
+        'rgba(255, 255, 255, 0.8)',
+        'rgba(67, 76, 136, 0.4)',
       ];
       particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
       
@@ -70,22 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
       particlesContainer.appendChild(particle);
     }
-
-    // Añadir partículas interactivas
-    hero.addEventListener('mousemove', (e) => {
-      const particles = $$('.particle');
-      particles.forEach(particle => {
-        const rect = particle.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const distance = Math.sqrt(x * x + y * y);
-        
-        if (distance < 100) {
-          const force = (100 - distance) / 100;
-          particle.style.transform = `translate(${x * force * 0.1}px, ${y * force * 0.1}px)`;
-        }
-      });
-    });
   }
 
   /* =====================
@@ -107,43 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Cursor interactivo
-     ===================== */
-  function createInteractiveCursor() {
-    const cursor = document.createElement('div');
-    cursor.className = 'interactive-cursor';
-    document.body.appendChild(cursor);
-
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    // Elementos interactivos
-    const interactiveElements = $$('a, button, .card, .cta-button, .project-card');
-    
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
-      });
-      
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-      });
-    });
-
-    // Ocultar cursor en dispositivos táctiles
-    if ('ontouchstart' in window) {
-      cursor.style.display = 'none';
-    }
-  }
-
-  /* =====================
-     HEADER & MENÚ MÓVIL - Fondo blanco permanente
+     HEADER & MENÚ MÓVIL
      ===================== */
   const header = $('header');
-  const btnMenu = $('#btn-menu');
-  const mainNav = $('#main-nav');
 
   function initHeader() {
     if (!header) return;
@@ -157,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     NUEVA FUNCIÓN DE MENÚ MÓVIL (igual que en services.js)
+     FUNCIÓN DE MENÚ MÓVIL
      ===================== */
   function initMobileMenu() {
     const btnMenu = document.getElementById('btn-menu');
@@ -260,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     DATOS COMPLETOS DE PROYECTOS CON MÚLTIPLES IMÁGENES
+     DATOS COMPLETOS DE PROYECTOS
      ===================== */
   const projectsDataExtended = {
     'planta-tratamiento': {
@@ -274,11 +224,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       title: 'PALACIO DE BELLAS ARTES - 2023 - SD',
       description: `
-      <p class="mb-3">Instalación de dos chiller enfriado por aire de 182 T con su sistema de bombeo y controles</p>
-      <h2 class="font-bold text-primary mt-4 mb-2"><strong>Objetivo del proyecto</strong></h2>
-      <p class="mb-3">Implementar un sistema de climatización eficiente y confiable mediante la instalación de dos chillers enfriados por aire, con el fin de mejorar la capacidad de enfriamiento, optimizar el consumo energético y asegurar el confort térmico en las instalaciones.</p>
-      <h2 class="font-bold text-primary mt-4 mb-2"><strong>Descripción:</strong></h2>
-      <p class="mb-3">Este proyecto contempló la instalación de dos unidades de chiller enfriados por aire, cada uno con una capacidad de 182 toneladas de refrigeración (TR), así como la integración de sus respectivos sistemas de bombeo y control.</p>
+      <p class="mb-4 text-lg">Instalación de dos chiller enfriado por aire de 182 T con su sistema de bombeo y controles</p>
+      <div class="bg-gray-50 p-5 rounded-xl mb-6">
+        <h3 class="font-bold text-primary text-xl mb-3"><strong>Objetivo del proyecto</strong></h3>
+        <p class="mb-4">Implementar un sistema de climatización eficiente y confiable mediante la instalación de dos chillers enfriados por aire, con el fin de mejorar la capacidad de enfriamiento, optimizar el consumo energético y asegurar el confort térmico en las instalaciones.</p>
+        <h3 class="font-bold text-primary text-xl mb-3"><strong>Descripción:</strong></h3>
+        <p>Este proyecto contempló la instalación de dos unidades de chiller enfriados por aire, cada uno con una capacidad de 182 toneladas de refrigeración (TR), así como la integración de sus respectivos sistemas de bombeo y control.</p>
+      </div>
       `,
       features: [
         'Sistema de tratamiento biológico avanzado',
@@ -306,11 +258,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       title: 'PROYECTO HOTEL JARAGUA - 2024 - SD',
       description: `
-        <p class="mb-3">Instalación de un chiller y torre de enfriamiento enfriado por agua de 250 T con su sistema de bombeo y controles</p>
-        <h2 class="font-bold text-primary mt-4 mb-2"><strong>Objetivo del proyecto</strong></h2>
-        <p class="mb-3">Modernizar el sistema de climatización mediante la instalación de un chiller enfriado por agua de 250 TR en conjunto con una torre de enfriamiento, buscando mejorar el rendimiento térmico, reducir el consumo energético y garantizar un control más eficiente de las condiciones ambientales en la instalación.</p>
-        <h2 class="font-bold text-primary mt-4 mb-2"><strong>Descripción:</strong></h2>
-        <p class="mb-3">Este proyecto incluyó la instalación de un sistema completo de enfriamiento centralizado, compuesto por un chiller enfriado por agua de 250 toneladas de refrigeración (TR) y una torre de enfriamiento, junto con sus sistemas de bombeo y controles automatizados.</p>
+        <p class="mb-4 text-lg">Instalación de un chiller y torre de enfriamiento enfriado por agua de 250 T con su sistema de bombeo y controles</p>
+        <div class="bg-gray-50 p-5 rounded-xl mb-6">
+          <h3 class="font-bold text-primary text-xl mb-3"><strong>Objetivo del proyecto</strong></h3>
+          <p class="mb-4">Modernizar el sistema de climatización mediante la instalación de un chiller enfriado por agua de 250 TR en conjunto con una torre de enfriamiento, buscando mejorar el rendimiento térmico, reducir el consumo energético y garantizar un control más eficiente de las condiciones ambientales en la instalación.</p>
+          <h3 class="font-bold text-primary text-xl mb-3"><strong>Descripción:</strong></h3>
+          <p>Este proyecto incluyó la instalación de un sistema completo de enfriamiento centralizado, compuesto por un chiller enfriado por agua de 250 toneladas de refrigeración (TR) y una torre de enfriamiento, junto con sus sistemas de bombeo y controles automatizados.</p>
+        </div>
       `,
       features: [
         'Diseño de interiores moderno',
@@ -332,11 +286,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       title: 'PALACIO PRESIDENCIAL - 2023 - SD',
       description: `
-      <p class="mb-3">Instalacion de 2 Mini Chiller de 5T</p>
-      <h2 class="font-bold text-primary mt-4 mb-2"><strong>Objetivo del proyecto</strong></h2>
-      <p class="mb-3">Mejorar el sistema de climatización de áreas específicas mediante la instalación de dos mini chillers de 5 toneladas de refrigeración (TR) cada uno, con el objetivo de proporcionar un control térmico más eficiente, localizado y de bajo consumo energético.</p>
-      <h2 class="font-bold text-primary mt-4 mb-2"><strong>Descripción:</strong></h2>
-      <p class="mb-3">El proyecto comprendió la instalación de dos unidades mini chiller enfriadas por aire, cada una con una capacidad de 5 TR, orientadas a climatizar zonas de menor demanda térmica o con requerimientos independientes del sistema central.</p>
+      <p class="mb-4 text-lg">Instalacion de 2 Mini Chiller de 5T</p>
+      <div class="bg-gray-50 p-5 rounded-xl mb-6">
+        <h3 class="font-bold text-primary text-xl mb-3"><strong>Objetivo del proyecto</strong></h3>
+        <p class="mb-4">Mejorar el sistema de climatización de áreas específicas mediante la instalación de dos mini chillers de 5 toneladas de refrigeración (TR) cada uno, con el objetivo de proporcionar un control térmico más eficiente, localizado y de bajo consumo energético.</p>
+        <h3 class="font-bold text-primary text-xl mb-3"><strong>Descripción:</strong></h3>
+        <p>El proyecto comprendió la instalación de dos unidades mini chiller enfriadas por aire, cada una con una capacidad de 5 TR, orientadas a climatizar zonas de menor demanda térmica o con requerimientos independientes del sistema central.</p>
+      </div>
       `,
       features: [
         'Pavimento asfáltico de alta resistencia',
@@ -361,11 +317,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       title: 'INSTALACIÓN DE CHILLER PGR - 2025 - SD',
       description: `
-      <p class="mb-3">Instalación de un chiller enfriado por aire 170T</p>
-      <h2 class="font-bold text-primary mt-4 mb-2"><strong>Objetivo del proyecto</strong></h2>
-      <p class="mb-3">Reforzar la capacidad del sistema de climatización mediante la incorporación de un chiller enfriado por aire de 170 toneladas de refrigeración (TR), con el fin de mejorar la eficiencia energética, garantizar el confort térmico y asegurar una operación continua y confiable.</p>
-      <h2 class="font-bold text-primary mt-4 mb-2"><strong>Descripción:</strong></h2>
-      <p class="mb-3">El proyecto consistió en la instalación de un chiller enfriado por aire con una capacidad de 170 TR, diseñado para atender la demanda térmica de las instalaciones con un sistema más eficiente y de menor mantenimiento en comparación con otras tecnologías.</p>
+      <p class="mb-4 text-lg">Instalación de un chiller enfriado por aire 170T</p>
+      <div class="bg-gray-50 p-5 rounded-xl mb-6">
+        <h3 class="font-bold text-primary text-xl mb-3"><strong>Objetivo del proyecto</strong></h3>
+        <p class="mb-4">Reforzar la capacidad del sistema de climatización mediante la incorporación de un chiller enfriado por aire de 170 toneladas de refrigeración (TR), con el fin de mejorar la eficiencia energética, garantizar el confort térmico y asegurar una operación continua y confiable.</p>
+        <h3 class="font-bold text-primary text-xl mb-3"><strong>Descripción:</strong></h3>
+        <p>El proyecto consistió en la instalación de un chiller enfriado por aire con una capacidad de 170 TR, diseñado para atender la demanda térmica de las instalaciones con un sistema más eficiente y de menor mantenimiento en comparación con otras tecnologías.</p>
+      </div>
       `,
       features: [
         'Tecnología LED de alta eficiencia',
@@ -379,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* =====================
-     SISTEMA DE MODAL PARA PROYECTOS CON CARRUSEL
+     SISTEMA DE MODAL PARA PROYECTOS
    ===================== */
   function initProjectModals() {
     const modal = $('#projectModal');
@@ -409,20 +367,20 @@ document.addEventListener('DOMContentLoaded', () => {
       images.forEach((image, index) => {
         // Slide
         const slide = document.createElement('div');
-        slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+        slide.className = `carousel-slide-modern ${index === 0 ? 'active' : ''}`;
         slide.style.minWidth = '100%';
         slide.style.transition = 'transform 0.5s ease';
         
         const img = document.createElement('img');
         img.src = image;
         img.alt = `Imagen ${index + 1} del proyecto`;
-        img.className = 'w-full h-64 md:h-80 object-cover rounded-lg';
+        img.className = 'w-full h-full object-cover rounded-xl';
         slide.appendChild(img);
         modalCarouselInner.appendChild(slide);
         
         // Indicador
         const indicator = document.createElement('button');
-        indicator.className = `carousel-indicator ${index === 0 ? 'active' : ''}`;
+        indicator.className = `carousel-indicator-modern ${index === 0 ? 'active' : ''}`;
         indicator.setAttribute('data-slide', index);
         indicator.setAttribute('aria-label', `Ir a imagen ${index + 1}`);
         indicator.addEventListener('click', () => goToSlide(index));
@@ -446,20 +404,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function nextSlide() {
-      const slides = document.querySelectorAll('.carousel-slide');
+      const slides = document.querySelectorAll('.carousel-slide-modern');
       currentSlide = (currentSlide + 1) % slides.length;
       updateCarousel();
     }
     
     function prevSlide() {
-      const slides = document.querySelectorAll('.carousel-slide');
+      const slides = document.querySelectorAll('.carousel-slide-modern');
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       updateCarousel();
     }
     
     function updateCarousel() {
-      const slides = document.querySelectorAll('.carousel-slide');
-      const indicators = document.querySelectorAll('.carousel-indicator');
+      const slides = document.querySelectorAll('.carousel-slide-modern');
+      const indicators = document.querySelectorAll('.carousel-indicator-modern');
       
       // Ocultar todos los slides
       slides.forEach((slide, index) => {
@@ -500,18 +458,18 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       prevSlide();
       stopAutoSlide();
-      setTimeout(startAutoSlide, 10000); // Reanudar después de 10 segundos
+      setTimeout(startAutoSlide, 10000);
     });
     
     modalNextBtn?.addEventListener('click', (e) => {
       e.stopPropagation();
       nextSlide();
       stopAutoSlide();
-      setTimeout(startAutoSlide, 10000); // Reanudar después de 10 segundos
+      setTimeout(startAutoSlide, 10000);
     });
     
     // Abrir modal al hacer clic en cualquier tarjeta de proyecto
-    document.querySelectorAll('.project-card').forEach(card => {
+    document.querySelectorAll('.project-card-modern').forEach(card => {
       card.addEventListener('click', function() {
         const projectId = this.getAttribute('data-project');
         const project = projectsDataExtended[projectId];
@@ -528,10 +486,10 @@ document.addEventListener('DOMContentLoaded', () => {
           modalFeatures.innerHTML = '';
           project.features.slice(0, 5).forEach(feature => {
             const li = document.createElement('li');
-            li.className = 'flex items-start mb-2';
+            li.className = 'flex items-start mb-3 p-3 bg-gray-50 rounded-lg';
             li.innerHTML = `
-              <i class="fas fa-check-circle text-primary mt-1 mr-3 flex-shrink-0"></i>
-              <span class="text-gray-700">${feature}</span>
+              <i class="fas fa-check-circle text-primary mt-1 mr-4 flex-shrink-0 text-lg"></i>
+              <span class="text-gray-700 text-lg">${feature}</span>
             `;
             modalFeatures.appendChild(li);
           });
@@ -540,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
           modalTags.innerHTML = '';
           project.tags.slice(0, 3).forEach(tag => {
             const span = document.createElement('span');
-            span.className = 'inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm mr-2 mb-2';
+            span.className = 'inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-base font-medium mr-3 mb-3';
             span.textContent = tag;
             modalTags.appendChild(span);
           });
@@ -630,12 +588,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const endX = e.changedTouches[0].clientX;
       const diffX = startX - endX;
       
-      if (Math.abs(diffX) > 50) { // Umbral mínimo para considerar un swipe
+      if (Math.abs(diffX) > 50) {
         if (diffX > 0) {
-          // Swipe izquierda = siguiente
           window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
         } else {
-          // Swipe derecha = anterior
           window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }));
         }
       }
@@ -645,7 +601,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Efectos de scroll suave mejorados
+     Efectos de scroll suave
      ===================== */
   function initSmoothScroll() {
     $$('a[href^="#"]').forEach(link => {
@@ -672,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
      Efectos específicos para cards de proyectos
      ===================== */
   function initProjectCards() {
-    const cards = $$('.project-card');
+    const cards = $$('.project-card-modern');
     
     cards.forEach(card => {
       // Efecto de tilt en mousemove
@@ -697,20 +653,66 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
-     Inicialización de todos los módulos para proyectos
+     Filtros de proyectos
      ===================== */
-    function init() {
+  function initProjectFilters() {
+    const filterButtons = $$('.filter-btn');
+    const projectCards = $$('.project-card-modern');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remover clase active de todos los botones
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Agregar clase active al botón clickeado
+        this.classList.add('active');
+        
+        const filterValue = this.textContent.trim();
+        
+        // Filtrar proyectos
+        projectCards.forEach(card => {
+          if (filterValue === 'Todos') {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            const category = card.getAttribute('data-category');
+            if (category && category.toLowerCase().includes(filterValue.toLowerCase())) {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                card.style.display = 'none';
+              }, 300);
+            }
+          }
+        });
+      });
+    });
+  }
+
+  /* =====================
+     Inicialización de todos los módulos
+     ===================== */
+  function init() {
     createParticles();
     createScrollProgress();
-    createInteractiveCursor();
     initHeader();
-    initMobileMenu(); // Usar la nueva función
+    initMobileMenu();
     initAnimations();
     initProjectModals();
     initSmoothScroll();
     initProjectCards();
+    initProjectFilters();
 
-    // Ajuste simple de altura - sin cálculos complejos
+    // Ajuste de altura del hero
     setTimeout(() => {
       const hero = $('#proyectos-hero');
       const header = $('header');
@@ -737,9 +739,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, 250);
     });
-    
-
-    
   }
 
   // Iniciar la aplicación
@@ -764,15 +763,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const criticalImages = [
       'imagenes/Logo-removebg-preview.png',
       'imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/DESMONTE CHILLER VIEJO (2).jpg',
-      'imagenes/lermont_page30_img2.jpeg',
-      'imagenes/lermont_page33_img1.jpeg',
-      'imagenes/lermont_page35_img2.jpeg',
-      'imagenes/lermont_page44_img1.jpeg',
-      'imagenes/lermont_page8_img3.jpeg',
-      'imagenes/lermont_page48_img1.jpeg',
-      'imagenes/lermont_page49_img2.jpeg',
-      'imagenes/lermont_page51_img2.jpeg',
-      'imagenes/lermont_page16_img1.jpeg'
+      'imagenes 2.0/PALACION DE BELLAS ARTES/Foto Modificada.jpg',
+      'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/FOTO MODIFICADA.jpg'
     ];
 
     criticalImages.forEach(src => {
@@ -785,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =====================
-   Animaciones del Footer para proyectos
+   Animaciones del Footer
    ===================== */
 function initFooterAnimations() {
   const footerSections = document.querySelectorAll('.footer-section');
@@ -793,7 +785,6 @@ function initFooterAnimations() {
   
   if (!footer || !footerSections.length) return;
 
-  // Observer para animar las secciones al hacer scroll
   const footerObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -807,112 +798,7 @@ function initFooterAnimations() {
   }, { threshold: 0.1 });
 
   footerObserver.observe(footer);
-
-  // Efectos hover mejorados para los enlaces
-  initFooterHoverEffects();
 }
 
-function initFooterHoverEffects() {
-  // Efectos para los enlaces de contacto
-  const contactItems = document.querySelectorAll('.footer-section address p');
-  contactItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateX(10px)';
-    });
-    
-    item.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateX(0)';
-    });
-  });
-
-  // Efectos para el formulario de newsletter
-  const newsletterInputs = document.querySelectorAll('.newsletter-form input');
-  newsletterInputs.forEach(input => {
-    input.addEventListener('focus', function() {
-      this.parentElement.classList.add('focused');
-    });
-    
-    input.addEventListener('blur', function() {
-      if (!this.value) {
-        this.parentElement.classList.remove('focused');
-      }
-    });
-  });
-}
-
-// Inicializar animaciones del footer cuando el DOM esté listo
+// Inicializar animaciones del footer
 document.addEventListener('DOMContentLoaded', initFooterAnimations);
-
-// Exportar funciones globales si es necesario
-window.addProjectCard = function(projectData) {
-  const grid = document.querySelector('#galeria-proyectos .grid');
-  if (!grid) return;
-
-  const card = document.createElement('div');
-  card.className = 'project-card card group';
-  card.setAttribute('data-project', projectData.id);
-  card.setAttribute('data-animate', '');
-  card.innerHTML = `
-    <div class="relative overflow-hidden rounded-xl mb-4">
-      <img src="${projectData.image}" alt="${projectData.title}" class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
-      <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-        <div class="text-white text-center p-4">
-          <i class="fas fa-search-plus text-3xl mb-2"></i>
-          <h3 class="text-xl font-bold mb-2">${projectData.shortTitle}</h3>
-          <p class="text-sm">Ver detalles completos</p>
-        </div>
-      </div>
-    </div>
-    <div class="project-content">
-      <h3 class="text-xl font-bold text-primary mb-2">${projectData.title}</h3>
-      <p class="text-gray-600 text-sm">${projectData.subtitle}</p>
-    </div>
-  `;
-  
-  grid.appendChild(card);
-};
-// Interacciones para la sección CTA
-function initCTAEffects() {
-  const ctaButtons = document.querySelectorAll('.cta-premium-button');
-  
-  ctaButtons.forEach(button => {
-    button.addEventListener('mousemove', (e) => {
-      const rect = button.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const angleY = (x - centerX) / 20;
-      const angleX = (centerY - y) / 20;
-      
-      button.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-    });
-    
-    button.addEventListener('mouseleave', () => {
-      button.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
-  });
-  
-  // Efecto de conteo para estadísticas (si las añades con números reales)
-  const stats = document.querySelectorAll('.stat-number');
-  stats.forEach(stat => {
-    const target = parseInt(stat.getAttribute('data-target'));
-    const duration = 2000;
-    const step = target / (duration / 16);
-    let current = 0;
-    
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      stat.textContent = Math.floor(current) + '+';
-    }, 16);
-  });
-}
-
-// Llamar la función después de que se cargue el DOM
-document.addEventListener('DOMContentLoaded', initCTAEffects);

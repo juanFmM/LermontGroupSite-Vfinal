@@ -208,14 +208,40 @@ document.addEventListener('DOMContentLoaded', () => {
           // Efecto escalonado para elementos en grid
           if (entry.target.parentElement.classList.contains('grid')) {
             const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
-            entry.target.style.transitionDelay = `${index * 0.1}s`;
+            entry.target.style.transitionDelay = `${index * 0.15}s`;
+          }
+          
+          // Efectos especiales para diferentes secciones
+          if (entry.target.classList.contains('card')) {
+            setTimeout(() => {
+              entry.target.style.transform = 'translateY(0)';
+            }, 300);
           }
         }
       });
     }, observerOptions);
 
+    // Observar todos los elementos animables
     $$('[data-animate]').forEach(el => {
       observer.observe(el);
+    });
+
+    // Observar también las secciones principales
+    $$('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'all 0.8s ease-out';
+      
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      sectionObserver.observe(section);
     });
   }
 
@@ -487,6 +513,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =====================
+     Efecto de escritura opcional
+     ===================== */
+  function initTypewriterEffect() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (!heroTitle) return;
+    
+    // Guardar el texto original
+    const originalText = heroTitle.textContent;
+    
+    // Solo ejecutar en pantallas grandes para evitar problemas en móviles
+    if (window.innerWidth < 768) return;
+    
+    // Limpiar el texto
+    heroTitle.textContent = '';
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < originalText.length) {
+        heroTitle.textContent += originalText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    
+    // Iniciar después de un breve retraso
+    setTimeout(typeWriter, 1000);
+  }
+
+  /* =====================
      Inicialización de todos los módulos
      ===================== */
   function init() {
@@ -500,6 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     initContactForm();
     initSmoothScroll();
+    initTypewriterEffect(); // Efecto de escritura
 
     // Ajustar altura del hero
     setTimeout(() => {
@@ -590,19 +646,9 @@ function initFooterHoverEffects() {
     item.addEventListener('mouseenter', function() {
       this.style.transform = 'translateX(10px)';
     });
-  
-    // Efectos para el formulario de newsletter
-    const newsletterInputs = document.querySelectorAll('.newsletter-form input');
-    newsletterInputs.forEach(input => {
-      input.addEventListener('focus', function() {
-        this.parentElement.classList.add('focused');
-      });
-      
-      input.addEventListener('blur', function() {
-        if (!this.value) {
-          this.parentElement.classList.remove('focused');
-        }
-      });
+    
+    item.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateX(0)';
     });
   });
 

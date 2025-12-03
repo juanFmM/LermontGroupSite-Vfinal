@@ -16,13 +16,14 @@
   
   <!-- Preload de imágenes críticas -->
   <link rel="preload" href="imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/DESMONTE CHILLER VIEJO (2).jpg" as="image">
-      <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="svg/logo.svg">
-      <link rel="icon" type="image/png" sizes="32x32" href="svg/logo.svg">
-      <link rel="icon" type="image/png" sizes="16x16" href="svg/logo.svg">
-      <link rel="icon" type="image/x-icon" href="svg/logo.svg">
-      <link rel="manifest" href="svg/logo.svg">
-      <meta name="theme-color" content="#434c88">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="svg/logo.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="svg/logo.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="svg/logo.svg">
+  <link rel="icon" type="image/x-icon" href="svg/logo.svg">
+  <link rel="manifest" href="svg/logo.svg">
+  <meta name="theme-color" content="#434c88">
+  
   <!-- Tailwind Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -45,7 +46,7 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800">
-  <!-- Navegación CORREGIDA (igual que en services.html) -->
+  <!-- Navegación CORREGIDA -->
   <header class="fixed w-full z-[1000] bg-white/95 backdrop-blur-lg shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       
@@ -58,14 +59,14 @@
         </a>
       </div>
 
-      <!-- Botón hamburguesa (móvil) - CORREGIDO -->
+      <!-- Botón hamburguesa (móvil) -->
       <button id="btn-menu" class="md:hidden focus:outline-none hamburger" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
         <span class="block w-6 h-0.5 bg-primary mb-1.5 transition-all duration-300"></span>
         <span class="block w-6 h-0.5 bg-primary mb-1.5 transition-all duration-300"></span>
         <span class="block w-6 h-0.5 bg-primary transition-all duration-300"></span>
       </button>
 
-      <!-- Menú - CORREGIDO -->
+      <!-- Menú -->
       <nav id="main-nav" class="hidden md:flex items-center space-x-8" aria-label="Main navigation">
         <a href="index.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Inicio</a>
         <a href="services.html" class="nav-link text-gray-700 hover:text-primary transition-colors">Servicios</a>
@@ -74,7 +75,7 @@
       </nav>
     </div>
 
-    <!-- Menú móvil desplegable - NUEVO (igual que en services.html) -->
+    <!-- Menú móvil desplegable -->
     <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white shadow-lg transform -translate-y-full opacity-0 transition-all duration-300 z-50">
       <div class="flex flex-col space-y-0 py-4">
         <a href="index.html" class="mobile-nav-link block px-6 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors">Inicio</a>
@@ -86,392 +87,404 @@
   </header>
 
   <main role="main" class="pt-16">
-  <!-- HERO MODERNO CENTRADO CON ALTURA AUMENTADA -->
-  <!-- HERO MODERNO CENTRADO -->
-  <section id="proyectos-hero" class="relative proyectos-hero-section" data-header="light">
-    <!-- Fondo -->
-    <div class="absolute inset-0 z-0">
-      <img src="imagenes 2.0/PALACION DE BELLAS ARTES/Foto Modificada.jpg" 
-          alt="Proyectos Lermont Group" 
-          class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/60"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent"></div>
-    </div>
-
-    <!-- Contenido -->
-    <div class="relative z-20 container mx-auto px-4 h-full flex items-center justify-center">
-      <div class="max-w-4xl text-center py-12">
-        <!-- Badge -->
-        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6" data-animate>
-          <span class="w-2 h-2 bg-primary-glow rounded-full animate-pulse"></span>
-          <span class="text-white/90 text-sm font-medium">Portafolio de Éxitos</span>
-        </div>
-
-        <!-- Título -->
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white" data-animate>
-          <span class="block">Nuestros</span>
-          <span class="block text-primary-glow">Proyectos</span>
-        </h1>
-
-        <!-- Línea decorativa -->
-        <div class="w-24 h-1 bg-gradient-to-r from-primary-glow to-white rounded-full mb-6 mx-auto" data-animate></div>
-
-        <!-- Subtítulo -->
-        <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed" data-animate>
-          Más de 50 proyectos ejecutados con éxito en climatización, eléctricos e infraestructura 
-          utilizando tecnología de vanguardia y los más altos estándares de calidad.
-        </p>
-
-        <!-- Stats -->
-        <div class="flex justify-center gap-6 md:gap-10 mb-8" data-animate>
-          <div class="text-center">
-            <div class="text-3xl md:text-4xl font-bold text-white mb-1">50+</div>
-            <div class="text-white/70 text-sm">Proyectos</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
-            <div class="text-white/70 text-sm">Satisfacción</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl md:text-4xl font-bold text-white mb-1">15+</div>
-            <div class="text-white/70 text-sm">Años Exp.</div>
-          </div>
-        </div>
-
-        <!-- Botones -->
-        <div class="flex flex-col sm:flex-row justify-center gap-4" data-animate>
-          <a href="#galeria-proyectos" class="cta-button bg-primary hover:bg-primary-dark text-white">
-            <i class="fas fa-images mr-2"></i>
-            <span>Explorar Proyectos</span>
-          </a>
-          
-          <a href="services.html" class="cta-button bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white">
-            <i class="fas fa-cogs mr-2"></i>
-            <span>Ver Servicios</span>
-          </a>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="mt-12 animate-bounce" data-animate>
-          <a href="#galeria-proyectos" class="inline-flex flex-col items-center text-white/70 hover:text-white">
-            <span class="text-sm mb-2">Desplazar</span>
-            <i class="fas fa-chevron-down"></i>
-          </a>
-        </div>
+    <!-- HERO MODERNO CENTRADO CORREGIDO -->
+    <section id="proyectos-hero" class="relative proyectos-hero-section" data-header="light">
+      <!-- Fondo -->
+      <div class="absolute inset-0 z-0">
+        <img src="imagenes 2.0/PALACION DE BELLAS ARTES/Foto Modificada.jpg" 
+            alt="Proyectos Lermont Group" 
+            class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary-dark/60"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent"></div>
       </div>
-    </div>
-  </section>
 
-    <!-- GALERÍA UNIFICADA DE PROYECTOS -->
-    <section id="galeria-proyectos" class="py-20 bg-white proyectos-grid-section" data-header="light">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16" data-animate>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 section-title">Nuestros Proyectos Destacados</h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            Descubre nuestra trayectoria de éxito en proyectos de climatización, eléctricos, infraestructura y soluciones energéticas.
+      <!-- Contenido -->
+      <div class="relative z-20 container mx-auto px-4 h-full flex items-center justify-center">
+        <div class="max-w-4xl text-center py-12">
+          <!-- Badge modernizado -->
+          <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6" data-animate>
+            <span class="w-2 h-2 bg-primary-glow rounded-full animate-pulse"></span>
+            <span class="text-white/90 text-sm font-medium tracking-wide">PORTAFOLIO DE ÉXITOS</span>
+          </div>
+
+          <!-- Título CORREGIDO - Eliminado el problema de corte de texto -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white" data-animate>
+            <span class="block mb-2">Nuestros</span>
+            <span class="block text-primary-glow glow-text">Proyectos</span>
+          </h1>
+
+          <!-- Línea decorativa moderna -->
+          <div class="w-32 h-1 bg-gradient-to-r from-transparent via-primary-glow to-transparent rounded-full mb-6 mx-auto" data-animate></div>
+
+          <!-- Subtítulo modernizado -->
+          <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed tracking-wide" data-animate>
+            Más de 50 proyectos ejecutados con éxito en climatización, eléctricos e infraestructura 
+            utilizando tecnología de vanguardia y los más altos estándares de calidad.
           </p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <!-- Proyecto 1 - PALACIO DE BELLAS ARTES -->
-          <div class="project-card card group" data-project="planta-tratamiento" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes 2.0/PALACION DE BELLAS ARTES/Foto Modificada.jpg" 
-                   alt="Planta de tratamiento aguas residuales Bonao" 
-                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
-              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div class="text-white text-center p-4">
-                  <i class="fas fa-search-plus text-3xl mb-2"></i>
-                  <h3 class="text-xl font-bold mb-2">PALACIO BELLAS ARTES</h3>
-                  <p class="text-sm">Ver detalles completos</p>
-                </div>
-              </div>
+          <!-- Stats modernizados -->
+          <div class="flex justify-center gap-8 md:gap-12 mb-10" data-animate>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">10+</div>
+              <div class="text-white/80 text-sm font-medium uppercase tracking-wider">Proyectos</div>
             </div>
-            <div class="project-content">
-              <h3 class="text-xl font-bold text-primary mb-2">PALACIO BELLAS ARTES</h3>
-             <!-- <p class="text-gray-600 text-sm">Bonao - 500 m³/día</p> -->
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">100%</div>
+              <div class="text-white/80 text-sm font-medium uppercase tracking-wider">Satisfacción</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">15+</div>
+              <div class="text-white/80 text-sm font-medium uppercase tracking-wider">Años Exp.</div>
             </div>
           </div>
 
-          <!-- Proyecto 2 - Remozamiento Oficina -->
-          <div class="project-card card group" data-project="remozamiento-oficina" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/FOTO MODIFICADA.jpg" 
-                   alt="Remozamiento oficina San José" 
-                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
-              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div class="text-white text-center p-4">
-                  <i class="fas fa-search-plus text-3xl mb-2"></i>
-                  <h3 class="text-xl font-bold mb-2">HOTEL JARAGUA</h3>
-                 <!-- <p class="text-sm">Ver detalles completos</p> -->
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="text-xl font-bold text-primary mb-2">HOTEL JARAGUA</h3>
-              <!--<p class="text-gray-600 text-sm">Cooperativa SAN JOSÉ - 450 m²</p>-->
-            </div>
+          <!-- Botones modernizados -->
+          <div class="flex flex-col sm:flex-row justify-center gap-4" data-animate>
+            <a href="#galeria-proyectos" class="cta-modern-button bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg shadow-primary/30">
+              <i class="fas fa-images mr-3"></i>
+              <span>Explorar Proyectos</span>
+              <i class="fas fa-arrow-right ml-3 transition-transform group-hover:translate-x-1"></i>
+            </a>
+            
+            <a href="services.html" class="cta-modern-button bg-white/15 backdrop-blur-sm border border-white/40 hover:bg-white/25 text-white">
+              <i class="fas fa-cogs mr-3"></i>
+              <span>Ver Servicios</span>
+            </a>
           </div>
 
-          <!-- Proyecto 3 - Pavimentación -->
-          <div class="project-card card group" data-project="pavimentacion" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO DESMONTE EXISTENTE 2 (1).jpg" 
-                   alt="Pavimentación y parqueos" 
-                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
-              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div class="text-white text-center p-4">
-                  <i class="fas fa-search-plus text-3xl mb-2"></i>
-                  <h3 class="text-xl font-bold mb-2">PALACIO PRESIDENCIAL</h3>
-                  <p class="text-sm">Ver detalles completos</p>
-                </div>
+          <!-- Scroll indicator modernizado -->
+          <div class="mt-16" data-animate>
+            <a href="#galeria-proyectos" class="scroll-indicator inline-flex flex-col items-center text-white/70 hover:text-white">
+              <span class="text-xs font-medium tracking-wider mb-3">DESPLAZAR</span>
+              <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white/70 rounded-full animate-scroll-indicator mt-2"></div>
               </div>
-            </div>
-            <div class="project-content">
-              <h3 class="text-xl font-bold text-primary mb-2">PALACIO PRESIDENCIAL</h3>
-              <!--<p class="text-gray-600 text-sm">Proyecto Urbano - 8,000 m²</p> -->
-            </div>
+            </a>
           </div>
-
-          <!-- Proyecto 4 - Iluminación -->
-          <div class="project-card card group" data-project="iluminacion" data-animate>
-            <div class="relative overflow-hidden rounded-xl mb-4">
-              <img src="imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/CHILLER INSTALADO (6).jpg" 
-                   alt="Iluminación AV. Winston Churchill" 
-                   class="w-full h-48 object-cover project-image transition-transform duration-500 group-hover:scale-110">
-              <div class="image-overlay absolute inset-0 bg-primary bg-opacity-0 group-hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div class="text-white text-center p-4">
-                  <i class="fas fa-search-plus text-3xl mb-2"></i>
-                  <h3 class="text-xl font-bold mb-2">INSTALACIÓN DE CHILLER PGR</h3>
-                  <p class="text-sm">Ver detalles completos</p>
-                </div>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="text-xl font-bold text-primary mb-2">INSTALACIÓN DE CHILLER PGR</h3>
-             <!-- <p class="text-gray-600 text-sm">120 luminarias LED</p> -->
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-   <!-- SECCIÓN CTA MODERNA -->
-  <section class="relative py-24 overflow-hidden cta-section" data-header="dark">
-    <!-- Fondo con gradiente animado -->
-    <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary/90 via-primary-dark/80 to-primary/90"></div>
-    
-    <!-- Patrón geométrico animado -->
-    <div class="absolute inset-0 z-0 opacity-20">
-      <div class="absolute inset-0 animate-pulse-slow" 
-          style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\"><path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"%23ffffff\" stroke-width=\"0.5\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grid)\"/></svg>');"></div>
-    </div>
-    
-    <!-- Elementos decorativos flotantes -->
-    <div class="absolute inset-0 z-0 overflow-hidden">
-      <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-primary-glow/20 blur-3xl animate-pulse"></div>
-      <div class="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl animate-pulse" style="animation-delay: 1s"></div>
-      <div class="absolute top-1/2 left-1/4 w-32 h-32 rounded-full bg-primary-glow/15 blur-2xl animate-pulse" style="animation-delay: 0.5s"></div>
-    </div>
-    
-    <!-- Contenido principal -->
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <!-- Badge destacado -->
-        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-3 mb-8 animate-fade-in" data-animate>
-          <span class="w-2 h-2 bg-primary-glow rounded-full animate-pulse"></span>
-          <span class="text-white/95 font-semibold text-sm tracking-wider">TRANSFORMA TU VISIÓN EN REALIDAD</span>
-        </div>
-        
-        <!-- Título con efecto brillo -->
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white" data-animate>
-          <span class="block bg-gradient-to-r from-white via-primary-glow to-white bg-clip-text text-transparent animate-gradient-text">
-            ¿Tienes un Proyecto
-          </span>
-          <span class="block mt-2">en Mente?</span>
-        </h2>
-        
-        <!-- Línea decorativa -->
-        <div class="w-32 h-1.5 bg-gradient-to-r from-transparent via-primary-glow to-transparent rounded-full mb-8 mx-auto animate-expand" data-animate></div>
-        
-        <!-- Descripción -->
-        <div class="max-w-3xl mx-auto mb-12" data-animate>
-          <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
-            Nuestro equipo de <span class="text-primary-glow font-semibold">expertos</span> está listo para convertir tus ideas en soluciones tangibles con la más alta calidad y tecnología innovadora.
+    <!-- GALERÍA UNIFICADA DE PROYECTOS MODERNIZADA -->
+    <section id="galeria-proyectos" class="py-20 bg-white proyectos-grid-section" data-header="light">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-animate>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 section-title">Nuestros Proyectos Destacados</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+            Descubre nuestra trayectoria de éxito en proyectos de climatización, eléctricos, infraestructura y soluciones energéticas.
           </p>
+          
+          <!-- Filtros modernos 
+          <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button class="filter-btn active px-4 py-2 rounded-full bg-primary text-white text-sm font-medium">Todos</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium">Climatización</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium">Eléctricos</button>
+            <button class="filter-btn px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm font-medium">Infraestructura</button>
+          </div>
+        </div>-->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Proyecto 1 - PALACIO DE BELLAS ARTES -->
+          <div class="project-card-modern group" data-project="planta-tratamiento" data-animate data-category="climatizacion">
+            <div class="relative overflow-hidden rounded-2xl mb-5 h-64">
+              <img src="imagenes 2.0/PALACION DE BELLAS ARTES/Foto Modificada.jpg" 
+                   alt="Planta de tratamiento aguas residuales Bonao" 
+                   class="w-full h-full object-cover project-image transition-all duration-700">
+              <div class="image-overlay-modern absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
+                <div class="text-white p-6 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    <span class="text-sm">2023</span>
+                  </div>
+                  <h3 class="text-xl font-bold mb-2">VER DETALLES</h3>
+                </div>
+              </div>
+              <!-- Badge de categoría -->
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary px-3 py-1 rounded-full text-xs font-bold">
+                CLIMATIZACIÓN
+              </div>
+            </div>
+            <div class="project-content-modern">
+              <h3 class="text-xl font-bold text-primary mb-3">PALACIO BELLAS ARTES</h3>
+              <p class="text-gray-600 mb-4">Instalación de dos chiller enfriado por aire de 182 T con su sistema de bombeo y controles</p>
+              <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span>Santo Domingo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 - HOTEL JARAGUA -->
+          <div class="project-card-modern group" data-project="remozamiento-oficina" data-animate data-category="climatizacion">
+            <div class="relative overflow-hidden rounded-2xl mb-5 h-64">
+              <img src="imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/FOTO MODIFICADA.jpg" 
+                   alt="Remozamiento oficina San José" 
+                   class="w-full h-full object-cover project-image transition-all duration-700">
+              <div class="image-overlay-modern absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
+                <div class="text-white p-6 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    <span class="text-sm">2024</span>
+                  </div>
+                  <h3 class="text-xl font-bold mb-2">VER DETALLES</h3>
+                </div>
+              </div>
+              <!-- Badge de categoría -->
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary px-3 py-1 rounded-full text-xs font-bold">
+                CLIMATIZACIÓN
+              </div>
+            </div>
+            <div class="project-content-modern">
+              <h3 class="text-xl font-bold text-primary mb-3">HOTEL JARAGUA</h3>
+              <p class="text-gray-600 mb-4">Instalación de un chiller y torre de enfriamiento de 250 T con su sistema de bombeo y controles</p>
+              <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span>Santo Domingo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 - PALACIO PRESIDENCIAL -->
+          <div class="project-card-modern group" data-project="pavimentacion" data-animate data-category="climatizacion">
+            <div class="relative overflow-hidden rounded-2xl mb-5 h-64">
+              <img src="imagenes 2.0/PALACIO PRESIDENCIAL - 2023 - SD/PALACIO PRESIDENCIAL - 2023 - SD/LISTO DESMONTE EXISTENTE 2 (1).jpg" 
+                   alt="Pavimentación y parqueos" 
+                   class="w-full h-full object-cover project-image transition-all duration-700">
+              <div class="image-overlay-modern absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
+                <div class="text-white p-6 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    <span class="text-sm">2023</span>
+                  </div>
+                  <h3 class="text-xl font-bold mb-2">VER DETALLES</h3>
+                </div>
+              </div>
+              <!-- Badge de categoría -->
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary px-3 py-1 rounded-full text-xs font-bold">
+                CLIMATIZACIÓN
+              </div>
+            </div>
+            <div class="project-content-modern">
+              <h3 class="text-xl font-bold text-primary mb-3">PALACIO PRESIDENCIAL</h3>
+              <p class="text-gray-600 mb-4">Instalación de 2 Mini Chiller de 5T para climatización de áreas específicas</p>
+              <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span>Santo Domingo</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 4 - INSTALACIÓN DE CHILLER PGR -->
+          <div class="project-card-modern group" data-project="iluminacion" data-animate data-category="climatizacion">
+            <div class="relative overflow-hidden rounded-2xl mb-5 h-64">
+              <img src="imagenes 2.0/INSTALACIÓN DE CHILLER PGR - 2025 - SD/CHILLER INSTALADO (6).jpg" 
+                   alt="Iluminación AV. Winston Churchill" 
+                   class="w-full h-full object-cover project-image transition-all duration-700">
+              <div class="image-overlay-modern absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end">
+                <div class="text-white p-6 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div class="flex items-center mb-3">
+                    <i class="fas fa-calendar-alt mr-3"></i>
+                    <span class="text-sm">2025</span>
+                  </div>
+                  <h3 class="text-xl font-bold mb-2">VER DETALLES</h3>
+                </div>
+              </div>
+              <!-- Badge de categoría -->
+              <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary px-3 py-1 rounded-full text-xs font-bold">
+                CLIMATIZACIÓN
+              </div>
+            </div>
+            <div class="project-content-modern">
+              <h3 class="text-xl font-bold text-primary mb-3">INSTALACIÓN DE CHILLER PGR</h3>
+              <p class="text-gray-600 mb-4">Instalación de un chiller enfriado por aire 170T para reforzar sistema de climatización</p>
+              <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <span>Santo Domingo</span>
+              </div>
+            </div>
+          </div>
+
         </div>
         
-        <!-- Estadísticas en tiempo real -->
-        <div class="flex flex-wrap justify-center gap-8 mb-12" data-animate>
-          <div class="flex flex-col items-center">
-            <div class="relative">
-              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-glow/30 to-primary/30 flex items-center justify-center mb-3 border border-white/20">
-                <i class="fas fa-lightbulb text-2xl text-primary-glow"></i>
-              </div>
-              <div class="absolute -top-1 -right-1 w-4 h-4 bg-primary-glow rounded-full animate-ping"></div>
-            </div>
-            <div class="text-center">
-              <div class="text-white text-sm font-medium">Innovación</div>
-              <div class="text-white/70 text-xs">Garantizada</div>
-            </div>
-          </div>
-          
-          <div class="flex flex-col items-center">
-            <div class="relative">
-              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-glow/30 to-primary/30 flex items-center justify-center mb-3 border border-white/20">
-                <i class="fas fa-clock text-2xl text-primary-glow"></i>
-              </div>
-              <div class="absolute -top-1 -right-1 w-4 h-4 bg-primary-glow rounded-full animate-ping" style="animation-delay: 0.2s"></div>
-            </div>
-            <div class="text-center">
-              <div class="text-white text-sm font-medium">Entrega</div>
-              <div class="text-white/70 text-xs">Puntual</div>
-            </div>
-          </div>
-          
-          <div class="flex flex-col items-center">
-            <div class="relative">
-              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-glow/30 to-primary/30 flex items-center justify-center mb-3 border border-white/20">
-                <i class="fas fa-medal text-2xl text-primary-glow"></i>
-              </div>
-              <div class="absolute -top-1 -right-1 w-4 h-4 bg-primary-glow rounded-full animate-ping" style="animation-delay: 0.4s"></div>
-            </div>
-            <div class="text-center">
-              <div class="text-white text-sm font-medium">Calidad</div>
-              <div class="text-white/70 text-xs">Premium</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Botones premium -->
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-5 md:gap-6" data-animate>
-          <!-- Botón principal - Solicitar Cotización -->
-          <a href="Contactos.html" 
-            class="group relative cta-premium-button bg-gradient-to-r from-white to-primary-glow text-primary hover:text-primary-dark inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 shadow-2xl shadow-primary-glow/30 hover:shadow-primary-glow/50">
-            <div class="relative">
-              <i class="fas fa-paper-plane text-lg"></i>
-              <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            </div>
-            <span class="font-bold text-lg">Solicitar Cotización</span>
-            <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
-            <!-- Efecto de brillo -->
-            <div class="absolute inset-0 rounded-xl overflow-hidden z-0">
-              <div class="absolute -inset-1 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-          </a>
-          
-          <!-- Botón secundario - Llamar Ahora -->
-          <a href="tel:+18095551234" 
-            class="group cta-premium-button bg-transparent border-2 border-white/40 hover:border-white text-white hover:text-white hover:bg-white/10 backdrop-blur-sm inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="relative">
-              <i class="fas fa-phone text-lg"></i>
-              <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary-glow rounded-full animate-pulse"></div>
-            </div>
-            <span class="font-bold text-lg">Llamar Ahora</span>
-            <i class="fas fa-external-link-alt opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"></i>
-            <!-- Efecto de brillo al pasar el mouse -->
-            <div class="absolute inset-0 rounded-xl overflow-hidden z-0">
-              <div class="absolute -inset-1 bg-gradient-to-r from-transparent via-primary-glow/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-          </a>
-          
-          <!-- Botón adicional - Ver Servicios -->
-          <a href="services.html" 
-            class="group cta-premium-button bg-white/5 backdrop-blur-sm border border-white/20 hover:border-primary-glow/50 text-white hover:text-primary-glow inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl transition-all duration-300 hover:-translate-y-1 text-sm">
-            <i class="fas fa-eye"></i>
-            <span>Ver Servicios</span>
-            <i class="fas fa-chevron-right opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"></i>
-          </a>
-        </div>
-        
-        <!-- Llamada a la acción adicional -->
-        <div class="mt-12 pt-8 border-t border-white/10" data-animate>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div class="flex items-center gap-3 text-white/80">
-              <i class="fas fa-shield-alt text-primary-glow"></i>
-              <span class="text-sm">Garantía de calidad en todos nuestros proyectos</span>
-            </div>
-            <div class="hidden sm:block w-px h-6 bg-white/20"></div>
-            <div class="flex items-center gap-3 text-white/80">
-              <i class="fas fa-headset text-primary-glow"></i>
-              <span class="text-sm">Soporte técnico 24/7 después de la entrega</span>
-            </div>
-          </div>
-        </div>
+        <!-- Botón para cargar más proyectos 
+        <div class="text-center mt-12" data-animate>
+          <button class="load-more-btn px-6 py-3 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full font-medium transition-all duration-300">
+            <i class="fas fa-plus mr-2"></i>
+            Cargar Más Proyectos
+          </button>
+        </div> -->
       </div>
-    </div>
-    
-    <!-- Partículas decorativas -->
-    <div class="absolute inset-0 z-0">
-      <div class="absolute top-1/4 left-1/4 w-4 h-4 bg-primary-glow/30 rounded-full animate-float" style="animation-delay: 0s"></div>
-      <div class="absolute top-1/3 right-1/4 w-3 h-3 bg-white/20 rounded-full animate-float" style="animation-delay: 1s"></div>
-      <div class="absolute bottom-1/3 left-1/3 w-5 h-5 bg-primary-glow/20 rounded-full animate-float" style="animation-delay: 2s"></div>
-    </div>
-  </section>
+    </section>
+
+    <!-- SECCIÓN CTA MODERNA CON PALETA PRINCIPAL -->
+    <section class="relative py-24 overflow-hidden cta-section-modern" data-header="dark">
+        <!-- Fondo con gradiente principal -->
+        <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary/95 via-primary-dark/90 to-primary/95"></div>
+        
+        <!-- Patrón geométrico sutil -->
+        <div class="absolute inset-0 z-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM11 42a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM11 66a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm24 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\" fill=\"%23434c88\" fill-opacity=\"0.4\"/></svg>'); background-size: 60px;"></div>
+        </div>
+        
+        <!-- Elementos decorativos flotantes -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-primary-glow/10 blur-3xl"></div>
+            <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-primary-dark/20 blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/4 w-32 h-32 rounded-full bg-primary/15 blur-2xl"></div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <!-- Badge destacado -->
+                <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm border border-primary-glow/30 rounded-full px-6 py-3 mb-8 animate-fade-in" data-animate>
+                    <span class="w-3 h-3 bg-primary-glow rounded-full animate-pulse"></span>
+                    <span class="text-white font-semibold text-sm tracking-wider">TRANSFORMA TU VISIÓN EN REALIDAD</span>
+                </div>
+                
+                <!-- Título con efecto brillo -->
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white" data-animate>
+                    <span class="block mb-3">¿Listo para iniciar tu próximo proyecto?</span>
+                    <!--<span class="block bg-gradient-to-r from-white via-primary-glow to-white bg-clip-text text-transparent animate-gradient-text">
+                        tu próximo proyecto?
+                    </span> -->
+                </h2>
+                
+                <!-- Línea decorativa -->
+                <div class="w-40 h-1.5 bg-gradient-to-r from-transparent via-primary-glow to-transparent rounded-full mb-10 mx-auto"></div>
+                
+                <!-- Descripción -->
+                <div class="max-w-3xl mx-auto mb-12" data-animate>
+                    <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+                        Nuestro equipo de <span class="text-primary-glow font-semibold">expertos certificados</span> está listo para convertir tus ideas en soluciones tangibles con la más alta calidad y tecnología innovadora.
+                    </p>
+                </div>
+                
+                <!-- Botones premium -->
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-5 md:gap-6" data-animate>
+                    <!-- Botón principal - Solicitar Cotización -->
+                    <a href="Contactos.html" 
+                      class="group relative cta-premium-modern bg-gradient-to-r from-white to-primary-glow text-primary hover:text-primary-dark inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl transition-all duration-300 hover:-translate-y-2 shadow-2xl shadow-primary-glow/30 hover:shadow-primary-glow/50">
+                        <div class="relative">
+                            <i class="fas fa-paper-plane text-xl"></i>
+                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                        </div>
+                        <span class="font-bold text-lg">Solicitar Cotización</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform duration-300"></i>
+                    </a>
+                    
+                    <!-- Botón secundario - Llamar Ahora -->
+                    <a href="tel:+18095551234" 
+                      class="group cta-premium-modern bg-transparent border-2 border-primary-glow/40 hover:border-primary-glow text-white hover:text-white hover:bg-primary-glow/10 backdrop-blur-sm inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl transition-all duration-300 hover:-translate-y-2">
+                        <div class="relative">
+                            <i class="fas fa-phone text-xl"></i>
+                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-primary-glow rounded-full animate-pulse"></div>
+                        </div>
+                        <span class="font-bold text-lg">Llamar Ahora</span>
+                    </a>
+                </div>
+                
+                <!-- Información adicional -->
+                <div class="mt-16 pt-8 border-t border-primary-glow/20" data-animate>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 border border-primary-glow/20">
+                                <i class="fas fa-medal text-2xl text-primary-glow"></i>
+                            </div>
+                            <h4 class="text-white font-bold mb-2">Calidad Garantizada</h4>
+                            <p class="text-white/70 text-sm">Estándares de calidad certificados en todos nuestros proyectos</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 border border-primary-glow/20">
+                                <i class="fas fa-clock text-2xl text-primary-glow"></i>
+                            </div>
+                            <h4 class="text-white font-bold mb-2">Entrega Puntual</h4>
+                            <p class="text-white/70 text-sm">Cumplimiento estricto de plazos de entrega establecidos</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-4 border border-primary-glow/20">
+                                <i class="fas fa-headset text-2xl text-primary-glow"></i>
+                            </div>
+                            <h4 class="text-white font-bold mb-2">Soporte 24/7</h4>
+                            <p class="text-white/70 text-sm">Asistencia técnica continua después de la entrega</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Partículas decorativas -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-4 h-4 bg-primary-glow/20 rounded-full animate-float" style="animation-delay: 0s"></div>
+            <div class="absolute top-1/3 right-1/4 w-3 h-3 bg-primary-glow/15 rounded-full animate-float" style="animation-delay: 1s"></div>
+            <div class="absolute bottom-1/3 left-1/3 w-5 h-5 bg-primary-glow/10 rounded-full animate-float" style="animation-delay: 2s"></div>
+        </div>
+    </section>
 
     <!-- Modal para descripciones completas con carrusel -->
     <div id="projectModal" class="fixed inset-0 z-[1001] hidden items-center justify-center modal-overlay p-4">
-      <div class="bg-white rounded-xl max-w-3xl w-full max-h-[85vh] overflow-y-auto modal-content relative">
-        <button id="closeModal" class="absolute right-4 top-4 text-gray-500 hover:text-gray-700 z-20 bg-white rounded-full p-2 shadow-lg hover:scale-110 transition-transform">
-          <i class="fas fa-times text-xl"></i>
+      <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-content relative">
+        <button id="closeModal" class="absolute right-6 top-6 text-gray-500 hover:text-gray-700 z-20 bg-white rounded-full p-3 shadow-xl hover:scale-110 transition-all duration-300">
+          <i class="fas fa-times text-2xl"></i>
         </button>
         
-        <div class="p-6">
+        <div class="p-8">
           <!-- Carrusel de imágenes -->
-          <div class="mb-6 carousel-container">
-            <div id="modalCarousel" class="carousel-track">
+          <div class="mb-8 carousel-container-modern">
+            <div id="modalCarousel" class="carousel-track-modern">
               <div id="modalCarouselInner" class="flex">
                 <!-- Las imágenes se insertarán aquí dinámicamente -->
               </div>
             </div>
             
             <!-- Controles del carrusel -->
-            <div class="carousel-controls">
-              <button id="modalPrevBtn" class="carousel-btn" aria-label="Imagen anterior">
+            <div class="carousel-controls-modern">
+              <button id="modalPrevBtn" class="carousel-btn-modern" aria-label="Imagen anterior">
                 <i class="fas fa-chevron-left"></i>
               </button>
-              <button id="modalNextBtn" class="carousel-btn" aria-label="Imagen siguiente">
+              <button id="modalNextBtn" class="carousel-btn-modern" aria-label="Imagen siguiente">
                 <i class="fas fa-chevron-right"></i>
               </button>
             </div>
             
             <!-- Indicadores -->
-            <div id="modalCarouselIndicators" class="carousel-indicators">
+            <div id="modalCarouselIndicators" class="carousel-indicators-modern">
               <!-- Los indicadores se insertarán aquí dinámicamente -->
             </div>
             
             <!-- Contador -->
-            <div class="carousel-counter">
+            <div class="carousel-counter-modern">
               <span id="currentSlide">1</span> / <span id="totalSlides">3</span>
             </div>
           </div>
           
           <!-- Contenido del proyecto -->
           <div>
-            <h3 id="modalTitle" class="text-2xl font-bold text-primary mb-4"></h3>
+            <h3 id="modalTitle" class="text-3xl font-bold text-primary mb-6"></h3>
             
-            <div id="modalDescription" class="prose prose-sm max-w-none text-gray-700 mb-6">
+            <div id="modalDescription" class="prose prose-lg max-w-none text-gray-700 mb-8">
               <!-- La descripción se llena con JavaScript -->
             </div>
             
-            <div class="mb-6">
-              <h4 class="font-bold text-lg text-primary mb-3 flex items-center">
-                <i class="fas fa-star mr-2"></i>
+            <div class="mb-8">
+              <h4 class="font-bold text-xl text-primary mb-4 flex items-center">
+                <i class="fas fa-star mr-3"></i>
                 Características principales
               </h4>
-              <ul id="modalFeatures" class="space-y-2">
+              <ul id="modalFeatures" class="space-y-3">
                 <!-- Las características se llenan con JavaScript -->
               </ul>
             </div>
             
             <div>
-              <h4 class="font-bold text-lg text-primary mb-3 flex items-center">
-                <i class="fas fa-tags mr-2"></i>
+              <h4 class="font-bold text-xl text-primary mb-4 flex items-center">
+                <i class="fas fa-tags mr-3"></i>
                 Tecnologías y áreas
               </h4>
-              <div id="modalTags" class="flex flex-wrap gap-2">
+              <div id="modalTags" class="flex flex-wrap gap-3">
                 <!-- Tags adicionales se llenan con JavaScript -->
               </div>
             </div>
@@ -479,7 +492,6 @@
         </div>
       </div>
     </div>
-
   </main>
 
   <!-- Footer -->
@@ -495,7 +507,7 @@
           <p><i class="fas fa-envelope"></i> info@lermontgroupsrl.com</p>
         </address>
         <div class="social-links">
-          <a href="https://www.facebook.com/share/19oSZ3dQvC/?mibextid=wwXIfr " target="_blank" aria-label="Facebook de Lermont Group"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.facebook.com/share/19oSZ3dQvC/?mibextid=wwXIfr" target="_blank" aria-label="Facebook de Lermont Group"><i class="fab fa-facebook-f"></i></a>
           <a href="#" target="_blank" aria-label="Twitter de Lermont Group"><i class="fab fa-twitter"></i></a>
           <a href="https://www.instagram.com/lermontgroup_?igsh=ZW1hMXI2dWo5eXdu" target="_blank" aria-label="Instagram de Lermont Group"><i class="fab fa-instagram"></i></a>
           <a href="#" target="_blank" aria-label="LinkedIn de Lermont Group"><i class="fab fa-linkedin-in"></i></a>
