@@ -450,16 +450,16 @@ body.no-scroll {
   transform: translateX(10px);
 }
 
-.floating-icon {
+.floating-icon { 
   animation: float 3s ease-in-out infinite;
   margin-right: 0.5rem;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
-@keyframes float {
+/*@keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(180deg); }
-}
+} */
 
 /* Mapa mejorado */
 .map-section iframe {
