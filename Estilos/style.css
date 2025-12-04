@@ -785,7 +785,7 @@ footer::before {
   background-size: cover;
 }
 
-/* Efectos de cursor personalizado para interactividad */
+/* Efectos de cursor personalizado para interactividad
 .interactive-cursor {
   position: fixed;
   width: 20px;
@@ -801,8 +801,8 @@ footer::before {
 .interactive-cursor.hover {
   transform: scale(2);
   background: var(--primary);
-}
-
+} */
+ 
 /* =========================
    Footer Modernizado con Glassmorphism
    ========================= */
