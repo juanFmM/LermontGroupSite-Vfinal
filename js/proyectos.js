@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/CUARTO DE MAQUINA (7).png',
         'imagenes 2.0/PROYECTO HOTEL JARAGUA - 2024 - SD/CUARTO DE MAQUINA 2 (7).png'
       ],
-      title: 'PROYECTO HOTEL JARAGUA - 2024 - SD',
+      title: 'PROYECTO CASINO JARAGUA - 2024 - SD',
       description: `
         <p class="mb-4 text-lg">Instalación de un chiller y torre de enfriamiento enfriado por agua de 250 T con su sistema de bombeo y controles</p>
         <div class="bg-gray-50 p-5 rounded-xl mb-6">
